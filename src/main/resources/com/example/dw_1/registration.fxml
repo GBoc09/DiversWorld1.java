@@ -18,32 +18,32 @@
          </font>
       </Label>
       <Line endX="149.0" endY="0.1999969482421875" layoutX="283.0" layoutY="83.0" startX="-111.0" startY="0.1999969482421875" strokeWidth="2.0" />
-      <TextField layoutX="170.0" layoutY="105.0" prefHeight="25.0" prefWidth="265.0" promptText="NAME " style="-fx-background-color: white;">
+      <TextField fx:id="name" layoutX="170.0" layoutY="105.0" prefHeight="25.0" prefWidth="265.0" promptText="NAME " style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="170.0" layoutY="140.0" prefHeight="25.0" prefWidth="265.0" promptText="SURNAME" style="-fx-background-color: white;">
+      <TextField fx:id="lastname" layoutX="170.0" layoutY="140.0" prefHeight="25.0" prefWidth="265.0" promptText="SURNAME" style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="170.0" layoutY="210.0" prefHeight="25.0" prefWidth="265.0" promptText="LICENSE NUMBER " style="-fx-background-color: white;">
+      <TextField fx:id="license" layoutX="170.0" layoutY="210.0" prefHeight="25.0" prefWidth="265.0" promptText="LICENSE NUMBER " style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="170.0" layoutY="245.0" prefHeight="25.0" prefWidth="265.0" promptText="EMAIL" style="-fx-background-color: white;">
+      <TextField fx:id="email" layoutX="170.0" layoutY="245.0" prefHeight="25.0" prefWidth="265.0" promptText="EMAIL" style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="169.0" layoutY="280.0" prefHeight="25.0" prefWidth="265.0" promptText="PASSWORD " style="-fx-background-color: white;">
+      <PasswordField fx:id="password" layoutX="169.0" layoutY="280.0" prefHeight="25.0" prefWidth="265.0" promptText="PASSWORD " style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField layoutX="168.0" layoutY="315.0" prefHeight="25.0" prefWidth="265.0" promptText="CONFIRM PASSAWORD " style="-fx-background-color: white;">
+      <PasswordField fx:id="password1" layoutX="168.0" layoutY="315.0" prefHeight="25.0" prefWidth="265.0" promptText="CONFIRM PASSAWORD " style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>
@@ -53,6 +53,6 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <DatePicker layoutX="170.0" layoutY="175.0" prefHeight="31.0" prefWidth="266.0" promptText="BIRTH DATE " style="-fx-background-color: WHITE;" />
+      <DatePicker fx:id="birthDate" layoutX="170.0" layoutY="175.0" prefHeight="31.0" prefWidth="266.0" promptText="BIRTH DATE " style="-fx-background-color: WHITE;" />
    </children>
 </AnchorPane>
