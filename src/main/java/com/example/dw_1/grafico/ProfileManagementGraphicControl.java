@@ -1,7 +1,7 @@
-package com.example.dw_1.controllerGrafico;
+package com.example.dw_1.grafico;
 
 public class ProfileManagementGraphicControl {
-    private static final Integer MIN_PASS_LENGHT = 8;
+    private static final Integer MIN_PASS_LENGHT = 4;
     private static final Integer MAX_PASS_LENGHT = 16;
 
     private static final Character[] forbiddenChar = {' ', '\t', '\n', '/', '\\', '|', '<', '>',
@@ -9,8 +9,7 @@ public class ProfileManagementGraphicControl {
 
     private static final String[] allowedChar = {"ABCDEFGHJKLMNOPQRSTUVWXYZ",
             "abcdefghijklmnopqrstuvwxyz",
-            "0123456789",
-            "@.$&£"};
+            "0123456789"};
     public static Integer getMinPassLenght(){
         return MIN_PASS_LENGHT;
     }

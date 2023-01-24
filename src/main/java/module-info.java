@@ -6,6 +6,6 @@ module com.example.dw_1 {
 
     opens com.example.dw_1 to javafx.fxml;
     exports com.example.dw_1;
-    opens com.example.dw_1.controllerGrafico to javafx.fxml;
-    exports com.example.dw_1.controllerGrafico;
+    opens com.example.dw_1.grafico to javafx.fxml;
+    exports com.example.dw_1.grafico;
 }

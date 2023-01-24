@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.controllerGrafico.CasaControllerGraph">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.CasaControllerGraph">
    <children>
       <Button fx:id="login" layoutX="217.0" layoutY="300.0" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: white;" text="LOGIN" textAlignment="CENTER">
          <font>

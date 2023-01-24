@@ -1,15 +1,10 @@
-package com.example.dw_1.controllerGrafico;
+package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class LoginControllerGrafico {
     @FXML

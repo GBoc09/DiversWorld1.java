@@ -1,7 +1,8 @@
 package com.example.dw_1.bean;
 
-import com.example.dw_1.controllerGrafico.ProfileManagementGraphicControl;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class RegistrationBean implements Bean{
@@ -10,7 +11,7 @@ public class RegistrationBean implements Bean{
     private String license;
     private String email;
     private String password;
-    private Date birthDate;
+    private Date  birthDate;
 
     public String getName() {
         return this.name;
@@ -81,7 +82,7 @@ public class RegistrationBean implements Bean{
         return word.matches("[a-zA-Z]*");
     }
 
-    public Boolean validatePassword(String password) {
+    /*public Boolean validatePassword(String password) {
         // password inserite rispettano i paraemtri della piattaforma.
         boolean flag = false;
         // rispetto il range di lunghezza entro cui deve stare la password
@@ -89,7 +90,7 @@ public class RegistrationBean implements Bean{
                 password.length() > ProfileManagementGraphicControl.getMaxPassLenght()) {
             return false;
         }
-        // verifico che non ci siamo caratteri che il mio sistema non ammette
+        // verifico che non ci siano caratteri che il mio sistema non ammette
         for (Character forbidden : ProfileManagementGraphicControl.getForbiddenChar()) {
             if (password.contains(forbidden.toString())) {
                 return false;
@@ -109,9 +110,33 @@ public class RegistrationBean implements Bean{
             flag = false;
         }
         return true;
-    }
+    }*/
     public Boolean validateEmail(String email){
         // verifico il formato di formattazione dell'email
-        return email.matches("[0-9a-z]+[\\.[0-9a-z]+]*@[0-9a-z]+[[0-9a.z]+]*");
+        return email.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+                + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
+    }
+
+    public static boolean dateValidation(String birthDate) {
+        boolean status = false;
+        if (checkDate(birthDate)) {
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            dateFormat.setLenient(false);
+            try {
+                dateFormat.parse(birthDate);
+                status = true;
+            } catch (Exception e) {
+                status = false;
+            }
+        }
+        return status;
+    }
+    static boolean checkDate(String birthDate){
+        String pattern = "(0?[1-9][12][0-9]3[01])\\/(0?[1-9]1[02])\\/([0-9]{4})";
+        boolean flag = false;
+        if(birthDate.matches(pattern)){
+            flag = true;
+        }
+        return flag;
     }
 }

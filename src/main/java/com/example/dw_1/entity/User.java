@@ -9,7 +9,6 @@ public class User {
     private Integer license;
     private String email;
     private String password;
-    public User(){}
     public User(String email, String name, String lastname, String password, Integer license){
         this.email = email;
         this.name = name;
@@ -17,6 +16,8 @@ public class User {
         this.password = password;
         this.license = license;
     }
+    public User(){}
+
     public String getEmail(){
         return this.email;
     }
