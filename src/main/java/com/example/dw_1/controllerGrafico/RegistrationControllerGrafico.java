@@ -1,6 +1,4 @@
 package com.example.dw_1.controllerGrafico;
-
-
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.scene.control.Button;
