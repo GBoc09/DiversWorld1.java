@@ -1,11 +1,11 @@
 package com.example.dw_1.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class User {
     private String name;
     private String lastname;
-    private Date birthDate;
+    private LocalDate birthDate;
     private Integer license;
     private String email;
     private String password;
@@ -27,9 +27,9 @@ public class User {
     public String getLastname(){
         return this.lastname;
     }
-    public Date getBirthDate() {
+    /*public LocalDate getBirthDate() {
         return this.birthDate;
-    }
+    }*/
     public String getPassword(){
         return this.password;
     }
@@ -45,9 +45,9 @@ public class User {
         this.lastname = lastname;
     }
 
-    public void setBirthDate(Date birthDate) {
+    /*public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
-    }
+    }*/
 
     public void setLicense(Integer license) {
         this.license = license;

@@ -17,7 +17,7 @@ public class LoginControllerApplicativo {
         newUser.setLastname(newUserData.getLastname());
         newUser.setEmail(newUserData.getEmail());
         newUser.setPassword(newUserData.getPassword());
-        newUser.setBirthDate(newUserData.getBirthDate());
+       // newUser.setBirthDate(newUserData.getBirthDate());
         newUser.setLicense(newUser.getLicense());
 
         userDB.insertUser(newUser);

@@ -10,21 +10,18 @@ public class UserQuery extends Query {
         String query = "SELECT * FROM Diver WHERE email = %s;";
         return String.format(query, email);
     }
-    public String insertUser(String email, String password, String name, String lastname, Integer license, Date birthDate){
+    public String insertUser(String email, String password){
         DateFormat format = new SimpleDateFormat(dateFormat);
-        String birthDateString = format.format(birthDate);
+        //String birthDateString = format.format(birthDate);
 
         email = quote(email);
         password = quote(password);
-        name = quote(name);
-        lastname = quote(lastname);
-        birthDateString = quote(birthDateString);
 
-        String query = "INSERT INTO Diver (email, name, lastname, password, birthDate, license)" + "VALUES (%s, %s, %s, %s, %s, %d);";
-        return String.format(query, email, name, lastname, password, birthDate, license);
+        String query = "INSERT INTO user (email, password)" + "VALUES (%s, %s);";
+        return String.format(query, email,  password);
     }
 
-    public String updateUser(String email, String name, String lastname, String password, Integer license, Date birthDate) {
+   /* public String updateUser(String email, String name, String lastname, String password, Integer license, Date birthDate) {
         DateFormat format = new SimpleDateFormat(dateFormat);
         String birthDateString = "NULL";
         email = quote(email);
@@ -39,7 +36,7 @@ public class UserQuery extends Query {
         String query = "update Diver SET" + "password = %s,"+"name = %s," + "lastname = %s,"+ "license = %d,"+ "lastname = %s,"+
                 "WHERE email = %s";
         return String.format(query, password, name, lastname, email, birthDateString, license);
-    }
+    }*/
     public String deleteUser(String email) {
         email = quote (email);
         String query = "DELETE FROM user WHERE email = %s;";

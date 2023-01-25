@@ -7,13 +7,14 @@ package com.example.dw_1.grafico;
         import javafx.scene.control.*;
 
         import java.sql.Date;
+        import java.time.LocalDate;
         import java.time.ZoneId;
 
         import static java.util.Date.from;
 
 public class RegistrationControllerGrafico {
-    @FXML
-    private DatePicker birthDate;
+   // @FXML
+   // private DatePicker birthDate;
 
     @FXML
     private TextField email;
@@ -34,13 +35,14 @@ public class RegistrationControllerGrafico {
     private PasswordField password1;
 
     @FXML
-    private Button signIn;
+    private Button signIn; /* its relatives method is REGISTRAZIONE */
     @FXML
     private Label errorLabel;
 
     LoginControllerApplicativo regController = new LoginControllerApplicativo();
+    //LocalDate data = birthDate.getValue();
     @FXML
-    void registrazione(ActionEvent event) throws AlreadyRegisteredUserException {
+    void signIn(ActionEvent event) throws AlreadyRegisteredUserException {
         RegistrationBean rBean = new RegistrationBean();
         if (Boolean.FALSE.equals(verfyInsert(rBean))){
             return;
@@ -53,10 +55,10 @@ public class RegistrationControllerGrafico {
             errorLabel.setText("Insert all fields");
             return false;
         }
-        if (birthDate.getValue() == null) {
+       /* if (birthDate.getValue() == null) {
             errorLabel.setText("Insert a birth date");
             return false;
-        }
+        }*/
         if (!password.getText().equals(password1.getText())){
             errorLabel.setText("Password field must be the same");
             return false;
@@ -85,9 +87,13 @@ public class RegistrationControllerGrafico {
         } else {
             rBean.setPassword(password.getText());
         }*/
-        System.out.println(birthDate.getValue());
-
-
+       /* System.out.println(birthDate.getValue());
+        if (data == null) {
+            errorLabel.setText("Insert your birth date");
+            return false;
+        } else {
+            rBean.setBirthDate(data);
+        }*/
 
         return true;
     }

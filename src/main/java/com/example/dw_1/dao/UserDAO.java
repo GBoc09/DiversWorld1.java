@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class UserDAO {
@@ -30,7 +31,7 @@ public class UserDAO {
                 return null;
             }
             user = new User(rs.getString("email"), rs.getString("name"), rs.getString("lastname"), rs.getString("password"),rs.getInt("license"));
-            user.setBirthDate(rs.getDate("birthDate"));
+           // user.setBirthDate(rs.getDate("birthDate").toLocalDate());
 
             rs.close();
         } catch (SQLException e ){
@@ -93,14 +94,14 @@ public class UserDAO {
     public String selectQuery (User user, String queryType) {
         String email = user.getEmail();
         String password = user.getPassword();
-        String name = user.getName();
-        String lastname = user.getLastname();
-        Integer license = user.getLicense();
-        Date birthDate = user.getBirthDate();
+       // String name = user.getName();
+        //String lastname = user.getLastname();
+        //Integer license = user.getLicense();
+      //  LocalDate birthDate = user.getBirthDate();
 
         String query = null;
         if (queryType.equals("insert")) {
-            query = userQ.insertUser(email, password, name, lastname, license, birthDate);
+            query = userQ.insertUser(email, password);
         }
         return query;
     }

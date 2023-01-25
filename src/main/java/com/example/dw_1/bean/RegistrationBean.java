@@ -3,7 +3,6 @@ package com.example.dw_1.bean;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class RegistrationBean implements Bean{
     private String name;
@@ -11,7 +10,7 @@ public class RegistrationBean implements Bean{
     private String license;
     private String email;
     private String password;
-    private Date  birthDate;
+    //private LocalDate birthDate;
 
     public String getName() {
         return this.name;
@@ -54,13 +53,13 @@ public class RegistrationBean implements Bean{
         this.password = password;
     }
 
-    public Date getBirthDate() {
+   /* public LocalDate getBirthDate() {
         return birthDate;
-    }
+    }*/
 
-    public void setBirthDate(Date birthDate) {
+   /* public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
-    }
+    }*/
 
     public Boolean validateName (String name) {
         return isAlphabetic(name);
@@ -115,28 +114,5 @@ public class RegistrationBean implements Bean{
         // verifico il formato di formattazione dell'email
         return email.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
                 + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
-    }
-
-    public static boolean dateValidation(String birthDate) {
-        boolean status = false;
-        if (checkDate(birthDate)) {
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            dateFormat.setLenient(false);
-            try {
-                dateFormat.parse(birthDate);
-                status = true;
-            } catch (Exception e) {
-                status = false;
-            }
-        }
-        return status;
-    }
-    static boolean checkDate(String birthDate){
-        String pattern = "(0?[1-9][12][0-9]3[01])\\/(0?[1-9]1[02])\\/([0-9]{4})";
-        boolean flag = false;
-        if(birthDate.matches(pattern)){
-            flag = true;
-        }
-        return flag;
     }
 }

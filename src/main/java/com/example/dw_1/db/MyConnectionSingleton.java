@@ -7,15 +7,15 @@ import java.sql.SQLException;
 public class MyConnectionSingleton {
     private static MyConnectionSingleton instance = null;
     private Connection con;
-    private String nomeDB = "diversworld";
+    private static String nomeDB = "mydb";
     private String portaDB = "3306";
-    private String usernameDB = "root";
-    private String passwordDB = "root";
+    private static String usernameDB = "root";
+    private static String passwordDB = "root";
     private String driver = "com.mysql.cj.jdbc.Driver";
     private MyConnectionSingleton() {
         try {
             Class.forName(driver);
-            con = DriverManager.getConnection("jdbc:mysql//localhost:" + portaDB + "/" + nomeDB, usernameDB, passwordDB);
+            con = DriverManager.getConnection("jdbc:mysql://LocalHost:" + portaDB + "/" + nomeDB, usernameDB, passwordDB);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

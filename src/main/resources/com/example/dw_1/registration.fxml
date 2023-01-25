@@ -47,7 +47,7 @@
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signIn" layoutX="365.0" layoutY="354.0" mnemonicParsing="false" onAction="#registrazione" style="-fx-background-color: white;" text="Sign In">
+      <Button fx:id="signIn" layoutX="365.0" layoutY="354.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: white;" text="Sign In">
          <font>
             <Font size="15.0" />
          </font>
