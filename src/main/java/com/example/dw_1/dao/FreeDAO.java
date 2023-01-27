@@ -15,13 +15,13 @@ public class FreeDAO {
     private static final String FREE_EMAIL = "emailUser";
     private static final String FREE_NAME = "name";
     private static final String FREE_LASTNAME = "lastname";
-    private static final Integer FREE_LICENSE = 00000000;
+    private static final String FREE_LICENSE = "";
 
     public void insertFree(User free) throws AlreadyRegisteredUserException {
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
             UserQuery.insertUser(stmt, free.getEmail(), free.getPassword(), FREE);
-            UserQuery.insertIntoFree(stmt, free.getName(), free.getLastname(), free.getEmail(), free.getLicense());
+            UserQuery.insertIntoFree(stmt, free.getName(), free.getLastname(),free.getLicense());
         } catch (SQLIntegrityConstraintViolationException e){
             throw new AlreadyRegisteredUserException(1);
         } catch (SQLException e){
@@ -33,7 +33,7 @@ public class FreeDAO {
         String email = rs.getString(FREE_EMAIL);
         String name = rs.getString(FREE_NAME);
         String lastname = rs.getString(FREE_LASTNAME);
-        Integer license = rs.getInt(FREE_LICENSE);
+        String license = rs.getString(FREE_LICENSE);
 
         return new Free(email,"", name, lastname, license);
     }

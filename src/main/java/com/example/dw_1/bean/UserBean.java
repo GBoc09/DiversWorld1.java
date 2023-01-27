@@ -2,7 +2,6 @@ package com.example.dw_1.bean;
 
 import com.example.dw_1.exception.InvalidCredentialException;
 
-import java.util.Date;
 
 public class UserBean implements Bean{
     private String name;
@@ -10,7 +9,7 @@ public class UserBean implements Bean{
     private String userEmail;
     private String password;
     private Integer userType;
-    private Integer license;
+    private String license;
     public UserBean(){}
     public UserBean(String userEmail, Integer userType){
         setUserEmail(userEmail);
@@ -60,11 +59,11 @@ public class UserBean implements Bean{
         this.password = password;
     }
 
-    public Integer getLicense() {
+    public String getLicense() {
         return license;
     }
 
-    public void setLicense(Integer license) {
+    public void setLicense(String license) {
         this.license = license;
     }
 

@@ -9,10 +9,10 @@ import java.io.IOException;
 
 public class CasaControllerGraph {
     @FXML
-    private Button login;
+    private Button access;
 
     @FXML
-    void loginButtonClicked(ActionEvent event) throws IOException {
+    void accessButtonClicked(ActionEvent event) throws IOException {
         try{
             DiversWorld dw = new DiversWorld();
             dw.changeScene("login.fxml");

@@ -11,7 +11,7 @@ public class RegistrationBean extends UserBean implements Bean{
     private String userEmail;
     private String password;
     private Integer userType;
-    private Integer license;
+    private String license;
     public RegistrationBean(){}
     public RegistrationBean(String userEmail, Integer userType){
         setUserEmail(userEmail);
@@ -61,11 +61,11 @@ public class RegistrationBean extends UserBean implements Bean{
         this.password = password;
     }
 
-    public Integer getLicense() {
+    public String getLicense() {
         return license;
     }
 
-    public void setLicense(Integer license) {
+    public void setLicense(String license) {
         this.license = license;
     }
 

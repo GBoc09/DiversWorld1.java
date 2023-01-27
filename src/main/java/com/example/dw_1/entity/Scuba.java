@@ -1,15 +1,12 @@
 package com.example.dw_1.entity;
 
-import java.util.Date;
-
 public class Scuba extends User{
     private String name;
     private String lastname;
-    private Integer license;
+    private String license;
 
-    public Scuba(String email, String password, String name, String lastname, Integer license){
-        super(email,password,name, lastname);
-        setLicense(license);
+    public Scuba(String email, String password, String name, String lastname, String license){
+        super(email,password,name, lastname, license);
     }
 
     public String getName() {
@@ -29,10 +26,10 @@ public class Scuba extends User{
         this.lastname = lastname;
     }
 
-    public Integer getLicense() {
+    public String getLicense() {
         return license;
     }
-    public void setLicense(Integer license) {
+    public void setLicense(String license) {
         this.license = license;
     }
 }

@@ -5,10 +5,10 @@ import java.util.Date;
 public class Manager extends User{
     private String name;
     private String lastname;
-    private Date birthDate;
+    private String license;
 
-    public Manager(String email, String password, String name, String lastname){
-        super(email,password,name, lastname);
+    public Manager(String email, String password, String name, String lastname, String license){
+        super(email,password,name, lastname, license);
     }
 
     public String getName() {
@@ -26,5 +26,15 @@ public class Manager extends User{
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    @Override
+    public String getLicense() {
+        return license;
+    }
+
+    @Override
+    public void setLicense(String license) {
+        this.license = license;
     }
 }

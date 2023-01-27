@@ -15,12 +15,12 @@ public class ManagerDAO {
     private static final String MANAGER_EMAIL = "emailUser";
     private static final String MANAGER_NAME = "name";
     private static final String MANAGER_LASTNAME = "lastname";
-
+    private static final String MANAGER_ID = "";
     public void insertManager(User manager) throws AlreadyRegisteredUserException {
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
             UserQuery.insertUser(stmt, manager.getEmail(), manager.getPassword(), MANAGER);
-            UserQuery.insertIntoManager(stmt, manager.getName(), manager.getLastname(), manager.getEmail());
+            UserQuery.insertIntoManager(stmt, manager.getName(), manager.getLastname(), manager.getLicense());
         } catch (SQLIntegrityConstraintViolationException e){
             throw new AlreadyRegisteredUserException(1);
         } catch (SQLException e){
@@ -28,11 +28,12 @@ public class ManagerDAO {
         }
 
     }
-    public Manager createScuba(ResultSet rs) throws SQLException {
+    public Manager createManager(ResultSet rs) throws SQLException {
         String email = rs.getString(MANAGER_EMAIL);
         String name = rs.getString(MANAGER_NAME);
         String lastname = rs.getString(MANAGER_LASTNAME);
+        String license = rs.getString(MANAGER_ID);
 
-        return new Manager(email,"", name, lastname);
+        return new Manager(email,"", name, lastname, license);
     }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.ScubaHome">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.LoginControllerGrafico">
    <children>
       <Label layoutX="170.0" layoutY="20.0" text="DIVERS WORLD">
          <font>
@@ -50,6 +50,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Line endX="106.20001220703125" endY="0.1999969482421875" layoutX="281.0" layoutY="116.0" startX="-65.0" startY="0.1999969482421875" strokeWidth="2.0" />
+      <Line endX="96.20001220703125" endY="0.1999969482421875" layoutX="281.0" layoutY="116.0" startX="-65.0" startY="0.1999969482421875" strokeWidth="2.0" />
    </children>
 </AnchorPane>

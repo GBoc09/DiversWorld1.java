@@ -31,11 +31,16 @@
          </font>
       </Button>
       <Line endX="149.0" endY="0.1999969482421875" layoutX="276.0" layoutY="93.0" startX="-111.0" startY="0.1999969482421875" strokeWidth="2.0" />
-      <Button fx:id="createAccout" layoutX="170.0" layoutY="265.0" mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: none;" text="Create Account">
+      <Button fx:id="createAccout" layoutX="171.0" layoutY="217.0" mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: none;" text="Create Account">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Line endX="33.20001220703125" layoutX="250.0" layoutY="289.0" startX="-69.20001220703125" />
+      <Line endX="33.20001220703125" layoutX="250.0" layoutY="242.0" startX="-69.20001220703125" />
+      <Label fx:id="errorLabel" layoutX="175.0" layoutY="248.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

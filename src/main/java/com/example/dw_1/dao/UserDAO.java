@@ -11,8 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
-import java.util.Date;
+
 
 public class UserDAO {
     private static final String SCUBA_ENUM_TYPE = "scuba";

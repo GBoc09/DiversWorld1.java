@@ -15,13 +15,13 @@ public class ScubaDAO {
     private static final String SCUBA_EMAIL = "emailUser";
     private static final String SCUBA_NAME = "name";
     private static final String SCUBA_LASTNAME = "lastname";
-    private static final Integer SCUBA_LICENSE = 00000000;
+    private static final String SCUBA_LICENSE = "";
 
     public void insertScuba(User scuba) throws AlreadyRegisteredUserException{
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
             UserQuery.insertUser(stmt, scuba.getEmail(), scuba.getPassword(), SCUBA);
-            UserQuery.insertIntoScuba(stmt, scuba.getName(), scuba.getLastname(), scuba.getEmail(), scuba.getLicense());
+            UserQuery.insertIntoScuba(stmt, scuba.getLicense(),scuba.getName(), scuba.getLastname());
         } catch (SQLIntegrityConstraintViolationException e){
             throw new AlreadyRegisteredUserException(1);
         } catch (SQLException e){
@@ -33,7 +33,7 @@ public class ScubaDAO {
         String email = rs.getString(SCUBA_EMAIL);
         String name = rs.getString(SCUBA_NAME);
         String lastname = rs.getString(SCUBA_LASTNAME);
-        Integer license = rs.getInt(SCUBA_LICENSE);
+        String license = rs.getString(SCUBA_LICENSE);
 
         return new Scuba(email,"", name, lastname, license);
     }

@@ -7,6 +7,10 @@ package com.example.dw_1.grafico;
         import javafx.fxml.FXML;
         import javafx.scene.control.*;
 
+
+
+
+
 public class RegistrationControllerGrafico {
 
     @FXML
@@ -26,12 +30,32 @@ public class RegistrationControllerGrafico {
 
     @FXML
     private PasswordField password1;
+    @FXML
+    private ToggleGroup attivita;
+    @FXML
+    private RadioButton freeCheck;
+    @FXML
+    private RadioButton managerCheck;
+    @FXML
+    private RadioButton scubaCheck;
+
+
     private int userType;
 
     @FXML
     private Button signIn; /* its relatives method is REGISTRAZIONE */
     @FXML
     private Label errorLabel;
+
+    /* --------- dichiarazione delle variabili UESR TYPE --------- */
+    public static final int SCUBA_TYPE = 0;
+    public static final int FREE_TYPE = 1;
+    public static final int MANAGER_TYPE = 2;
+
+    public static final String SCUBA_SCREEN = "scuba_home.fxml";
+    public static final String FREE_SCREEN = "free_home.fxml";
+    public static final String MANAGER_SCREEN = "manager_home.fxml";
+
     UserBean userBean;
 
         @FXML
@@ -53,14 +77,23 @@ public class RegistrationControllerGrafico {
         userBean.setPassword(password.getText());
         userBean.setName(name.getText());
         userBean.setLastname(lastname.getText());
+        userBean.setLicense(license.getText());
+        if (scubaCheck.isSelected()) {
+            userType = SCUBA_TYPE;
+        } else if (freeCheck.isSelected()) {
+            userType = FREE_TYPE;
+        } else if (managerCheck.isSelected()) {
+            userType= MANAGER_TYPE;
+        }
         userBean.setUserType(userType);
 
-        if(email.getText().isEmpty() || password.getText().isEmpty()|| name.getText().isEmpty()|| lastname.getText().isEmpty()){
+        if(email.getText().isEmpty() || password.getText().isEmpty()|| name.getText().isEmpty()|| lastname.getText().isEmpty() || license.getText().isEmpty()){
             throw new InvalidCredentialException("Invalid fields");
         }
         return userBean;
 
     }
+
 
 
 }

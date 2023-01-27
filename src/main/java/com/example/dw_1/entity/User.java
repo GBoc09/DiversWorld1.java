@@ -1,18 +1,17 @@
 package com.example.dw_1.entity;
 
-import java.time.LocalDate;
-
 public class User {
     private String email;
     private String password;
     private String name;
     private String lastname;
-    private Integer license;
-    public User(String email, String password, String name, String lastname){
+    private String license;
+    public User(String email, String password, String name, String lastname, String license){
         this.email = email;
         this.password = password;
         this.name = name;
         this.lastname = lastname;
+        this.license = license;
     }
     public User(){}
 
@@ -47,11 +46,11 @@ public class User {
         this.lastname = lastname;
     }
 
-    public Integer getLicense() {
+    public String getLicense() {
         return license;
     }
 
-    public void setLicense(Integer license) {
+    public void setLicense(String license) {
         this.license = license;
     }
 }

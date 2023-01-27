@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.CasaControllerGraph">
    <children>
-      <Button fx:id="login" layoutX="217.0" layoutY="300.0" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: white;" text="LOGIN" textAlignment="CENTER">
+      <Button fx:id="access" layoutX="217.0" layoutY="300.0" mnemonicParsing="false" onAction="#accessButtonClicked" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: white;" text="ACCESS" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

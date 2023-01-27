@@ -5,6 +5,7 @@ import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.dao.FreeDAO;
 import com.example.dw_1.dao.ManagerDAO;
 import com.example.dw_1.dao.ScubaDAO;
+import com.example.dw_1.entity.Scuba;
 import com.example.dw_1.entity.User;
 import com.example.dw_1.exception.AlreadyRegisteredUserException;
 import com.example.dw_1.pattern.Factory;
@@ -19,11 +20,17 @@ public class RegistazioneControllerApplicativo {
         User free;
         User manager;
         int type = userBean.getUserType();
+
         String name = userBean.getName();
+
         String lastname = userBean.getLastname();
+
         String email = userBean.getUserEmail();
+
         String password = userBean.getPassword();
-        Integer license = userBean.getLicense();
+
+        String license = userBean.getLicense();
+
         if ( type == 0) {
             scuba = factory.createScuba(name, lastname, email, password,license);
             ScubaDAO scubaDAO = new ScubaDAO();
@@ -33,7 +40,7 @@ public class RegistazioneControllerApplicativo {
             FreeDAO freeDAO = new FreeDAO();
             freeDAO.insertFree(free);
         } else if (type == 2) {
-            manager = factory.createManager(name, lastname, email, password);
+            manager = factory.createManager(name, lastname, email, password, license);
             ManagerDAO managerDAO = new ManagerDAO();
             managerDAO.insertManager(manager);
 
