@@ -73,11 +73,18 @@ public class RegistrationControllerGrafico {
         }
     private UserBean insertInfo() throws InvalidCredentialException {
         UserBean userBean = new UserBean();
+        System.out.println("registration controller grafico: INSERT INFO");
         userBean.setUserEmail(email.getText());
+        System.out.println(email);
         userBean.setPassword(password.getText());
+        System.out.println(password);
         userBean.setName(name.getText());
+        System.out.println(name);
         userBean.setLastname(lastname.getText());
+        System.out.println(lastname);
         userBean.setLicense(license.getText());
+        System.out.println(license);
+
         if (scubaCheck.isSelected()) {
             userType = SCUBA_TYPE;
         } else if (freeCheck.isSelected()) {

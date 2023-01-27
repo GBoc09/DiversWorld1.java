@@ -18,8 +18,23 @@ public class UserBean implements Bean{
     public UserBean(String userEmail){
         setUserEmail(userEmail);
     }
-
+    public String getUserEmail() {
+        System.out.println(userEmail);
+        return userEmail;
+    }
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+    public String getPassword() {
+        System.out.println(password);
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
     public String getName() {
+        System.out.println("USER BEAN");
+        System.out.println(name);
         return name;
     }
 
@@ -28,19 +43,12 @@ public class UserBean implements Bean{
     }
 
     public String getLastname() {
+        System.out.println(lastname);
         return lastname;
     }
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
     }
 
     public Integer getUserType() {
@@ -49,14 +57,6 @@ public class UserBean implements Bean{
 
     public void setUserType(Integer userType) {
         this.userType = userType;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getLicense() {

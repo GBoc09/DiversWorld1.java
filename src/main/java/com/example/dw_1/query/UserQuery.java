@@ -11,11 +11,19 @@ public class UserQuery extends Query {
         return stmt.executeQuery(query);
     }
     public static boolean insertUser(Statement stmt, String email, String password, String type) throws SQLException{
+        System.out.println("user query: INSERT USER");
+        System.out.println(email);
+        System.out.println(password);
+
         String query = String.format("INSERT INTO User values('%s', '%s', '%s');", email, password, type);
         return stmt.execute(query);
     }
 
     public static boolean insertIntoScuba(Statement stmt, String license,String name, String lastname) throws SQLException{
+        System.out.println("user query: INSERT INTO SCUBA");
+        System.out.println(name);
+        System.out.println(lastname);
+        System.out.println(license);
         String query = String.format("INSERT INTO Scuba values('%s', '%s', '%s');",license, name, lastname);
         return stmt.execute(query);
     }

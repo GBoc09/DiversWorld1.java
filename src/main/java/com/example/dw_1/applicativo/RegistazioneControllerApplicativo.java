@@ -20,27 +20,27 @@ public class RegistazioneControllerApplicativo {
         User free;
         User manager;
         int type = userBean.getUserType();
-
+        System.out.println("registrazione controller applicativo: REGISTRAZIONE");
         String name = userBean.getName();
-
+        System.out.println(name);
         String lastname = userBean.getLastname();
-
+        System.out.println(lastname);
         String email = userBean.getUserEmail();
-
+        System.out.println(email);
         String password = userBean.getPassword();
-
+        System.out.println(password);
         String license = userBean.getLicense();
-
+        System.out.println(license);
         if ( type == 0) {
-            scuba = factory.createScuba(name, lastname, email, password,license);
+            scuba = factory.createScuba(email, password, name, lastname,license);
             ScubaDAO scubaDAO = new ScubaDAO();
             scubaDAO.insertScuba(scuba);
         } else if (type == 1) {
-            free = factory.createFree(name, lastname, email, password, license);
+            free = factory.createFree(email, password, name, lastname,license);
             FreeDAO freeDAO = new FreeDAO();
             freeDAO.insertFree(free);
         } else if (type == 2) {
-            manager = factory.createManager(name, lastname, email, password, license);
+            manager = factory.createManager(email, password, name, lastname, license);
             ManagerDAO managerDAO = new ManagerDAO();
             managerDAO.insertManager(manager);
 

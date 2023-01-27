@@ -20,6 +20,7 @@ public class ScubaDAO {
     public void insertScuba(User scuba) throws AlreadyRegisteredUserException{
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
+            System.out.println("SCUBA DAO");
             UserQuery.insertUser(stmt, scuba.getEmail(), scuba.getPassword(), SCUBA);
             UserQuery.insertIntoScuba(stmt, scuba.getLicense(),scuba.getName(), scuba.getLastname());
         } catch (SQLIntegrityConstraintViolationException e){

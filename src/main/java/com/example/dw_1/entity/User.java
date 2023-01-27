@@ -16,14 +16,17 @@ public class User {
     public User(){}
 
     public String getEmail(){
+        System.out.println("USER");
+        System.out.println(email);
         return this.email;
-    }
-
-    public String getPassword(){
-        return this.password;
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword(){
+        System.out.println(password);
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -31,6 +34,7 @@ public class User {
     }
 
     public String getName() {
+        System.out.println(name);
         return name;
     }
 
@@ -39,6 +43,7 @@ public class User {
     }
 
     public String getLastname() {
+        System.out.println(lastname);
         return lastname;
     }
 
@@ -47,6 +52,7 @@ public class User {
     }
 
     public String getLicense() {
+        System.out.println(license);
         return license;
     }
 
