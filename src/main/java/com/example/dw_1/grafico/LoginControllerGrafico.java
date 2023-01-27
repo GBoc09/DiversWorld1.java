@@ -36,7 +36,6 @@ public class LoginControllerGrafico {
     void accedi(ActionEvent event) throws InvalidCredentialException, IOException { /* function ACCEDI is related to the login button in the login screen */
 
         Node eventSource = (Node) event.getSource();
-        Stage stage = (Stage) (eventSource).getScene().getWindow();
         if (eventSource == entry) {
             if (email.getText().isEmpty() || userPass.getText().isEmpty()){
                 errorLabel.setText("Please insert your credentials");

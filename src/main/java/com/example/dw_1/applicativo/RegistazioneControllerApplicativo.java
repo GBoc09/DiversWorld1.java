@@ -1,11 +1,9 @@
 package com.example.dw_1.applicativo;
 
-import com.example.dw_1.bean.RegistrationBean;
 import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.dao.FreeDAO;
 import com.example.dw_1.dao.ManagerDAO;
 import com.example.dw_1.dao.ScubaDAO;
-import com.example.dw_1.entity.Scuba;
 import com.example.dw_1.entity.User;
 import com.example.dw_1.exception.AlreadyRegisteredUserException;
 import com.example.dw_1.pattern.Factory;

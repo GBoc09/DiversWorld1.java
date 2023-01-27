@@ -1,10 +1,4 @@
 package com.example.dw_1.bean;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-
 public class RegistrationBean extends UserBean implements Bean{
     private String name;
     private String lastname;
@@ -118,9 +112,9 @@ public class RegistrationBean extends UserBean implements Bean{
         }
         return true;
     }*/
-    public Boolean validateEmail(String email){
+   /* public Boolean validateEmail(String email){
         // verifico il formato di formattazione dell'email
         return email.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
                 + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
-    }
+    }*/
 }

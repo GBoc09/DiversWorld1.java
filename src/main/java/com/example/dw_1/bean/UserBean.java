@@ -1,8 +1,4 @@
 package com.example.dw_1.bean;
-
-import com.example.dw_1.exception.InvalidCredentialException;
-
-
 public class UserBean implements Bean{
     private String name;
     private String lastname;

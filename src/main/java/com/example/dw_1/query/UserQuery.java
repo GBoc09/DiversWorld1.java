@@ -31,8 +31,8 @@ public class UserQuery extends Query {
         String query = String.format("INSERT INTO Free values('%s', '%s', '%s');", license, name, lastname);
         return stmt.execute(query);
     }
-    public static boolean insertIntoManager(Statement stmt, String name, String lastname, String id_manager) throws SQLException{
-        String query = String.format("INSERT INTO DivingManager values('%s','%s', '%s');", id_manager, name, lastname);
+    public static boolean insertIntoManager(Statement stmt, String name, String lastname, String idManager) throws SQLException{
+        String query = String.format("INSERT INTO DivingManager values('%s','%s', '%s');", idManager, name, lastname);
         return stmt.execute(query);
     }
 

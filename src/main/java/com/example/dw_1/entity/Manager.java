@@ -1,6 +1,5 @@
 package com.example.dw_1.entity;
 
-import java.util.Date;
 
 public class Manager extends User{
     private String name;

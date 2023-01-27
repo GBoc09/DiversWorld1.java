@@ -39,11 +39,6 @@ public class LoginControllerApplicativo {
      public void setLoggedUser(UserBean userBean){
         this.loggedUser = loggedUser;
      }
-     public static LoginControllerApplicativo getLoginInstance() {
-        if(loginControllerApplicativo == null){
-            loginControllerApplicativo = new LoginControllerApplicativo();
-        }
-        return loginControllerApplicativo;
-     }
+
 }
 

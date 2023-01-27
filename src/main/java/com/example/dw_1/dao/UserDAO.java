@@ -1,10 +1,9 @@
 package com.example.dw_1.dao;
 
 import com.example.dw_1.db.MyConnectionSingleton;
-import com.example.dw_1.entity.User;
-import com.example.dw_1.exception.AlreadyRegisteredUserException;
+
 import com.example.dw_1.exception.NotExistantException;
-import com.example.dw_1.exception.WrongLoginCredentialException;
+
 import com.example.dw_1.query.UserQuery;
 
 import java.sql.Connection;
