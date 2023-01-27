@@ -1,45 +1,34 @@
 package com.example.dw_1.query;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserQuery extends Query {
-    public String selectUser(String email){
-        email = quote(email);
-        String query = "SELECT * FROM Diver WHERE email = %s;";
-        return String.format(query, email);
+    public static ResultSet selectUserByCredentials(Statement stmt, String email, String password) throws SQLException {
+        String query = String.format("SELECT * FROM user WHERE email = %s AND password = '%s';", email,password);
+        return stmt.executeQuery(query);
     }
-    public String insertUser(String email, String password){
-        DateFormat format = new SimpleDateFormat(dateFormat);
-        //String birthDateString = format.format(birthDate);
-
-        email = quote(email);
-        password = quote(password);
-
-        String query = "INSERT INTO user (email, password)" + "VALUES (%s, %s);";
-        return String.format(query, email,  password);
+    public static boolean insertUser(Statement stmt, String email, String password, String type) throws SQLException{
+        String query = String.format("INSERT INTO user values('%s', '%s', '%s');", email, password, type);
+        return stmt.execute(query);
     }
 
-   /* public String updateUser(String email, String name, String lastname, String password, Integer license, Date birthDate) {
-        DateFormat format = new SimpleDateFormat(dateFormat);
-        String birthDateString = "NULL";
-        email = quote(email);
-        password = quote(password);
-        name = quote(name);
-        lastname = quote(lastname);
-
-        if (birthDate != null){
-            birthDateString = format.format(birthDate);
-            birthDateString = quote(birthDateString);
-        }
-        String query = "update Diver SET" + "password = %s,"+"name = %s," + "lastname = %s,"+ "license = %d,"+ "lastname = %s,"+
-                "WHERE email = %s";
-        return String.format(query, password, name, lastname, email, birthDateString, license);
-    }*/
-    public String deleteUser(String email) {
-        email = quote (email);
-        String query = "DELETE FROM user WHERE email = %s;";
-        return String.format(query, email);
+    public static boolean insertIntoScuba(Statement stmt, String name, String lastname, String email, Integer license ) throws SQLException{
+        String query = String.format("INSERT INTO scuba values('%s', '%s', '%s', '%d');", name, lastname, email, license);
+        return stmt.execute(query);
     }
+    public static boolean insertIntoFree(Statement stmt, String name, String lastname, String email, Integer license ) throws SQLException{
+        String query = String.format("INSERT INTO free values('%s', '%s', '%s', '%d');", name, lastname, email, license);
+        return stmt.execute(query);
+    }
+    public static boolean insertIntoManager(Statement stmt, String name, String lastname, String email) throws SQLException{
+        String query = String.format("INSERT INTO divingmanager values('%s', '%s', '%s');", name, lastname, email);
+        return stmt.execute(query);
+    }
+
+
 }

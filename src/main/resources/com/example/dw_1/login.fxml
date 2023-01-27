@@ -15,12 +15,12 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <TextField layoutX="170.0" layoutY="131.0" prefHeight="26.0" prefWidth="269.0" promptText="Insert email " style="-fx-background-color: white;">
+      <TextField fx:id="email" layoutX="170.0" layoutY="131.0" prefHeight="26.0" prefWidth="269.0" promptText="Insert email " style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="170.0" layoutY="167.0" prefHeight="26.0" prefWidth="270.0" promptText="Insert passaword" style="-fx-background-color: white;">
+      <PasswordField fx:id="userPass" layoutX="170.0" layoutY="167.0" prefHeight="26.0" prefWidth="270.0" promptText="Insert passaword" style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>

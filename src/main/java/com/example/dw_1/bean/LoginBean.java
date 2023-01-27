@@ -1,21 +1,24 @@
 package com.example.dw_1.bean;
 
 public class LoginBean implements Bean{
-    protected String userID;
-    protected String password;
-
-    public void setUserID(String id){
-        this.userID = id;
+    protected String userEmail;
+    protected String userPassword;
+    public LoginBean(String userEmail, String userPassword){
+        setUserEmail(userEmail);
+        setUserPassword(userPassword);
     }
-    public String getUserID(){
-        return userID;
+    public String getUserEmail(){
+        return userEmail;
+    }
+    public void setUserEmail(String userEmail){
+        this.userEmail = userEmail;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public String getPassword() {
-        return password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 }

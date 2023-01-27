@@ -1,20 +1,13 @@
 package com.example.dw_1.grafico;
-        import com.example.dw_1.applicativo.LoginControllerApplicativo;
-        import com.example.dw_1.bean.RegistrationBean;
+        import com.example.dw_1.applicativo.RegistazioneControllerApplicativo;
+        import com.example.dw_1.bean.UserBean;
         import com.example.dw_1.exception.AlreadyRegisteredUserException;
+        import com.example.dw_1.exception.InvalidCredentialException;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.scene.control.*;
 
-        import java.sql.Date;
-        import java.time.LocalDate;
-        import java.time.ZoneId;
-
-        import static java.util.Date.from;
-
 public class RegistrationControllerGrafico {
-   // @FXML
-   // private DatePicker birthDate;
 
     @FXML
     private TextField email;
@@ -33,79 +26,42 @@ public class RegistrationControllerGrafico {
 
     @FXML
     private PasswordField password1;
+    private int userType;
 
     @FXML
     private Button signIn; /* its relatives method is REGISTRAZIONE */
     @FXML
     private Label errorLabel;
+    UserBean userBean;
 
-    LoginControllerApplicativo regController = new LoginControllerApplicativo();
-    //LocalDate data = birthDate.getValue();
-    @FXML
+        @FXML
     void signIn(ActionEvent event) throws AlreadyRegisteredUserException {
-        RegistrationBean rBean = new RegistrationBean();
-        if (Boolean.FALSE.equals(verfyInsert(rBean))){
-            return;
-        }
-        regController.registrazione(rBean);
 
-    }
-    private Boolean verfyInsert(RegistrationBean rBean) {
-        if (Boolean.TRUE.equals(checkEmpty())){
-            errorLabel.setText("Insert all fields");
-            return false;
-        }
-       /* if (birthDate.getValue() == null) {
-            errorLabel.setText("Insert a birth date");
-            return false;
-        }*/
-        if (!password.getText().equals(password1.getText())){
-            errorLabel.setText("Password field must be the same");
-            return false;
-        }
-        if(Boolean.FALSE.equals(rBean.validateName(name.getText()))) {
-            errorLabel.setText("Insert a correct name");
-            return false;
-        }else {
-            rBean.setName(name.getText());
-        }
-        if(Boolean.FALSE.equals(rBean.validateLastname(lastname.getText()))){
-            errorLabel.setText("Insert a correct lastname");
-            return false;
-        } else {
-            rBean.setLastname(lastname.getText());
-        }
-        if(Boolean.FALSE.equals(rBean.validateEmail(email.getText()))){
-            errorLabel.setText("Insert a correct email");
-            return false;
-        } else {
-            rBean.setEmail(email.getText());
-        }
-       /* if(Boolean.FALSE.equals(rBean.validatePassword(password.getText()))){
-            errorLabel.setText("Insert a correct password [4-16 chars, containing numbers, letters]");
-            return false;
-        } else {
-            rBean.setPassword(password.getText());
-        }*/
-       /* System.out.println(birthDate.getValue());
-        if (data == null) {
-            errorLabel.setText("Insert your birth date");
-            return false;
-        } else {
-            rBean.setBirthDate(data);
-        }*/
-
-        return true;
-    }
-    public Boolean checkEmpty(){
-        TextField[] arrayOFNodes = {name, lastname, email, password, password1};
-        for(TextField field: arrayOFNodes) {
-            if(field.getText().equals("")){
-                return true;
+            try {
+                userBean = insertInfo();
+                RegistazioneControllerApplicativo registazioneControllerApplicativo = new RegistazioneControllerApplicativo();
+                registazioneControllerApplicativo.registrazione(userBean);
+            } catch (AlreadyRegisteredUserException e){
+                throw new AlreadyRegisteredUserException(1);
+            } catch (InvalidCredentialException e) {
+                throw new RuntimeException(e);
             }
         }
-        return false;
+    private UserBean insertInfo() throws InvalidCredentialException {
+        UserBean userBean = new UserBean();
+        userBean.setUserEmail(email.getText());
+        userBean.setPassword(password.getText());
+        userBean.setName(name.getText());
+        userBean.setLastname(lastname.getText());
+        userBean.setUserType(userType);
+
+        if(email.getText().isEmpty() || password.getText().isEmpty()|| name.getText().isEmpty()|| lastname.getText().isEmpty()){
+            throw new InvalidCredentialException("Invalid fields");
+        }
+        return userBean;
+
     }
+
 
 }
 

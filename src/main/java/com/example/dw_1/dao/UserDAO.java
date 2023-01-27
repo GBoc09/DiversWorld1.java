@@ -3,6 +3,7 @@ package com.example.dw_1.dao;
 import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.User;
 import com.example.dw_1.exception.AlreadyRegisteredUserException;
+import com.example.dw_1.exception.NotExistantException;
 import com.example.dw_1.exception.WrongLoginCredentialException;
 import com.example.dw_1.query.UserQuery;
 
@@ -14,115 +15,38 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class UserDAO {
-
+    private static final String SCUBA_ENUM_TYPE = "scuba";
+    private static final String FREE_ENUM_TYPE = "free";
+    private static final String MANAGER_ENUM_TYPE = "manager";
+    private static final String USER_TYPE = "type";
+    private static final Integer SCUBA_TYPE = 0;
+    private static final Integer FREE_TYPE = 1;
+    private static final Integer MANAGER_TYPE = 2;
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
     UserQuery userQ = new UserQuery();
-    public User selectUser(String email){
-        User user = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        try {
-            Connection con = connection.getConnection();
-            stmt = con.createStatement();
-            String query = userQ.selectUser(email);
-            rs = stmt.executeQuery(query);
+    public Integer selectUser(String userEmail, String userPass) throws NotExistantException{
+        Connection con =connection.getConnection();
+        Integer userType = -1;
+        try (Statement stmt = con.createStatement();
+             ResultSet rs = UserQuery.selectUserByCredentials(stmt, userEmail, userPass);)
+        {
+            if(rs.next()){
+                String userEnum = rs.getString(USER_TYPE);
+                if (userEnum.compareTo(SCUBA_ENUM_TYPE) == 0){
+                    userType = SCUBA_TYPE;
+                } else if (userEnum.compareTo(FREE_ENUM_TYPE)== 0) {
+                    userType = FREE_TYPE;
 
-            if (!rs.next()){
-                return null;
-            }
-            user = new User(rs.getString("email"), rs.getString("name"), rs.getString("lastname"), rs.getString("password"),rs.getInt("license"));
-           // user.setBirthDate(rs.getDate("birthDate").toLocalDate());
+                } else if (userEnum.compareTo(MANAGER_ENUM_TYPE)== 0) {
+                    userType = MANAGER_TYPE;
 
-            rs.close();
-        } catch (SQLException e ){
-            e.printStackTrace();
-        } finally {
-            try {
-                if(stmt != null) {
-                    stmt.close();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } else {
+                throw new NotExistantException("User does not exist");
             }
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
         }
-        return user;
-    }
-    public User selectLoginUser(String email) throws WrongLoginCredentialException {
-        User user = selectUser(email);
-        if (user == null) {
-            throw new WrongLoginCredentialException(1);
-        } else {
-            return user;
-        }
-    }
-
-    public void insertUser(User user) throws AlreadyRegisteredUserException {
-        String query = selectQuery(user, "insert");
-        if (selectUser(user.getEmail())!= null) {
-            throw new AlreadyRegisteredUserException(1);
-        }
-        try {
-            writeOnUser(query);
-        }catch (SQLException e){}
-    }
-    public void updateUser(User user){
-        String query = selectQuery(user, "update");
-        try {
-            writeOnUser(query);
-        }catch (SQLException e){
-        }
-
-    }
-
-    private void writeOnUser(String query) throws SQLException{
-        Statement stmt = null;
-        try {
-            Connection con = connection.getConnection();
-            stmt = con.createStatement();
-            stmt.executeUpdate(query);
-        } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public String selectQuery (User user, String queryType) {
-        String email = user.getEmail();
-        String password = user.getPassword();
-       // String name = user.getName();
-        //String lastname = user.getLastname();
-        //Integer license = user.getLicense();
-      //  LocalDate birthDate = user.getBirthDate();
-
-        String query = null;
-        if (queryType.equals("insert")) {
-            query = userQ.insertUser(email, password);
-        }
-        return query;
-    }
-
-    public void deleteUser(String email){
-        Statement stmt = null;
-        try {
-            Connection con = connection.getConnection();
-            stmt = con.createStatement();
-            String query = userQ.deleteUser(email);
-            stmt.executeUpdate(query);
-        }catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null){
-                    stmt.close();
-                }
-            }catch (SQLException e){
-                e.printStackTrace();;
-            }
-        }
+        return userType;
     }
 }

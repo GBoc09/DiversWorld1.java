@@ -3,17 +3,26 @@ package com.example.dw_1.bean;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
-public class RegistrationBean implements Bean{
+public class RegistrationBean extends UserBean implements Bean{
     private String name;
     private String lastname;
-    private String license;
-    private String email;
+    private String userEmail;
     private String password;
-    //private LocalDate birthDate;
+    private Integer userType;
+    private Integer license;
+    public RegistrationBean(){}
+    public RegistrationBean(String userEmail, Integer userType){
+        setUserEmail(userEmail);
+        setUserType(userType);
+    }
+    public RegistrationBean(String userEmail){
+        setUserEmail(userEmail);
+    }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -28,21 +37,20 @@ public class RegistrationBean implements Bean{
         this.lastname = lastname;
     }
 
-    public String getLicense() {
-        return license;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setLicense(String license) {
-        this.license = license;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getUserType() {
+        return userType;
     }
 
-    public void setEmail(String email) {
-        email = email.toLowerCase();
-        this.email = email;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
     public String getPassword() {
@@ -53,13 +61,13 @@ public class RegistrationBean implements Bean{
         this.password = password;
     }
 
-   /* public LocalDate getBirthDate() {
-        return birthDate;
-    }*/
+    public Integer getLicense() {
+        return license;
+    }
 
-   /* public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }*/
+    public void setLicense(Integer license) {
+        this.license = license;
+    }
 
     public Boolean validateName (String name) {
         return isAlphabetic(name);
