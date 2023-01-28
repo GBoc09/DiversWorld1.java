@@ -13,22 +13,18 @@ public class RegistazioneControllerApplicativo {
     public RegistazioneControllerApplicativo() {
         factory = new Factory();
     }
+    /* fino a registrazione controller mantiene nome, cognome, license */
     public void registrazione (UserBean userBean) throws AlreadyRegisteredUserException{
         User scuba;
         User free;
         User manager;
         int type = userBean.getUserType();
-        System.out.println("registrazione controller applicativo: REGISTRAZIONE");
         String name = userBean.getName();
-        System.out.println(name);
         String lastname = userBean.getLastname();
-        System.out.println(lastname);
         String email = userBean.getUserEmail();
-        System.out.println(email);
         String password = userBean.getPassword();
-        System.out.println(password);
         String license = userBean.getLicense();
-        System.out.println(license);
+
         if ( type == 0) {
             scuba = factory.createScuba(email, password, name, lastname,license);
             ScubaDAO scubaDAO = new ScubaDAO();

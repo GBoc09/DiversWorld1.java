@@ -11,25 +11,24 @@ public class UserBean implements Bean{
         setUserEmail(userEmail);
         setUserType(userType);
     }
+    /* prende solo email e password */
     public UserBean(String userEmail){
         setUserEmail(userEmail);
     }
     public String getUserEmail() {
-        System.out.println(userEmail);
         return userEmail;
     }
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
     public String getPassword() {
-        System.out.println(password);
         return password;
     }
     public void setPassword(String password) {
         this.password = password;
     }
     public String getName() {
-        System.out.println("USER BEAN");
+
         System.out.println(name);
         return name;
     }

@@ -14,7 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
@@ -30,27 +31,49 @@ public class LoginControllerGrafico {
     private PasswordField userPass;
     @FXML
     private Label errorLabel;
-
+    @FXML
+    private ImageView profilo;
 
     @FXML
     void accedi(ActionEvent event) throws InvalidCredentialException, IOException { /* function ACCEDI is related to the login button in the login screen */
-
+        Integer userType;
         Node eventSource = (Node) event.getSource();
         if (eventSource == entry) {
             if (email.getText().isEmpty() || userPass.getText().isEmpty()){
                 errorLabel.setText("Please insert your credentials");
+                email.setText("");
+                userPass.setText("");
                 throw new InvalidCredentialException("Please insert valid credentials");
             }
             UserBean userBean = login();
-            if (userBean != null) {
-                try{
-                    DiversWorld dw = new DiversWorld();
-                    dw.changeScene("scuba_home.fxml");
+            userType = userBean.getUserType();
+            if (userBean != null ) {
+                switch (userType) {
+                    case 0:
+                        try {
+                            DiversWorld dw = new DiversWorld();
+                            dw.changeScene("scuba_home.fxml");
+                            } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    break;
+                    case 1:
+                        try {
+                            DiversWorld dw = new DiversWorld();
+                            dw.changeScene("free_home.fxml");
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                        break;
+                    case 2:
+                        try {
+                            DiversWorld dw = new DiversWorld();
+                            dw.changeScene("manager_home.fxml");
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                        break;
                 }
-                catch (Exception e){
-                    System.err.println(e.getMessage());
-                }
-
             }
         }
     }
@@ -78,6 +101,17 @@ public class LoginControllerGrafico {
 
         }
         return loggedUser;
+    }
+    @FXML
+    void visualizzaProfilo(MouseEvent event) {
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("profiloScuba.fxml");
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+
     }
 }
 

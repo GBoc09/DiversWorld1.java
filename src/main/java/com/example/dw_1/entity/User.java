@@ -13,11 +13,10 @@ public class User {
         this.lastname = lastname;
         this.license = license;
     }
-    public User(){}
-
+    //public User(){}
+/* premde solo email e password */
     public String getEmail(){
         System.out.println("USER");
-        System.out.println(email);
         return this.email;
     }
     public void setEmail(String email) {
@@ -25,7 +24,6 @@ public class User {
     }
 
     public String getPassword(){
-        System.out.println(password);
         return this.password;
     }
 

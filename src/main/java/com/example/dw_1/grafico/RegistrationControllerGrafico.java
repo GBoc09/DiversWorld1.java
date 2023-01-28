@@ -1,6 +1,7 @@
 package com.example.dw_1.grafico;
         import com.example.dw_1.applicativo.RegistazioneControllerApplicativo;
         import com.example.dw_1.bean.UserBean;
+        import com.example.dw_1.entity.User;
         import com.example.dw_1.exception.AlreadyRegisteredUserException;
         import com.example.dw_1.exception.InvalidCredentialException;
         import javafx.event.ActionEvent;
@@ -60,11 +61,11 @@ public class RegistrationControllerGrafico {
 
         @FXML
     void signIn(ActionEvent event) throws AlreadyRegisteredUserException {
-
             try {
                 userBean = insertInfo();
                 RegistazioneControllerApplicativo registazioneControllerApplicativo = new RegistazioneControllerApplicativo();
                 registazioneControllerApplicativo.registrazione(userBean);
+                System.out.println("registrazione con successo");
             } catch (AlreadyRegisteredUserException e){
                 throw new AlreadyRegisteredUserException(1);
             } catch (InvalidCredentialException e) {

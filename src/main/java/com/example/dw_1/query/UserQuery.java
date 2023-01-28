@@ -32,7 +32,27 @@ public class UserQuery extends Query {
         return stmt.execute(query);
     }
     public static boolean insertIntoManager(Statement stmt, String name, String lastname, String idManager) throws SQLException{
+        System.out.println("user query: INSERT INTO MANAGER");
+        System.out.println(name);
+        System.out.println(lastname);
+        System.out.println(idManager);
         String query = String.format("INSERT INTO DivingManager values('%s','%s', '%s');", idManager, name, lastname);
+        return stmt.execute(query);
+    }
+    public static boolean deleteManager(Statement stmt, String name, String lastname, String idManager) throws SQLException{
+        System.out.println("user query: DELETE MANAGER");
+        System.out.println(name);
+        System.out.println(lastname);
+        System.out.println(idManager);
+        String query = String.format("DELETE FROM DivingManager WHERE idDivingManager = '%s';", idManager);
+        return stmt.execute(query);
+    }
+    public static boolean deleteScuba(Statement stmt, String name, String lastname, String license) throws SQLException{
+        System.out.println("user query: DELETE MANAGER");
+        System.out.println(name);
+        System.out.println(lastname);
+        System.out.println(license);
+        String query = String.format("DELETE FROM DivingManager WHERE licenseNumber = '%s';", license);
         return stmt.execute(query);
     }
 

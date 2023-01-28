@@ -1,6 +1,5 @@
 package com.example.dw_1.entity;
 
-
 public class Manager extends User{
     private String name;
     private String lastname;

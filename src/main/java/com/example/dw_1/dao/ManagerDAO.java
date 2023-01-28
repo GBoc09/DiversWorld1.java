@@ -11,7 +11,7 @@ import java.sql.*;
 public class ManagerDAO {
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
 
-    private static final String MANAGER = "scuba";
+    private static final String MANAGER = "manager";
     private static final String MANAGER_EMAIL = "emailUser";
     private static final String MANAGER_NAME = "name";
     private static final String MANAGER_LASTNAME = "lastname";
@@ -19,6 +19,7 @@ public class ManagerDAO {
     public void insertManager(User manager) throws AlreadyRegisteredUserException {
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
+            System.out.println("manager dao: INSERT MANAGER");
             UserQuery.insertUser(stmt, manager.getEmail(), manager.getPassword(), MANAGER);
             UserQuery.insertIntoManager(stmt, manager.getName(), manager.getLastname(), manager.getLicense());
         } catch (SQLIntegrityConstraintViolationException e){
