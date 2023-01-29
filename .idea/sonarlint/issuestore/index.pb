@@ -14,12 +14,6 @@ N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-{
-Ksrc/main/java/com/example/dw_1/exception/WrongLoginCredentialException.java,d\c\dcef4d10360fe5973b127aabdcc94f637f19c44d
-r
-Bsrc/main/java/com/example/dw_1/exception/NotExistantException.java,1\0\10493a4174447695d96b12c2b2773894c1447cd5
-x
-Hsrc/main/java/com/example/dw_1/exception/InvalidCredentialException.java,2\0\2030b71609a05458e6bd375e2eda3a614dc70b7e
 _
 /src/main/java/com/example/dw_1/query/Query.java,e\e\ee50966154fca329d2df962467f19cf4382308ed
 l
