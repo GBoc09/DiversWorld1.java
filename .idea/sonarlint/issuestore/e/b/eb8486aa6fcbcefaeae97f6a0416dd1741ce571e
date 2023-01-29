@@ -1,0 +1,13 @@
+
+`	java:S112H"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+N	java:S106D"9Replace this use of System.out or System.err by a logger.(Íˆü•
+W
+java:S1117L"<Rename "userBean" which hides the field declared at line 60.(ÛµØÑøÿÿÿÿ
+S	java:S106M"9Replace this use of System.out or System.err by a logger.(ÁÛ±‹ýÿÿÿÿ
+S	java:S106O"9Replace this use of System.out or System.err by a logger.(îž¸ýÿÿÿÿ
+N	java:S106Q"9Replace this use of System.out or System.err by a logger.(Éáðè
+N	java:S106S"9Replace this use of System.out or System.err by a logger.(«‹Îõ
+N	java:S106U"9Replace this use of System.out or System.err by a logger.(ÃÞ¼Ù
+Z	java:S106W"9Replace this use of System.out or System.err by a logger.(ÐŽ×Õþÿÿÿÿ8Ã™¯Ãß0
+V
+java:S1128"9Remove this unused import 'com.example.dw_1.entity.User'.(£øºè8êÿ¦Ãß0
