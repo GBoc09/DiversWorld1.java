@@ -8,6 +8,14 @@ public class EquipmentBean {
     private String descrBean;
     private Double priceBean;
 
+    public EquipmentBean(){
+        this.idBean = 0;
+        this.typeBean = "";
+        this.sizeBean= "";
+        this.availBean= "";
+        this.descrBean = "";
+        this.priceBean = 0.0;
+    }
     public EquipmentBean(Integer id) {
         this.idBean = id;
         this.typeBean = "";
