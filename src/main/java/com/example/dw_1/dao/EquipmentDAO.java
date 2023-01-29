@@ -4,7 +4,6 @@ import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Equipment;
 import com.example.dw_1.other.EquipCatalogue;
 import com.example.dw_1.query.EquipQuery;
-import javafx.scene.Parent;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
