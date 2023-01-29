@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -41,6 +42,7 @@ public class AddEquipmentControllerGrafico {
     }
     @FXML
     void addNewProduct(ActionEvent event) { /* aggiungere al catalogo delle attrzzature */
+        Node sourceNode = (Node) event.getSource();
 
     }
 

@@ -20,8 +20,6 @@ l
 <src/main/java/com/example/dw_1/db/MyConnectionSingleton.java,b\7\b7132158b3b028e4992bdbc34121f1bd24506e1e
 _
 /src/main/java/com/example/dw_1/dao/FreeDAO.java,6\8\68a6d3a08b62f7f0bb403876f1c98478cfb28d5f
-{
-Ksrc/main/java/com/example/dw_1/grafico/ProfileManagementGraphicControl.java,4\3\432c95cdd6f94ab487a469621b7db86027cee746
 o
 ?src/main/java/com/example/dw_1/grafico/CasaControllerGraph.java,d\3\d33606fabd8683a555c08c26468634d53082ec54
 |
@@ -32,5 +30,3 @@ y
 Isrc/main/java/com/example/dw_1/grafico/RegistrationControllerGrafico.java,e\b\eb8486aa6fcbcefaeae97f6a0416dd1741ce571e
 y
 Isrc/main/java/com/example/dw_1/grafico/ScubaProfiloControllerGrafico.java,5\2\52b71b2d37eba3265fc61abdcf99de4cbef383ed
-u
-Esrc/main/java/com/example/dw_1/grafico/UserTypeControllerGrafico.java,5\f\5fabe1e2068d35dfad969d62ad95f32013666904

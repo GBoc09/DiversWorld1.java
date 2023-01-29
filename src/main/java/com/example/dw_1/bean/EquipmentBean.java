@@ -1,8 +1,8 @@
 package com.example.dw_1.bean;
 
-public class EquipmentBean {
+public class EquipmentBean implements Bean {
     private Integer idBean;
-    private String typeBean;
+    private String nameBean;
     private String sizeBean;
     private String availBean;
     private String descrBean;
@@ -10,7 +10,7 @@ public class EquipmentBean {
 
     public EquipmentBean(){
         this.idBean = 0;
-        this.typeBean = "";
+        this.nameBean = "";
         this.sizeBean= "";
         this.availBean= "";
         this.descrBean = "";
@@ -18,15 +18,15 @@ public class EquipmentBean {
     }
     public EquipmentBean(Integer id) {
         this.idBean = id;
-        this.typeBean = "";
+        this.nameBean = "";
         this.sizeBean= "";
         this.availBean= "";
         this.descrBean = "";
         this.priceBean = 0.0;
     }
-    public EquipmentBean(Integer id, String type, String size, String avail, String desc, Double price){
+    public EquipmentBean(Integer id, String name, String size, String avail, String desc, Double price){
         setIdBean(id);
-        setTypeBean(type);
+        setNameBean(name);
         setSizeBean(size);
         setAvailBean(avail);
         setDescrBean(desc);
@@ -41,12 +41,12 @@ public class EquipmentBean {
         this.idBean = idBean;
     }
 
-    public String getTypeBean() {
-        return typeBean;
+    public String getNameBean() {
+        return nameBean;
     }
 
-    public void setTypeBean(String typeBean) {
-        this.typeBean = typeBean;
+    public void setNameBean(String typeBean) {
+        this.nameBean = nameBean;
     }
 
     public String getSizeBean() {

@@ -1,23 +1,23 @@
 package com.example.dw_1.dao;
 
 import com.example.dw_1.db.MyConnectionSingleton;
+import com.example.dw_1.entity.Diving;
 import com.example.dw_1.entity.Equipment;
+import com.example.dw_1.exception.EquipNotFoundException;
 import com.example.dw_1.other.EquipCatalogue;
 import com.example.dw_1.query.EquipQuery;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class EquipmentDAO {
     private static final String ID_COLUMN = "id";
-    private static final String SIZE_COLUM = "size";
-    private static final String TYPE_COLUM = "type";
-    private static final String AVAILABILITY_COLUM = "availability";
-    private static final String DESCRIPTION_COLUM = "description";
-    private static final String PRICE_COLUM = "price";
+    private static final String NAME_COLUMN = "name";
+    private static final String SIZE_COLUMN = "size";
+    private static final String AVAILABILITY_COLUMN = "availability";
+    private static final String DESCRIPTION_COLUMN = "description";
+    private static final String PRICE_COLUMN = "price";
+    private static final String DIVING_ID_COLUMN = "divingID";
 
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
     public EquipCatalogue loadAllProduct(){
@@ -35,18 +35,59 @@ public class EquipmentDAO {
         return new EquipCatalogue(equips);
     }
     public boolean insertProduct( Equipment equipment){
-        return true;
-        // aaa
+        boolean flag = true;
+        Connection con =connection.getConnection();
+        try (PreparedStatement stmt = con.prepareStatement("INSERT Equipment(name, description, price) VALUES (?, ?, ?);")){
+            stmt.setString(1, equipment.getName());
+            stmt.setString(2, equipment.getDescription());
+            stmt.setDouble(3, equipment.getPrice());
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
+            flag = false;
+        }
+        return flag;
+    }
+    public Equipment loadAllEquipsByName(String name, Integer divingID) throws EquipNotFoundException {
+        Equipment equipment = null;
+        Connection con =connection.getConnection();
+        try (Statement stmt = con.createStatement();
+        ResultSet rs = EquipQuery.loadEquipByName(stmt, name, divingID)){
+            if (rs.next()){
+                equipment = createEquip(rs);
+            } else {
+                throw new EquipNotFoundException("Article not found");
+            }
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return equipment;
+    }
+    public EquipCatalogue loadEquipByID (int equipCode)  {
+        ArrayList<Equipment> equipments = new ArrayList<>();
+        Connection con =connection.getConnection();
+        try (Statement stmt = con.createStatement();
+             ResultSet rs = EquipQuery.loadEquipByID(stmt, equipCode)){
+            while(rs.next()){
+               Equipment locEquip = createEquip(rs);
+               equipments.add(locEquip);
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return new EquipCatalogue(equipments);
     }
     private Equipment createEquip(ResultSet rs) throws SQLException{
         Integer id = rs.getInt(ID_COLUMN);
-        String type = rs.getString(TYPE_COLUM);
-        String size = rs.getString(SIZE_COLUM);
-        String avail = rs.getString(AVAILABILITY_COLUM);
-        String desc = rs.getString(DESCRIPTION_COLUM);
-        Double price = rs.getDouble(PRICE_COLUM);
+        String name = rs.getString(NAME_COLUMN);
+        String size = rs.getString(SIZE_COLUMN);
+        String avail = rs.getString(AVAILABILITY_COLUMN);
+        String desc = rs.getString(DESCRIPTION_COLUMN);
+        Double price = rs.getDouble(PRICE_COLUMN);
+        String divingManager = rs.getString(DIVING_ID_COLUMN);
+        DivingDAO divingDAO = new DivingDAO();
+        Diving diving = divingDAO.loadDivingByManager (divingManager);
 
-        return new Equipment(id, type, size, avail, desc, price);
+        return new Equipment(id, name, size, avail, desc, price, diving);
         }
 
 }

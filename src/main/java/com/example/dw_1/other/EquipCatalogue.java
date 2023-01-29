@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class EquipCatalogue {
-    private final List<Equipment> equipArrayList;
+    private static List<Equipment> equipArrayList;
 
     public EquipCatalogue(List<Equipment> equips){
         this.equipArrayList = equips;
     }
-    public List<Equipment> filterByType(String equipType){
+    public static List<Equipment> filterByName(String equipName){
         List<Equipment> filteredEquipArray = new ArrayList<>();
         for (Equipment equipment : equipArrayList) {
-            if(equipment.getType().contains(equipType)){
+            if(equipment.getName().contains(equipName)){
                 filteredEquipArray.add(equipment);
             }
         }
@@ -29,7 +29,7 @@ public class EquipCatalogue {
         }
         return null;
     }
-    public void addEquuip (Equipment newEquip){
+    public void addEquip (Equipment newEquip){
         this.equipArrayList.add(newEquip);
     }
 }

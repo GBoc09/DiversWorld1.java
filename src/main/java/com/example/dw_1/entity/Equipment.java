@@ -2,28 +2,31 @@ package com.example.dw_1.entity;
 
 public class Equipment {
     private Integer id;
-    private String type;
+    private String name;
     private String size;
     private String availability;
     private String description;
     private Double price;
-    // private Diving diving;
+    private Diving diving; /* riferimento al DIVING ID*/
 
     public Equipment() {
         this.id = 0;
-        this.type = "";
+        this.name = "";
         this.size = "";
         this.availability = "";
         this.description = "";
         this.price = 0.0;
+        this.diving = null;
     }
-    public Equipment (Integer id, String type, String size, String availability, String description, Double price){
+    public Equipment (Integer id, String name, String size, String availability, String description, Double price, Diving diving){
         setId(id);
-        setType(type);
+        setName(name);
         setSize(size);
         setAvailability(availability);
         setDescription(description);
         setPrice(price);
+        setDiving(diving);
+
     }
 
     public Integer getId() {
@@ -34,12 +37,12 @@ public class Equipment {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSize() {
@@ -72,5 +75,13 @@ public class Equipment {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Diving getDiving() {
+        return diving;
+    }
+
+    public void setDiving(Diving diving) {
+        this.diving = diving;
     }
 }

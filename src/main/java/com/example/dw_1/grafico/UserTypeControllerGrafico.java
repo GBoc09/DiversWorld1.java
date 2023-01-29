@@ -11,10 +11,6 @@ import static com.example.dw_1.grafico.RegistrationControllerGrafico.FREE_TYPE;
 import static com.example.dw_1.grafico.RegistrationControllerGrafico.MANAGER_TYPE;
 
 public class UserTypeControllerGrafico {
- /*   public static final int SCUBA_TYPE = 0;
-    public static final int FREE_TYPE = 1;
-    public static final int MANAGER_TYPE = 2;*/
-
     public static final String SCUBA_HOME_SCREEN = "scuba_home.fxml";
     public static final String FREE_HOME_SCREEN = "free_home.fxml";
     public static final String MANAGER_HOME_SCREEN = "manager_home.fxml";

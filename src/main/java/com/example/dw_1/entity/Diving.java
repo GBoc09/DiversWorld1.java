@@ -1,14 +1,24 @@
 package com.example.dw_1.entity;
 
 public class Diving {
+    private Integer divingID;
     private String name;
     private String location;
     private String telephone;
 
-    public Diving (String name, String location, String telephone){
+    public Diving (Integer id, String name, String location, String telephone){
+        this.divingID = id;
         this.name = name;
         this.location = location;
         this.telephone = telephone;
+    }
+
+    public Integer getDivingID() {
+        return divingID;
+    }
+
+    public void setDivingID(Integer divingID) {
+        this.divingID = divingID;
     }
 
     public String getName() {

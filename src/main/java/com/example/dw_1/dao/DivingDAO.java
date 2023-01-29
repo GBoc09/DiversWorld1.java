@@ -23,8 +23,8 @@ public class DivingDAO {
     private String mangerLicense;
     public DivingCatalogue loadAllDiving(){
         DivingCatalogue divingCatalogue = new DivingCatalogue();
-        divingCatalogue.addDiving(new Diving("CrazyHorse", "IsolaGiglio","3478956234"));
-        divingCatalogue.addDiving(new Diving("HappyBubble", "IsolaGiannutri","3471234556"));
+        divingCatalogue.addDiving(new Diving(01, "CrazyHorse","IsolaGiglio", "3478965412"));
+        divingCatalogue.addDiving(new Diving(02, "HappyBubbles","IsolaGiannutri", "3462156332"));
         return divingCatalogue;
     }
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
@@ -34,7 +34,7 @@ public class DivingDAO {
         ArrayList<Diving> divings = new ArrayList<>();
         Diving diving = null;
         try (Statement stmt = con.createStatement();
-             ResultSet rs = DivingQuery.loadAllDiving(stmt, idManager)){
+             ResultSet rs = DivingQuery.loadAllDivingByManager(stmt, idManager)){
             while (rs.next()){
                 diving = createDiving(rs);
                 divings.add(diving);
@@ -46,11 +46,11 @@ public class DivingDAO {
         return divingCatalogue;
     }
 
-    public Diving loadDivingByManager (String idManager){
+    public  Diving loadDivingByManager(String idManager){
         Connection con =connection.getConnection();
         Diving diving = null;
         try (Statement stmt = con.createStatement();
-             ResultSet rs = DivingQuery.loadAllDiving(stmt, idManager)){
+             ResultSet rs = DivingQuery.loadAllDivingByManager(stmt, idManager)){
             if(rs.isFirst()){
                 diving = createDiving(rs);
             }
@@ -95,10 +95,11 @@ public class DivingDAO {
     }
 
     public Diving createDiving(ResultSet rs) throws SQLException {
+        Integer id = rs.getInt(DIVING_ID);
         String name = rs.getString(DIVING_NAME);
         String location = rs.getString(DIVING_LOCATION);
         String telephone = rs.getString(DIVING_TELEPHONE);
-        return new Diving(name, location, telephone);
+        return new Diving(id, name, location, telephone);
 
     }
 
