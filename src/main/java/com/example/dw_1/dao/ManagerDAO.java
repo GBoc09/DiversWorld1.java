@@ -19,7 +19,6 @@ public class ManagerDAO {
     public void insertManager(User manager) throws AlreadyRegisteredUserException {
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
-            System.out.println("manager dao: INSERT MANAGER");
             UserQuery.insertUser(stmt, manager.getEmail(), manager.getPassword(), MANAGER);
             UserQuery.insertIntoManager(stmt, manager.getName(), manager.getLastname(), manager.getLicense());
         } catch (SQLIntegrityConstraintViolationException e){

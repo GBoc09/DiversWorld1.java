@@ -8,7 +8,6 @@ public class LoginBean implements Bean{
         setUserPassword(userPassword);
     }
     public String getUserEmail(){
-        System.out.println(userEmail);
         return userEmail;
     }
     public void setUserEmail(String userEmail){
@@ -16,7 +15,6 @@ public class LoginBean implements Bean{
     }
 
     public String getUserPassword() {
-        System.out.println(userPassword);
         return userPassword;
     }
 

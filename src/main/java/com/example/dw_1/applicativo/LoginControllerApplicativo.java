@@ -19,9 +19,6 @@ public class LoginControllerApplicativo {
         return new UserBean(loginData.getUserEmail(), userType);
     }
 
-     public void setLoggedUser(UserBean userBean){
-        this.loggedUser = loggedUser;
-     }
 
 }
 

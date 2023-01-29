@@ -13,10 +13,13 @@ public class User {
         this.lastname = lastname;
         this.license = license;
     }
-    //public User(){}
-/* premde solo email e password */
+    public User(){}
+    public User(String uName, String uLast){
+        this.name = uName;
+        this.lastname = uLast;
+    }
+/* prende solo email e password */
     public String getEmail(){
-        System.out.println("USER");
         return this.email;
     }
     public void setEmail(String email) {
@@ -32,7 +35,6 @@ public class User {
     }
 
     public String getName() {
-        System.out.println(name);
         return name;
     }
 
@@ -41,7 +43,6 @@ public class User {
     }
 
     public String getLastname() {
-        System.out.println(lastname);
         return lastname;
     }
 
@@ -50,7 +51,6 @@ public class User {
     }
 
     public String getLicense() {
-        System.out.println(license);
         return license;
     }
 

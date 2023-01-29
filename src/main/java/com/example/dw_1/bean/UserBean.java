@@ -29,7 +29,6 @@ public class UserBean implements Bean{
     }
     public String getName() {
 
-        System.out.println(name);
         return name;
     }
 
@@ -38,7 +37,6 @@ public class UserBean implements Bean{
     }
 
     public String getLastname() {
-        System.out.println(lastname);
         return lastname;
     }
 

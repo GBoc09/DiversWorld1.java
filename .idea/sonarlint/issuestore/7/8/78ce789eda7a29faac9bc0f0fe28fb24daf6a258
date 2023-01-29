@@ -1,9 +1,0 @@
-
-~
-java:S4165"hRemove this useless assignment; "loggedUser" already holds the assigned value along all execution paths.(°°ο
-J
-java:S1172"/Remove this unused method parameter "userBean".(†°Χδώÿÿÿÿ
-E
-java:S1656"/Remove or correct this useless self-assignment.(°°ο
-`
-java:S1068">Remove this unused "loginControllerApplicativo" private field.(¨–όΥωÿÿÿÿ8λέ’«ί0

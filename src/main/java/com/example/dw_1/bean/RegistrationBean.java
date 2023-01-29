@@ -15,50 +15,52 @@ public class RegistrationBean extends UserBean implements Bean{
         setUserEmail(userEmail);
     }
 
+    @Override
     public String getName() {
         return name;
     }
-
+    @Override
     public void setName(String name) {
         this.name = name;
     }
-
+    @Override
     public String getLastname() {
         return lastname;
     }
-
+    @Override
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
+    @Override
     public String getUserEmail() {
         return userEmail;
     }
-
+    @Override
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
-
+    @Override
     public Integer getUserType() {
         return userType;
     }
-
+    @Override
     public void setUserType(Integer userType) {
         this.userType = userType;
     }
-
+    @Override
     public String getPassword() {
         return password;
     }
-
+    @Override
     public void setPassword(String password) {
         this.password = password;
     }
-
+    @Override
     public String getLicense() {
         return license;
     }
-
+    @Override
     public void setLicense(String license) {
         this.license = license;
     }
@@ -83,38 +85,4 @@ public class RegistrationBean extends UserBean implements Bean{
         return word.matches("[a-zA-Z]*");
     }
 
-    /*public Boolean validatePassword(String password) {
-        // password inserite rispettano i paraemtri della piattaforma.
-        boolean flag = false;
-        // rispetto il range di lunghezza entro cui deve stare la password
-        if (password.length() < ProfileManagementGraphicControl.getMinPassLenght() &&
-                password.length() > ProfileManagementGraphicControl.getMaxPassLenght()) {
-            return false;
-        }
-        // verifico che non ci siano caratteri che il mio sistema non ammette
-        for (Character forbidden : ProfileManagementGraphicControl.getForbiddenChar()) {
-            if (password.contains(forbidden.toString())) {
-                return false;
-            }
-        }
-        // verifico che ci siano solo caretteri ammessi dal sistema
-        for (String allowed : ProfileManagementGraphicControl.getAllowedChar()) {
-            for(int i = 0; i<allowed.length(); i++) {
-                if(password.contains(Character.toString(allowed.charAt(i)))){
-                    flag = true;
-                    break;
-                }
-            }
-            if(!flag) {
-                return false;
-            }
-            flag = false;
-        }
-        return true;
-    }*/
-   /* public Boolean validateEmail(String email){
-        // verifico il formato di formattazione dell'email
-        return email.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-                + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
-    }*/
 }

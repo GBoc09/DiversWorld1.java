@@ -5,7 +5,6 @@ import com.example.dw_1.entity.Diving;
 import com.example.dw_1.exception.NotFoundDivingException;
 import com.example.dw_1.other.DivingCatalogue;
 import com.example.dw_1.query.DivingQuery;
-import com.example.dw_1.query.EquipQuery;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
