@@ -2,7 +2,6 @@ package com.example.dw_1.applicativo;
 
 import com.example.dw_1.bean.DivingBean;
 import com.example.dw_1.bean.EquipmentBean;
-import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.dao.EquipmentDAO;
 import com.example.dw_1.entity.Diving;
 import com.example.dw_1.entity.Equipment;
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class GestioneEquipControllerApplicativo {
-    public void addEquip(EquipmentBean equipmentBean, DivingBean divingBean) throws SQLException, DuplicateItemException, InvalidItemException {
+    public void addEquip(EquipmentBean equipmentBean, DivingBean divingBean) throws DuplicateItemException, InvalidItemException {
         EquipmentDAO equipmentDAO = new EquipmentDAO();
         EquipCatalogue equipCatalogue = equipmentDAO.loadEquipByID(divingBean.getDivingId());
         Diving diving = new Diving(divingBean.getDivingId(), divingBean.getDivingName(), divingBean.getLocation(), divingBean.getTelephone());

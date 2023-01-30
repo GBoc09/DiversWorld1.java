@@ -1,6 +1,7 @@
 package com.example.dw_1.grafico;
 
 public class ProfileManagementGraphicControl {
+    private ProfileManagementGraphicControl(){}
     private static final Integer MIN_PASS_LENGHT = 4;
     private static final Integer MAX_PASS_LENGHT = 16;
 

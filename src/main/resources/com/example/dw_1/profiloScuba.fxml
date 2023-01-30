@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.ScubaProfiloControllerGrafico">
    <children>
-      <Label layoutX="170.0" layoutY="20.0" onMouseClicked="#backToScubaHome" text="DIVERS WORLD">
+      <Label fx:id="backHome" layoutX="170.0" layoutY="20.0" onMouseClicked="#backToScubaHome" text="DIVERS WORLD">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
@@ -39,7 +39,7 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="taxtLicense" layoutX="231.0" layoutY="208.0" prefHeight="25.0" prefWidth="310.0" promptText="LICENSE NUMBER" style="-fx-background-color: white;">
+      <TextField fx:id="textLicense" layoutX="231.0" layoutY="208.0" prefHeight="25.0" prefWidth="310.0" promptText="LICENSE NUMBER" style="-fx-background-color: white;">
          <font>
             <Font size="15.0" />
          </font>

@@ -10,6 +10,10 @@ public class UserQuery extends Query {
         String query = String.format("SELECT * FROM User WHERE email = '%s' AND password = '%s';", email,password);
         return stmt.executeQuery(query);
     }
+    public static ResultSet selectUserByEmail(Statement stmt, String email) throws SQLException {
+        String query = String.format("SELECT * FROM User WHERE email = '%s' ;", email);
+        return stmt.executeQuery(query);
+    }
     public static boolean insertUser(Statement stmt, String email, String password, String type) throws SQLException{
         System.out.println("user query: INSERT USER");
         System.out.println(email);

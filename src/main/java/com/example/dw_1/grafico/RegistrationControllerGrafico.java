@@ -1,4 +1,5 @@
 package com.example.dw_1.grafico;
+        import com.example.dw_1.DiversWorld;
         import com.example.dw_1.applicativo.RegistazioneControllerApplicativo;
         import com.example.dw_1.bean.UserBean;
         import com.example.dw_1.entity.User;
@@ -8,8 +9,7 @@ package com.example.dw_1.grafico;
         import javafx.fxml.FXML;
         import javafx.scene.control.*;
 
-
-
+        import java.io.IOException;
 
 
 public class RegistrationControllerGrafico {
@@ -52,12 +52,14 @@ public class RegistrationControllerGrafico {
     public static final int SCUBA_TYPE = 0;
     public static final int FREE_TYPE = 1;
     public static final int MANAGER_TYPE = 2;
+    public static final int NOT_LOG = -1;
 
     public static final String SCUBA_SCREEN = "scuba_home.fxml";
     public static final String FREE_SCREEN = "free_home.fxml";
     public static final String MANAGER_SCREEN = "manager_home.fxml";
 
     UserBean userBean;
+    private Integer type;
 
         @FXML
     void signIn(ActionEvent event) throws AlreadyRegisteredUserException {
@@ -65,26 +67,39 @@ public class RegistrationControllerGrafico {
                 userBean = insertInfo();
                 RegistazioneControllerApplicativo registazioneControllerApplicativo = new RegistazioneControllerApplicativo();
                 registazioneControllerApplicativo.registrazione(userBean);
-                System.out.println("registrazione con successo");
+                type = userBean.getUserType();
+                switch (type){
+                    case 0:
+                        DiversWorld dw = new DiversWorld();
+                        dw.changeScene("scuba_home.fxml");
+                        break;
+                    case 1:
+                        DiversWorld dw1 = new DiversWorld();
+                        dw1.changeScene("free_home.fxml");
+                        break;
+                    case 2:
+                        DiversWorld dw2 = new DiversWorld();
+                        dw2.changeScene("manager_home.fxml");
+                        break;
+                    default: type = NOT_LOG;
+                }
             } catch (AlreadyRegisteredUserException e){
+                errorLabel.setText("You are already registered!");
                 throw new AlreadyRegisteredUserException(1);
             } catch (InvalidCredentialException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
     private UserBean insertInfo() throws InvalidCredentialException {
-        UserBean userBean = new UserBean();
-        System.out.println("registration controller grafico: INSERT INFO");
-        userBean.setUserEmail(email.getText());
-        System.out.println(email);
-        userBean.setPassword(password.getText());
-        System.out.println(password);
-        userBean.setName(name.getText());
-        System.out.println(name);
-        userBean.setLastname(lastname.getText());
-        System.out.println(lastname);
-        userBean.setLicense(license.getText());
-        System.out.println(license);
+        UserBean user = new UserBean();
+        user.setUserEmail(email.getText());
+        user.setPassword(password.getText());
+        user.setName(name.getText());
+        user.setLastname(lastname.getText());
+        user.setLicense(license.getText());
+
 
         if (scubaCheck.isSelected()) {
             userType = SCUBA_TYPE;
@@ -93,12 +108,12 @@ public class RegistrationControllerGrafico {
         } else if (managerCheck.isSelected()) {
             userType= MANAGER_TYPE;
         }
-        userBean.setUserType(userType);
+        user.setUserType(userType);
 
         if(email.getText().isEmpty() || password.getText().isEmpty()|| name.getText().isEmpty()|| lastname.getText().isEmpty() || license.getText().isEmpty()){
             throw new InvalidCredentialException("Invalid fields");
         }
-        return userBean;
+        return user;
 
     }
 

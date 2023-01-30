@@ -33,9 +33,9 @@ public class LoginControllerGrafico {
     private Label errorLabel;
     @FXML
     private ImageView profilo;
-
+    private Integer NOT_LOG = -1;
     @FXML
-    void accedi(ActionEvent event) throws InvalidCredentialException, IOException { /* function ACCEDI is related to the login button in the login screen */
+    void accedi(ActionEvent event) throws InvalidCredentialException, IOException, NotExistantException { /* function ACCEDI is related to the login button in the login screen */
         Integer userType;
         Node eventSource = (Node) event.getSource();
         if (eventSource == entry) {
@@ -50,29 +50,20 @@ public class LoginControllerGrafico {
             if (userBean != null ) {
                 switch (userType) {
                     case 0:
-                        try {
                             DiversWorld dw = new DiversWorld();
                             dw.changeScene("scuba_home.fxml");
-                            } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                        }
                     break;
                     case 1:
-                        try {
-                            DiversWorld dw = new DiversWorld();
-                            dw.changeScene("free_home.fxml");
-                        } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                        }
+                            DiversWorld dw1 = new DiversWorld();
+                            dw1.changeScene("free_home.fxml");
                         break;
                     case 2:
-                        try {
-                            DiversWorld dw = new DiversWorld();
-                            dw.changeScene("manager_home.fxml");
-                        } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                        }
+
+                            DiversWorld dw2 = new DiversWorld();
+                            dw2.changeScene("manager_home.fxml");
                         break;
+                    default: userType = NOT_LOG;
+                    throw new NotExistantException("User not logged");
                 }
             }
         }
@@ -102,16 +93,6 @@ public class LoginControllerGrafico {
         }
         return loggedUser;
     }
-    @FXML
-    void visualizzaProfilo(MouseEvent event) {
-        try{
-            DiversWorld dw = new DiversWorld();
-            dw.changeScene("profiloScuba.fxml");
-        }
-        catch (Exception e){
-            System.err.println(e.getMessage());
-        }
 
-    }
 }
 

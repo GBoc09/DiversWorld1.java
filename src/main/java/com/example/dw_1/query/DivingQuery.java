@@ -10,7 +10,7 @@ public class DivingQuery {
         return stmt.executeQuery(query);
     }
     public static ResultSet loadAllDivingByManager(Statement stmt, String managerID) throws SQLException {
-        String query = String.format("SELECT * FORM Diving WHERE divingManager = '%d';",managerID );
+        String query = String.format("SELECT * FORM Diving WHERE divingManager = '%s';",managerID );
         return stmt.executeQuery(query);
     }
     public static ResultSet selectDivingByName(Statement stmt, String divingName) throws SQLException {

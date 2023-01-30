@@ -45,7 +45,7 @@ public class EquipmentBean implements Bean {
         return nameBean;
     }
 
-    public void setNameBean(String typeBean) {
+    public void setNameBean(String nameBean) {
         this.nameBean = nameBean;
     }
 

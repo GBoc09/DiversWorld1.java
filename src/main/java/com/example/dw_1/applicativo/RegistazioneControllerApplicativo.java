@@ -13,7 +13,6 @@ public class RegistazioneControllerApplicativo {
     public RegistazioneControllerApplicativo() {
         factory = new Factory();
     }
-    /* fino a registrazione controller mantiene nome, cognome, license */
     public void registrazione (UserBean userBean) throws AlreadyRegisteredUserException{
         User scuba;
         User free;

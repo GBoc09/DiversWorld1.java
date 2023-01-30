@@ -1,50 +1,56 @@
 package com.example.dw_1.grafico;
 
+import com.example.dw_1.bean.DivingBean;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
 
-public class AddEquipmentControllerGrafico {
+public class NoleggioProdottiControllerGrafico {
     ObservableList<String> equipList = FXCollections.observableArrayList("Jacket", "Regulator", "Mask", "Finns", "Weight", "Suit");
     ObservableList<String> sizeList = FXCollections.observableArrayList("none","XS", "S", "M", "L", "XL");
     @FXML
-    private Button addProduct;
+    private Button divingList;
 
     @FXML
-    private TextField availability;
+    private ChoiceBox<String> equipType;
 
     @FXML
-    private TextField description;
-
-    @FXML
-    private TextField id;
-
-    @FXML
-    private TextField price;
+    private Button search;
 
     @FXML
     private ChoiceBox<String> size;
 
     @FXML
-    private ChoiceBox<String> type;
+    private CheckBox viewAll;
+    @FXML
+    private ListView<DivingBean> divingListView;
+    public NoleggioProdottiControllerGrafico(){
+        divingListView = new ListView<>();
+    }
 
+    @FXML
+    void divingList(ActionEvent event) {
+
+    }
+
+    @FXML
+    void serchItem(ActionEvent event) {
+
+    }
     @FXML
     private void initialize() {
         size.setItems(sizeList);
         size.setValue("select size");
-        type.setItems(equipList);
-        type.setValue("select type");
+        equipType.setItems(equipList);
+        equipType.setValue("select equipment");
     }
-    @FXML
-    void addNewProduct(ActionEvent event) { /* aggiungere al catalogo delle attrzzature */
-        Node sourceNode = (Node) event.getSource();
 
-    }
+
 
 
 }

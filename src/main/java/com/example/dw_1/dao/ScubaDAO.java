@@ -30,6 +30,14 @@ public class ScubaDAO {
 
 
     }
+    public void loadScuba(User scuba){
+        Connection con =connection.getConnection();
+        try(Statement stmt = con.createStatement();) {
+          UserQuery.selectUserByEmail(stmt, scuba.getEmail());
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
     public Scuba createScuba(ResultSet rs) throws SQLException {
         String email = rs.getString(SCUBA_EMAIL);
         String name = rs.getString(SCUBA_NAME);

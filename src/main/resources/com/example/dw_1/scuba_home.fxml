@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.LoginControllerGrafico">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.ScubaHomeControllerGrafico">
    <children>
       <Label layoutX="170.0" layoutY="20.0" text="DIVERS WORLD">
          <font>
@@ -21,7 +21,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="rentEqip" layoutX="379.0" layoutY="215.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="RENT EQUIPMENT">
+      <Button fx:id="rentEqip" layoutX="379.0" layoutY="215.0" mnemonicParsing="false" onAction="#rentEquip" prefHeight="36.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="RENT EQUIPMENT">
          <font>
             <Font size="15.0" />
          </font>

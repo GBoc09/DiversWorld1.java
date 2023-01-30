@@ -53,11 +53,6 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Label fx:id="errorLabel" layoutX="27.0" layoutY="358.0" prefHeight="22.0" prefWidth="330.0" textAlignment="CENTER" textFill="RED">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
       <RadioButton fx:id="scubaCheck" layoutX="217.0" layoutY="300.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" text="ScubaDiver">
          <toggleGroup>
             <ToggleGroup fx:id="attivita" />
@@ -66,5 +61,10 @@
       <RadioButton fx:id="freeCheck" layoutX="217.0" layoutY="319.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" text="FreeDiver" toggleGroup="$attivita" />
       <RadioButton fx:id="managerCheck" layoutX="217.0" layoutY="338.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="114.0" text="DivingManager" toggleGroup="$attivita" />
       <Label layoutX="168.0" layoutY="319.0" text="Activity" />
+      <Label fx:id="errorLabel" layoutX="168.0" layoutY="361.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

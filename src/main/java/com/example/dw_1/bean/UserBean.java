@@ -11,7 +11,6 @@ public class UserBean implements Bean{
         setUserEmail(userEmail);
         setUserType(userType);
     }
-    /* prende solo email e password */
     public UserBean(String userEmail){
         setUserEmail(userEmail);
     }
