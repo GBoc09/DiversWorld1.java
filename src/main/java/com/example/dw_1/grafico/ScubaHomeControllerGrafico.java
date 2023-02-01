@@ -3,7 +3,8 @@ package com.example.dw_1.grafico;
 import com.example.dw_1.DiversWorld;
 import com.example.dw_1.applicativo.ProfiloUtenteControllerApplicativo;
 import com.example.dw_1.bean.UserBean;
-import com.example.dw_1.dao.ScubaDAO;
+import com.example.dw_1.entity.Scuba;
+import com.example.dw_1.entity.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,13 +32,12 @@ public class ScubaHomeControllerGrafico {
     private PasswordField textPass;
     @FXML
     private Label backHome;
-    UserBean userBean;
+    UserBean user;
     @FXML
     void visualizzaProfilo(MouseEvent event) {
         try{
-            userBean = insertInfo();
             ProfiloUtenteControllerApplicativo profiloUtenteControllerApplicativo = new ProfiloUtenteControllerApplicativo();
-            profiloUtenteControllerApplicativo.visualizzaDati(userBean);
+            profiloUtenteControllerApplicativo.visualizzaDati(user);
             DiversWorld dw = new DiversWorld();
             dw.changeScene("profiloScuba.fxml");
         }
@@ -45,15 +45,7 @@ public class ScubaHomeControllerGrafico {
             System.err.println(e.getMessage());
         }
     }
-    private UserBean insertInfo(){
-    UserBean user = new UserBean();
-        user.setUserEmail(textEmail.getText());
-        user.setPassword(textPass.getText());
-        user.setName(textName.getText());
-        user.setLastname(textLastname.getText());
-        user.setLicense(textLicense.getText());
-         return user;
-    }
+
     @FXML
     void rentEquip(ActionEvent event) {
         try{

@@ -23,8 +23,8 @@ public class DivingDAO {
     private String mangerLicense;
     public DivingCatalogue loadAllDiving(){
         DivingCatalogue divingCatalogue = new DivingCatalogue();
-        divingCatalogue.addDiving(new Diving(01, "CrazyHorse","IsolaGiglio", "3478965412"));
-        divingCatalogue.addDiving(new Diving(02, "HappyBubbles","IsolaGiannutri", "3462156332"));
+        divingCatalogue.addDiving(new Diving(001, "CrazyHorse","IsolaGiglio", "3478965412"));
+        divingCatalogue.addDiving(new Diving(002, "HappyBubbles","IsolaGiannutri", "3462156332"));
         return divingCatalogue;
     }
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();

@@ -25,7 +25,7 @@ public class RegistrationBean extends UserBean implements Bean{
     }
     @Override
     public String getLastname() {
-        return lastname;
+        return this.lastname;
     }
     @Override
     public void setLastname(String lastname) {

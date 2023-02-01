@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.AddEquipmentControllerGrafico">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.AddEquipmentManagerControllerGrafico">
    <children>
       <TextField fx:id="id" layoutX="155.0" layoutY="112.0" prefHeight="25.0" prefWidth="290.0" promptText="id " style="-fx-background-color: white;" />
       <TextField fx:id="availability" layoutX="155.0" layoutY="201.0" prefHeight="25.0" prefWidth="290.0" promptText="availability" style="-fx-background-color: white;" />

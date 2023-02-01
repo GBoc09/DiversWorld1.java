@@ -9,7 +9,6 @@ import com.example.dw_1.exception.DuplicateItemException;
 import com.example.dw_1.exception.InvalidItemException;
 import com.example.dw_1.other.EquipCatalogue;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 

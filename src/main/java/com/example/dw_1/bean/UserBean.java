@@ -27,7 +27,6 @@ public class UserBean implements Bean{
         this.password = password;
     }
     public String getName() {
-
         return name;
     }
 
@@ -36,7 +35,7 @@ public class UserBean implements Bean{
     }
 
     public String getLastname() {
-        return lastname;
+        return this.lastname;
     }
 
     public void setLastname(String lastname) {

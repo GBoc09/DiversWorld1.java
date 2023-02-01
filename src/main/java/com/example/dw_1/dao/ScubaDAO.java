@@ -1,5 +1,6 @@
 package com.example.dw_1.dao;
 
+import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Scuba;
 import com.example.dw_1.entity.User;
@@ -13,6 +14,7 @@ public class ScubaDAO {
 
     private static final String SCUBA = "scuba";
     private static final String SCUBA_EMAIL = "emailUser";
+    private static final String SCUBA_PASS = "pass";
     private static final String SCUBA_NAME = "name";
     private static final String SCUBA_LASTNAME = "lastname";
     private static final String SCUBA_LICENSE = "";
@@ -27,23 +29,41 @@ public class ScubaDAO {
         } catch (SQLException e){
             e.printStackTrace();
         }
-
-
     }
-    public void loadScuba(User scuba){
-        Connection con =connection.getConnection();
-        try(Statement stmt = con.createStatement();) {
-          UserQuery.selectUserByEmail(stmt, scuba.getEmail());
-        } catch (SQLException sqlException){
-            sqlException.printStackTrace();
+    /* capire perchè non prende inserimento dei dati presi dal dao dal db e scrivere in maniera corretta il passaggio dei dati
+    *  vedere se dal progetto di marta si capsce di più come poter prendere i dati e visualizzarli
+    * */
+    UserQuery userQuery = new UserQuery();
+    public Scuba loadScubaByLicense(String license) {
+        Scuba scuba = new Scuba();
+        Statement stmt = null;
+        ResultSet rs = null;
+        Connection con = connection.getConnection();
+        try{
+            stmt = con.createStatement();
+            String query = null;
+            query = userQuery.selectScubaByLicense(license);
+           rs = stmt.executeQuery(query);
+           if (!rs.next()) {
+               return null;
+           }
+           scuba.getName();
+           scuba.getLastname();
+           scuba.getLicense();
+           scuba.getEmail();
+           scuba.getPassword();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return scuba;
     }
     public Scuba createScuba(ResultSet rs) throws SQLException {
         String email = rs.getString(SCUBA_EMAIL);
+        String pass = rs.getString(SCUBA_PASS);
         String name = rs.getString(SCUBA_NAME);
         String lastname = rs.getString(SCUBA_LASTNAME);
         String license = rs.getString(SCUBA_LICENSE);
 
-        return new Scuba(email,"", name, lastname, license);
+        return new Scuba(email, pass, name, lastname, license);
     }
 }

@@ -54,10 +54,6 @@ public class RegistrationControllerGrafico {
     public static final int MANAGER_TYPE = 2;
     public static final int NOT_LOG = -1;
 
-    public static final String SCUBA_SCREEN = "scuba_home.fxml";
-    public static final String FREE_SCREEN = "free_home.fxml";
-    public static final String MANAGER_SCREEN = "manager_home.fxml";
-
     UserBean userBean;
     private Integer type;
 
