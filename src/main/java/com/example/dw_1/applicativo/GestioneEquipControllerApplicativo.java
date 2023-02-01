@@ -15,7 +15,7 @@ import java.util.Objects;
 public class GestioneEquipControllerApplicativo {
     public void addEquip(EquipmentBean equipmentBean, DivingBean divingBean) throws DuplicateItemException, InvalidItemException {
         EquipmentDAO equipmentDAO = new EquipmentDAO();
-        EquipCatalogue equipCatalogue = equipmentDAO.loadEquipByID(divingBean.getDivingId());
+        EquipCatalogue equipCatalogue = equipmentDAO.loadEquipByID(equipmentBean.getIdBean());
         Diving diving = new Diving(divingBean.getDivingId(), divingBean.getDivingName(), divingBean.getLocation(), divingBean.getTelephone());
         Equipment equipment = new Equipment(equipmentBean.getIdBean(), equipmentBean.getNameBean(), equipmentBean.getSizeBean(),equipmentBean.getAvailBean(), equipmentBean.getDescrBean(), equipmentBean.getPriceBean(), diving);
         equipment.setDiving(diving);

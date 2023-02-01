@@ -5,12 +5,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DivingQuery {
-    public static ResultSet loadAllDiving (Statement stmt, Integer divingID) throws SQLException {
-        String query = String.format("SELECT * FORM Diving WHERE divingManager = '%d';",divingID );
+    public static ResultSet loadAllDiving (Statement stmt, String divingID) throws SQLException {
+        String query = String.format("SELECT * FORM Diving WHERE divingManager = '%s';",divingID );
         return stmt.executeQuery(query);
     }
-    public static ResultSet loadAllDivingByManager(Statement stmt, String managerID) throws SQLException {
-        String query = String.format("SELECT * FORM Diving WHERE divingManager = '%s';",managerID );
+    public static ResultSet loadAllDivingByManager(Statement stmt, String emailManager) throws SQLException {
+        String query = String.format("SELECT * FORM Diving WHERE divingManager = '%s';",emailManager );
         return stmt.executeQuery(query);
     }
     public static ResultSet selectDivingByName(Statement stmt, String divingName) throws SQLException {

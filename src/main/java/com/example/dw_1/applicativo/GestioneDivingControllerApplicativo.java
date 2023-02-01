@@ -16,10 +16,13 @@ public class GestioneDivingControllerApplicativo {
     }
     public List<DivingBean>getAllDiving(){
         DivingDAO divingDAO = new DivingDAO();
-        divingDAO.setMangerLicense(userBean.getLicense());
+        divingDAO.setManEmail(userBean.getUserEmail());
+
         DivingCatalogue divingCatalogue = divingDAO.loadAllDiving();
         List<Diving> divings = divingCatalogue.getDivingList();
+
         ArrayList<DivingBean> divingBeanArrayList = new ArrayList<>();
+
         for (Diving diving : divings){
             divingBeanArrayList.add(new DivingBean(diving.getDivingID(),diving.getName(),diving.getLocation(),diving.getTelephone()));
         }

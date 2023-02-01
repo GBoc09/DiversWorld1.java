@@ -16,25 +16,24 @@ import java.util.List;
 public class DivingDAO {
     private static final String DIVING_ID = "id";
     private static final String DIVING_NAME = "name";
-    private static final  String DIVING_MANAGER = "divingManager";
     private static final String DIVING_LOCATION = "location";
     private static final String DIVING_TELEPHONE  =  "telephone";
 
-    private String mangerLicense;
+    private String manEmail;
     public DivingCatalogue loadAllDiving(){
         DivingCatalogue divingCatalogue = new DivingCatalogue();
-        divingCatalogue.addDiving(new Diving(001, "CrazyHorse","IsolaGiglio", "3478965412"));
-        divingCatalogue.addDiving(new Diving(002, "HappyBubbles","IsolaGiannutri", "3462156332"));
+        divingCatalogue.addDiving(new Diving("001", "CrazyHorse","IsolaGiglio", "3478965412"));
+        divingCatalogue.addDiving(new Diving("002", "HappyBubbles","IsolaGiannutri", "3462156332"));
         return divingCatalogue;
     }
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
-    public DivingCatalogue loadAllDivingByManager(String idManager){
+    public DivingCatalogue loadAllDivingByManager(String emailMan){
         Connection con =connection.getConnection();
         DivingCatalogue divingCatalogue = new DivingCatalogue();
         ArrayList<Diving> divings = new ArrayList<>();
         Diving diving = null;
         try (Statement stmt = con.createStatement();
-             ResultSet rs = DivingQuery.loadAllDivingByManager(stmt, idManager)){
+             ResultSet rs = DivingQuery.loadAllDivingByManager(stmt, emailMan)){
             while (rs.next()){
                 diving = createDiving(rs);
                 divings.add(diving);
@@ -46,11 +45,11 @@ public class DivingDAO {
         return divingCatalogue;
     }
 
-    public  Diving loadDivingByManager(String idManager){
+    public  Diving loadDivingByManager(String emailManager){
         Connection con =connection.getConnection();
         Diving diving = null;
         try (Statement stmt = con.createStatement();
-             ResultSet rs = DivingQuery.loadAllDivingByManager(stmt, idManager)){
+             ResultSet rs = DivingQuery.loadAllDivingByManager(stmt, emailManager)){
             if(rs.isFirst()){
                 diving = createDiving(rs);
             }
@@ -95,20 +94,18 @@ public class DivingDAO {
     }
 
     public Diving createDiving(ResultSet rs) throws SQLException {
-        Integer id = rs.getInt(DIVING_ID);
+        String id = rs.getString(DIVING_ID);
         String name = rs.getString(DIVING_NAME);
         String location = rs.getString(DIVING_LOCATION);
         String telephone = rs.getString(DIVING_TELEPHONE);
         return new Diving(id, name, location, telephone);
 
     }
-
-
-    public String getMangerLicense() {
-        return mangerLicense;
+    public String getManEmail() {
+        return manEmail;
     }
 
-    public void setMangerLicense(String mangerLicense) {
-        this.mangerLicense = mangerLicense;
+    public void setManEmail(String manEmail) {
+        this.manEmail = manEmail;
     }
 }

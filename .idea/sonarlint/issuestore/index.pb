@@ -14,8 +14,6 @@ N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-_
-/src/main/java/com/example/dw_1/query/Query.java,e\e\ee50966154fca329d2df962467f19cf4382308ed
 l
 <src/main/java/com/example/dw_1/db/MyConnectionSingleton.java,b\7\b7132158b3b028e4992bdbc34121f1bd24506e1e
 _

@@ -1,35 +1,35 @@
 package com.example.dw_1.bean;
 
 public class DivingBean implements Bean{
-    private Integer divingId;
+    private String divingId;
     private String divingName;
     private String divingManager;
     private String location;
     private String telephone;
 
     public DivingBean(){}
-    public DivingBean(Integer id, String name, String manager, String city, String phone){
+    public DivingBean(String id, String name, String manager, String city, String phone){
         this.divingId = id;
         this.divingName = name;
         this.divingManager = manager;
         this.location = city;
         this.telephone = phone;
     }
-    public DivingBean(Integer id, String name, String city, String phone){
+    public DivingBean(String id, String name, String city, String phone){
         this.divingId = id;
         this.divingName = name;
         this.location = city;
         this.telephone = phone;
     }
 
-    public Integer getDivingId() {
+    public String getDivingId() {
         return divingId;
     }
     public DivingBean (String name){
         this.divingName = name;
     }
 
-    public void setDivingId(Integer divingId) {
+    public void setDivingId(String divingId) {
         this.divingId = divingId;
     }
 

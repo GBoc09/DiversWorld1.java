@@ -10,7 +10,22 @@ import com.example.dw_1.exception.NotExistantException;
 *  NON FUNZIONA ANCORA IL CARICAMENTO DEI DATI ALL' INTERNO DEL PROFILO DELL'UTENTE
 * */
 public class ProfiloUtenteControllerApplicativo{
-   public UserBean visualizzaDati(UserBean userBean) throws NotExistantException {
+    private static ProfiloUtenteControllerApplicativo profiloUtenteControllerApplicativo;
+    private UserBean loggedUser;
+    public static ProfiloUtenteControllerApplicativo getInstance(){
+        if(profiloUtenteControllerApplicativo == null){
+            profiloUtenteControllerApplicativo = new ProfiloUtenteControllerApplicativo();
+        }
+        return profiloUtenteControllerApplicativo;
+    }
+   public UserBean getLoggedUser(){
+       return loggedUser;
+   }
+    public void setLoggedUser(UserBean loggedUser) {
+        this.loggedUser = loggedUser;
+    }
+
+    public UserBean visualizzaDati(UserBean userBean){
        UserBean user = new UserBean();
        String license = userBean.getLicense();
        ScubaDAO scubaDAO = new ScubaDAO();
