@@ -7,10 +7,18 @@ public class UserBean implements Bean{
     private Integer userType;
     private String license;
     public UserBean(){}
+    public UserBean(String userEmail, String password,String name, String lastname, String license){
+        setUserEmail(userEmail);
+        setPassword(password);
+        setName(name);
+        setLastname(lastname);
+        setLicense(license);
+    }
     public UserBean(String userEmail, Integer userType){
         setUserEmail(userEmail);
         setUserType(userType);
     }
+    /* costruttore per utente loggato*/
     public UserBean(String userEmail){
         setUserEmail(userEmail);
     }

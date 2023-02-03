@@ -12,6 +12,10 @@ public class Diving {
         this.location = location;
         this.telephone = telephone;
     }
+    public Diving(String name, String location){
+        this.name = name;
+        this.location = location;
+    }
 
     public String getDivingID() {
         return divingID;

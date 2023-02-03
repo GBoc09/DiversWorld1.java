@@ -13,12 +13,12 @@ public class User {
         this.lastname = lastname;
         this.license = license;
     }
+    /* protected */
     public User(){}
     public User(String uName, String uLast){
         this.name = uName;
         this.lastname = uLast;
     }
-/* prende solo email e password */
     public String getEmail(){
         return this.email;
     }

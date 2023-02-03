@@ -5,11 +5,15 @@ import com.example.dw_1.applicativo.GestioneDivingControllerApplicativo;
 import com.example.dw_1.applicativo.ProfiloUtenteControllerApplicativo;
 import com.example.dw_1.bean.DivingBean;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,29 +41,43 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
     private Label divingTelephone;
     @FXML
     private Button modifyDiving;
-
+/*
+* MODIFICATO TIPO DELLA LIST VIEW DA DIVER BEAN A STRING */
     @FXML
-    private ListView<DivingBean> divingView;
+    private ListView<String> divingView;
 
     private static final Integer ADD_DIVING_CENTER = 0;
     private static final Integer MODIFY_DIVING_CENTER = 1;
     private static final Integer MANGER_HOME = 2;
 
-    public void initialized(URL location, ResourceBundle resources) {
+    @FXML
+    private Button home;
+
+    @FXML
+    private Label resultLabel;
+
+    @FXML
+    private Button showDiving;
+
+    @FXML
+    private VBox vBox;
+
+    public void initialize(URL location, ResourceBundle resources) {
         GestioneDivingControllerApplicativo gestioneDivingControllerApplicativo = new GestioneDivingControllerApplicativo();
-        gestioneDivingControllerApplicativo.setUserBean(ProfiloUtenteControllerApplicativo.getInstance().getLoggedUser());
+       // gestioneDivingControllerApplicativo.setUserBean(ProfiloUtenteControllerApplicativo.getInstance().getLoggedUser());
 
         List<DivingBean> divingBeanList = gestioneDivingControllerApplicativo.getAllDiving();
-        divingView.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) ->{
+      /* divingView.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) ->{
             divingID.setText(newValue.getDivingId());
             divingName.setText(newValue.getDivingName());
             divingManger.setText(newValue.getDivingManager());
             divingLocation.setText(newValue.getLocation());
             divingTelephone.setText(newValue.getTelephone());
-
         }));
-        divingView.getItems().clear();
-        divingView.setItems(FXCollections.observableList(divingBeanList));
+        divingView.getItems();
+        divingView.setItems(FXCollections.observableList(divingBeanList));*/
+        divingView.getItems().add("aaaa");
+        vBox = new VBox(divingView);
     }
     @FXML
     void onButtonClicked(ActionEvent event) throws IOException {
@@ -75,8 +93,9 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
         if (nextScreen != null){
             switch (nextScreen) {
                 case 0 :
+                        resultLabel.setText("Insertion Successful");
                         DiversWorld dw = new DiversWorld();
-                        dw.changeScene("divingCenterManagement.fxml");
+                        dw.changeScene("yourDivingCenter.fxml");
                     break;
                 case 1:
                         DiversWorld dw1 = new DiversWorld();
@@ -87,5 +106,38 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
         }
 
     }
+    @FXML
+    void goHome(MouseEvent event) {
+        try {
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("manager_home.fxml");
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+        }
 
+    }
+    @FXML
+    void showDiving(ActionEvent event ){try {
+        DiversWorld dw = new DiversWorld();
+        dw.changeScene("divingCenter.fxml");
+    } catch (Exception e){
+        System.err.println(e.getMessage());
+    }}
+    @FXML
+    void goHome(ActionEvent event) {
+        try {
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("manager_home.fxml");
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public Label getResultLabel() {
+        return resultLabel;
+    }
+
+    public void setResultLabel(Label resultLabel) {
+        this.resultLabel = resultLabel;
+    }
 }

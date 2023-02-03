@@ -48,7 +48,7 @@ public class UserDAO {
         }
         return userType;
     }
-    public User selectUserLicense(String license){
+   /* public User selectUserLicense(String license){
         User user = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -75,5 +75,5 @@ public class UserDAO {
             }
         }
         return user;
-    }
+    }*/
 }

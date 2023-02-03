@@ -20,5 +20,3 @@ _
 /src/main/java/com/example/dw_1/dao/FreeDAO.java,6\8\68a6d3a08b62f7f0bb403876f1c98478cfb28d5f
 |
 Lsrc/main/java/com/example/dw_1/exception/AlreadyRegisteredUserException.java,1\3\13ba3af644dbfc1f6b43ec4a54b3b49cc3232d4f
-c
-3src/main/java/com/example/dw_1/pattern/Factory.java,b\1\b1812c74d2812de8ec63c45a61b1d18ecd4035fe

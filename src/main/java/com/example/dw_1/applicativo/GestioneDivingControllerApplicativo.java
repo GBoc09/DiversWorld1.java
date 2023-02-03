@@ -1,9 +1,12 @@
 package com.example.dw_1.applicativo;
 
 import com.example.dw_1.bean.DivingBean;
+import com.example.dw_1.bean.LoginBean;
 import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.dao.DivingDAO;
+import com.example.dw_1.dao.UserDAO;
 import com.example.dw_1.entity.Diving;
+import com.example.dw_1.exception.NotExistantException;
 import com.example.dw_1.other.DivingCatalogue;
 
 import java.util.ArrayList;
@@ -27,5 +30,13 @@ public class GestioneDivingControllerApplicativo {
             divingBeanArrayList.add(new DivingBean(diving.getDivingID(),diving.getName(),diving.getLocation(),diving.getTelephone()));
         }
         return divingBeanArrayList;
+    }
+    public DivingBean verifyDiving(DivingBean divingBean) throws NotExistantException {
+        DivingDAO divingDAO = new DivingDAO();
+        System.out.println("verify diving");
+        String diving = divingDAO.findDivingByName(divingBean.getDivingName());
+        System.out.println(diving);
+        System.out.println("verify diving dopo passaggio in DB ");
+        return new DivingBean(diving, divingBean.getLocation());
     }
 }

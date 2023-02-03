@@ -79,7 +79,7 @@ public class LoginControllerGrafico {
         }
 
     }
-    private UserBean login (){
+    private UserBean login () throws NotExistantException {
         String userEmail = email.getText();
         String password = userPass.getText();
         LoginBean loginBean = new LoginBean(userEmail, password);
@@ -89,10 +89,20 @@ public class LoginControllerGrafico {
         try {
             loggedUser = loginControllerApplicativo.verifyUser(loginBean);
         } catch (NotExistantException e){
-
+                throw new NotExistantException("---User not found---");
         }
         return loggedUser;
     }
+    @FXML
+    void visualizzaProfilo(MouseEvent event) {
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("profiloScuba.fxml");
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
 
+    }
 }
 

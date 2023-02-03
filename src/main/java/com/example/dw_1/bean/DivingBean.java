@@ -21,6 +21,10 @@ public class DivingBean implements Bean{
         this.location = city;
         this.telephone = phone;
     }
+    public DivingBean(String name, String city){
+        this.divingName = name;
+        this.location = city;
+    }
 
     public String getDivingId() {
         return divingId;

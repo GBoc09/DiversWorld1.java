@@ -30,30 +30,16 @@ public class ScubaDAO {
             e.printStackTrace();
         }
     }
-    /* capire perchè non prende inserimento dei dati presi dal dao dal db e scrivere in maniera corretta il passaggio dei dati
-    *  vedere se dal progetto di marta si capsce di più come poter prendere i dati e visualizzarli
-    * */
-    UserQuery userQuery = new UserQuery();
-    public Scuba loadScubaByLicense(String license) {
-        Scuba scuba = new Scuba();
-        Statement stmt = null;
-        ResultSet rs = null;
+    public Scuba loadScubaByEmail(String email) {
+        Scuba scuba = null;
         Connection con = connection.getConnection();
-        try{
-            stmt = con.createStatement();
-            String query = null;
-            query = userQuery.selectScubaByLicense(license);
-           rs = stmt.executeQuery(query);
-           if (!rs.next()) {
-               return null;
-           }
-           scuba.getName();
-           scuba.getLastname();
-           scuba.getLicense();
-           scuba.getEmail();
-           scuba.getPassword();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        try (Statement stmt = con.createStatement();
+        ResultSet rs = UserQuery.selectScubaByEmail(stmt,email);) {
+            while (rs.next()){
+                scuba = createScuba(rs);
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
         }
         return scuba;
     }

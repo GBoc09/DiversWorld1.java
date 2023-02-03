@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.ManagerDivingCenterControllerGrafico">
    <children>
-      <Label layoutX="207.0" layoutY="29.0" text="Diving Center">
+      <Label layoutX="207.0" layoutY="29.0" onMouseClicked="#goHome" text="Diving Center">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
@@ -51,5 +52,6 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <VBox fx:id="vBox" alignment="TOP_CENTER" layoutX="54.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

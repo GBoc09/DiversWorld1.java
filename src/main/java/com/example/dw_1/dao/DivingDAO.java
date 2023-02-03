@@ -18,6 +18,9 @@ public class DivingDAO {
     private static final String DIVING_NAME = "name";
     private static final String DIVING_LOCATION = "location";
     private static final String DIVING_TELEPHONE  =  "telephone";
+    private static final String DIVING_1 = "CrazyHorse";
+    private static final String DIVING_2= "HappyBubbles";
+
 
     private String manEmail;
     public DivingCatalogue loadAllDiving(){
@@ -50,7 +53,7 @@ public class DivingDAO {
         Diving diving = null;
         try (Statement stmt = con.createStatement();
              ResultSet rs = DivingQuery.loadAllDivingByManager(stmt, emailManager)){
-            if(rs.isFirst()){
+            if(rs.next()){
                 diving = createDiving(rs);
             }
         }catch (SQLException sqlException){
@@ -79,18 +82,18 @@ public class DivingDAO {
         return divings;
     }
 
-    public Diving findDivingByName (String divingName){
+    public String findDivingByName (String divingName){
         Connection con =connection.getConnection();
-        Diving diving = null;
+        String  nome = null;
         try (Statement stmt = con.createStatement();
              ResultSet rs = DivingQuery.selectDivingByName(stmt, divingName)){
-            if(rs.first()){
-                diving = createDiving(rs);
+            if(rs.next()){
+                nome = rs.getString("name");
             }
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
         }
-        return diving;
+        return nome;
     }
 
     public Diving createDiving(ResultSet rs) throws SQLException {

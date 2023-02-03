@@ -16,5 +16,4 @@ public class Factory {
         return new Manager(email, pass, name, lastname, license);
     }
 
-
 }

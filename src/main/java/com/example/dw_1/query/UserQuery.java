@@ -14,19 +14,26 @@ public class UserQuery extends Query {
         String query = String.format("SELECT * FROM User WHERE email = '%s' ;", email);
         return stmt.executeQuery(query);
     }
-    public static String selectScubaByLicense(String license) throws SQLException {
-        license = quote(license);
-        String query = "SELECT * FROM Scuba WHERE license = '%s' ;";
-        return String.format(query,license);
+    public static ResultSet selectScubaByEmail(Statement statement, String email) throws SQLException {
+        String query = String.format("SELECT * FROM Scuba WHERE userEmail = '%s';", email);
+        return statement.executeQuery(query);
     }
 
     public static boolean insertUser(Statement stmt, String email, String password, String type) throws SQLException{
         String query = String.format("INSERT INTO User values('%s', '%s', '%s');", email, password, type);
         return stmt.execute(query);
     }
+    public static boolean selectUser(Statement stmt, String email) throws SQLException{
+        String query = String.format("SELECT * FROM User WHERE email = '%s'; ", email);
+        return stmt.execute(query);
+    }
 
     public static boolean insertIntoScuba(Statement stmt, String license,String name, String lastname) throws SQLException{
         String query = String.format("INSERT INTO Scuba values('%s', '%s', '%s');",license, name, lastname);
+        return stmt.execute(query);
+    }
+    public static boolean selectScuba(Statement stmt, String license) throws SQLException{
+        String query = String.format("SELECT * FROM Scuba WHERE licenseNumber = '%s'; ", license);
         return stmt.execute(query);
     }
     public static boolean insertIntoFree(Statement stmt, String name, String lastname, String license ) throws SQLException{
