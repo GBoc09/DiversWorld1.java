@@ -8,7 +8,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.AddEquipmentManagerControllerGrafico">
    <children>
       <TextField fx:id="id" layoutX="155.0" layoutY="112.0" prefHeight="25.0" prefWidth="290.0" promptText="id " style="-fx-background-color: white;" />
@@ -20,7 +19,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="155.0" layoutY="43.0" text="Add new product ">
+      <Label fx:id="goHome" layoutX="155.0" layoutY="43.0" onMouseClicked="#goHome" text="Add new product ">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>

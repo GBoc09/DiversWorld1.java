@@ -2,14 +2,15 @@ package com.example.dw_1.dao;
 
 import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Diving;
+import com.example.dw_1.entity.User;
+import com.example.dw_1.exception.AlreadyRegisteredDiving;
+import com.example.dw_1.exception.AlreadyRegisteredUserException;
 import com.example.dw_1.exception.NotFoundDivingException;
 import com.example.dw_1.other.DivingCatalogue;
 import com.example.dw_1.query.DivingQuery;
+import com.example.dw_1.query.UserQuery;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,16 @@ public class DivingDAO {
 
 
     private String manEmail;
+    public void insertDiving(Diving diving) throws AlreadyRegisteredDiving {
+        Connection con =connection.getConnection();
+        try(Statement stmt = con.createStatement();){
+            DivingQuery.insertDiving(stmt, diving.getDivingID(), diving.getName(), diving.getDivingMan(), diving.getLocation(), diving.getTelephone());
+        } catch (SQLIntegrityConstraintViolationException e){
+            throw new AlreadyRegisteredDiving(1);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
     public DivingCatalogue loadAllDiving(){
         DivingCatalogue divingCatalogue = new DivingCatalogue();
         divingCatalogue.addDiving(new Diving("001", "CrazyHorse","IsolaGiglio", "3478965412"));

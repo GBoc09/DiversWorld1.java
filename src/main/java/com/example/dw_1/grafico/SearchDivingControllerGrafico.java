@@ -65,7 +65,6 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
         }
     }
 /* verifica che il diving inserito dall'utente sia all'interno del DB
-* al momento c'è solo CrazyHorse IsolaGiglio
 *    ********FUNZIONANTE ******** */
 
     private DivingBean sceltaDiving() throws NotFoundDivingException {

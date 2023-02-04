@@ -3,6 +3,7 @@ package com.example.dw_1.grafico;
 import com.example.dw_1.DiversWorld;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 
 public class ManagerHomeControllerGrafico {
@@ -37,7 +38,7 @@ public class ManagerHomeControllerGrafico {
     void visualizzaDivingCenter(ActionEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
-            dw.changeScene("divingCenter.fxml");
+            dw.changeScene("validazioneManager.fxml");
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

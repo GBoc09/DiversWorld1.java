@@ -62,23 +62,6 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
     @FXML
     private VBox vBox;
 
-    public void initialize(URL location, ResourceBundle resources) {
-        GestioneDivingControllerApplicativo gestioneDivingControllerApplicativo = new GestioneDivingControllerApplicativo();
-       // gestioneDivingControllerApplicativo.setUserBean(ProfiloUtenteControllerApplicativo.getInstance().getLoggedUser());
-
-        List<DivingBean> divingBeanList = gestioneDivingControllerApplicativo.getAllDiving();
-      /* divingView.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) ->{
-            divingID.setText(newValue.getDivingId());
-            divingName.setText(newValue.getDivingName());
-            divingManger.setText(newValue.getDivingManager());
-            divingLocation.setText(newValue.getLocation());
-            divingTelephone.setText(newValue.getTelephone());
-        }));
-        divingView.getItems();
-        divingView.setItems(FXCollections.observableList(divingBeanList));*/
-        divingView.getItems().add("aaaa");
-        vBox = new VBox(divingView);
-    }
     @FXML
     void onButtonClicked(ActionEvent event) throws IOException {
         Button sourceButton = (Button) event.getSource();

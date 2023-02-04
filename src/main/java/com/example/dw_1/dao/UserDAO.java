@@ -48,32 +48,22 @@ public class UserDAO {
         }
         return userType;
     }
-   /* public User selectUserLicense(String license){
-        User user = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        try {
-            Connection con = connection.getConnection();
-            stmt = con.createStatement();
-            String query = userQuery.selectScubaByLicense(license);
-            rs = stmt.executeQuery(query);
-
-            if(!rs.next()){
-                return null;
-            }
-            user = new User(rs.getString("email"), rs.getString("name"), rs.getString("lastname"),
-                    rs.getString("licenseNumber"), rs.getString("password"));
-            rs.close();
-        } catch (SQLException sqlException){
-            sqlException.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-            }catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-        }
-        return user;
-    }*/
+   public String selectLicense(String manager) {
+       Connection con = connection.getConnection();
+       String manId = null;
+       try (Statement stmt = con.createStatement();
+            ResultSet rs = UserQuery.selectManager(stmt, manager);) {
+           if (rs.next()) {
+               String man = rs.getString("idDivingManager");
+               if (man.equals(manager)) {
+                   manId = man;
+               }
+           } else {
+               throw new NotExistantException("Manager not found");
+           }
+       }catch (SQLException | NotExistantException sqlException){
+           sqlException.printStackTrace();
+       }
+       return manId;
+   }
 }

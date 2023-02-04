@@ -44,6 +44,11 @@ public class UserQuery extends Query {
         String query = String.format("INSERT INTO DivingManager values('%s','%s', '%s');", idManager, name, lastname);
         return stmt.execute(query);
     }
+    public static ResultSet selectManager(Statement statement, String managerID) throws SQLException {
+        String query = String.format("SELECT * FROM DivingManager WHERE idDivingManager = '%s';", managerID);
+        return statement.executeQuery(query);
+    }
+
     public static boolean deleteManager(Statement stmt, String name, String lastname, String idManager) throws SQLException{
         String query = String.format("DELETE FROM DivingManager WHERE idDivingManager = '%s';", idManager);
         return stmt.execute(query);

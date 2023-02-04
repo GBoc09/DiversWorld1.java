@@ -18,10 +18,10 @@ public class UserBean implements Bean{
         setUserEmail(userEmail);
         setUserType(userType);
     }
-    /* costruttore per utente loggato*/
     public UserBean(String userEmail){
         setUserEmail(userEmail);
     }
+
     public String getUserEmail() {
         return userEmail;
     }

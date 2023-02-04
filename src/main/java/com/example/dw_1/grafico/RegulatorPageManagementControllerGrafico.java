@@ -1,6 +1,7 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,7 +30,8 @@ public class RegulatorPageManagementControllerGrafico {
 
    @FXML
     private Button selectItem;
-
+   @FXML
+    void selectItem(ActionEvent event){}
    @FXML
     void goHome(MouseEvent event) {
         try {

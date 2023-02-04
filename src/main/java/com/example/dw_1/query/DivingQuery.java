@@ -5,6 +5,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DivingQuery {
+    public static boolean insertDiving(Statement stmt, String id, String name, String manager, String loc, String tel) throws SQLException{
+        String query = String.format("INSERT INTO Diving values('%s', '%s', '%s', '%s', '%s');", id, name, manager, loc,tel);
+        return stmt.execute(query);
+    }
     public static ResultSet loadAllDiving (Statement stmt, String divingID) throws SQLException {
         String query = String.format("SELECT * FORM Diving WHERE divingManager = '%s';",divingID );
         return stmt.executeQuery(query);
