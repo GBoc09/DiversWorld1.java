@@ -5,12 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AddEquipmentManagerControllerGrafico {
     ObservableList<String> equipList = FXCollections.observableArrayList("Jacket", "Regulator", "Mask", "Finns", "Weight", "Suit");
@@ -48,9 +50,10 @@ public class AddEquipmentManagerControllerGrafico {
     }
     @FXML
     void addNewProduct(ActionEvent event) { /* aggiungere al catalogo delle attrzzature */
-        Node sourceNode = (Node) event.getSource();
-
+        // to do
     }
+    Logger log;
+
     @FXML
     void goHome(MouseEvent event) {
         try{
@@ -58,7 +61,7 @@ public class AddEquipmentManagerControllerGrafico {
             dw.changeScene("manager_home.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            log.log(Level.INFO, "Exception Error");
         }
 
     }

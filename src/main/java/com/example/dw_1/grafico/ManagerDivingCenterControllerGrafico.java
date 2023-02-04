@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ManagerDivingCenterControllerGrafico { // mostra i diving center associati ad un manager (creare associazione con il manager)
 
@@ -89,30 +91,33 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
         }
 
     }
+    Logger logger;
     @FXML
     void goHome(MouseEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("manager_home.fxml");
         } catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }
     @FXML
-    void showDiving(ActionEvent event ){try {
-        DiversWorld dw = new DiversWorld();
-        dw.changeScene("divingCenter.fxml");
-    } catch (Exception e){
-        System.err.println(e.getMessage());
-    }}
+    void showDiving(ActionEvent event ){
+        try {
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("divingCenter.fxml");
+        } catch (Exception e){
+            logger.log(Level.INFO, "Exception Error");
+         }
+    }
     @FXML
     void goHome(ActionEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("manager_home.fxml");
         } catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 

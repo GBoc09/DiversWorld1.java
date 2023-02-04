@@ -10,6 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class JacketPageManagementControllerGrafico {
     /* JACKET PAGE FXML  */
     @FXML
@@ -35,14 +38,14 @@ public class JacketPageManagementControllerGrafico {
 
     @FXML
     private ChoiceBox<String> sizeJack;
-
+    Logger logger;
     @FXML
      void goHome(MouseEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("noleggioEquip.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
      }
@@ -52,6 +55,6 @@ public class JacketPageManagementControllerGrafico {
     }
     @FXML
     void selectItem(ActionEvent event) {
-
+        // to do
     }
 }

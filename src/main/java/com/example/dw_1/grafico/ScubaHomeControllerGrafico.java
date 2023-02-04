@@ -3,10 +3,6 @@ package com.example.dw_1.grafico;
 import com.example.dw_1.DiversWorld;
 import com.example.dw_1.applicativo.ProfiloUtenteControllerApplicativo;
 import com.example.dw_1.bean.LoginBean;
-import com.example.dw_1.bean.UserBean;
-import com.example.dw_1.dao.ScubaDAO;
-import com.example.dw_1.entity.Scuba;
-import com.example.dw_1.entity.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,6 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ScubaHomeControllerGrafico {
     @FXML
@@ -34,6 +33,7 @@ public class ScubaHomeControllerGrafico {
     private PasswordField textPass;
     @FXML
     private Label backHome;
+    Logger logger;
     LoginBean loginBean;
     /* NON FUNZIONA PER NULLA QUESTA FUNZIONE */
      @FXML
@@ -46,7 +46,7 @@ public class ScubaHomeControllerGrafico {
             dw.changeScene("profiloScuba.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 /* inizio use case */
@@ -57,7 +57,7 @@ public class ScubaHomeControllerGrafico {
             dw.changeScene("searchDiving.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }

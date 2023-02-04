@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class SuitPageManagementControllerGrafico {
 
     @FXML
@@ -33,7 +36,8 @@ public class SuitPageManagementControllerGrafico {
     private Button selectItem;
 
     @FXML
-    private ChoiceBox<?> sizeSuit;
+    private ChoiceBox<String> sizeSuit;
+    Logger logger;
 
     @FXML
     void goHome(MouseEvent event) {
@@ -41,13 +45,13 @@ public class SuitPageManagementControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("scuba_home.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 
     @FXML
     void selectItem(ActionEvent event) {
-
+        // to do
     }
 
 }

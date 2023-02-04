@@ -15,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ModifyDivingCenterControllerGrafico { // fxml associato = DIVING CENTER MANAGEMENT
 
@@ -38,6 +40,7 @@ public class ModifyDivingCenterControllerGrafico { // fxml associato = DIVING CE
     @FXML
     private Button goOn;
 
+    Logger logger;
     DivingBean divingBean;
     @FXML
     void goOn(ActionEvent event) throws IOException, AlreadyRegisteredDiving {
@@ -67,7 +70,7 @@ public class ModifyDivingCenterControllerGrafico { // fxml associato = DIVING CE
             DiversWorld dw = new DiversWorld();
             dw.changeScene("manager_home.fxml");
         } catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }

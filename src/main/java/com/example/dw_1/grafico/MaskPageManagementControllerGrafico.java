@@ -8,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class MaskPageManagementControllerGrafico {
     /* MASK PAGE FXML */
     @FXML
@@ -30,6 +33,7 @@ public class MaskPageManagementControllerGrafico {
     @FXML
     private Label goHome;
 
+    Logger logger;
 
     @FXML
     void goHome(MouseEvent event) {
@@ -37,12 +41,12 @@ public class MaskPageManagementControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("noleggioEquip.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 
     @FXML
     void selectItem(ActionEvent event) {
-
+        // to do
     }
 }

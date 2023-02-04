@@ -7,6 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class RentalControllerGrafico {
     /* RENTAL SCREEN FXML */
     @FXML
@@ -16,6 +19,7 @@ public class RentalControllerGrafico {
     private Button viewCart;
     @FXML
     private Label goHome;
+    Logger logger;
 
     @FXML
     void goToNoleggia(ActionEvent event) { /* nel caso in cui si volessero aggiungere altri items */
@@ -23,7 +27,7 @@ public class RentalControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("noleggioEquip.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 
@@ -37,7 +41,7 @@ public class RentalControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("scuba_home.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 

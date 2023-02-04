@@ -2,13 +2,10 @@ package com.example.dw_1.dao;
 
 import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Diving;
-import com.example.dw_1.entity.User;
 import com.example.dw_1.exception.AlreadyRegisteredDiving;
-import com.example.dw_1.exception.AlreadyRegisteredUserException;
 import com.example.dw_1.exception.NotFoundDivingException;
 import com.example.dw_1.other.DivingCatalogue;
 import com.example.dw_1.query.DivingQuery;
-import com.example.dw_1.query.UserQuery;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,9 +16,6 @@ public class DivingDAO {
     private static final String DIVING_NAME = "name";
     private static final String DIVING_LOCATION = "location";
     private static final String DIVING_TELEPHONE  =  "telephone";
-    private static final String DIVING_1 = "CrazyHorse";
-    private static final String DIVING_2= "HappyBubbles";
-
 
     private String manEmail;
     public void insertDiving(Diving diving) throws AlreadyRegisteredDiving {

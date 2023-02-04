@@ -67,7 +67,7 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
 /* verifica che il diving inserito dall'utente sia all'interno del DB
 *    ********FUNZIONANTE ******** */
 
-    private DivingBean sceltaDiving() throws NotFoundDivingException {
+    private DivingBean sceltaDiving()  {
         String nomeDiving = divingName.getText();
         String cityDiving = divingLoc.getText();
         DivingBean divingBean = new DivingBean(nomeDiving, cityDiving);
@@ -75,12 +75,7 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
         GestioneDivingControllerApplicativo gestioneDivingControllerApplicativo = new GestioneDivingControllerApplicativo();
         DivingBean d = null;
         if (divingBean != null) {
-            try {
-                d = gestioneDivingControllerApplicativo.verifyDiving(divingBean);
-            } catch (NotExistantException e){
-                errorLabel.setText("Diving not found");
-                throw new NotFoundDivingException("Diving not found");
-            }
+            d = gestioneDivingControllerApplicativo.verifyDiving(divingBean);
         }
         return d;
     }

@@ -7,6 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class NoleggioEquipControllerGrafico {
     @FXML
     private Button finn;
@@ -26,6 +29,7 @@ public class NoleggioEquipControllerGrafico {
     @FXML
     private Button suit;
 
+    Logger logger;
     @FXML
     void goHome(MouseEvent event) {
         try{
@@ -33,7 +37,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("scuba_home.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
 
@@ -46,7 +50,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("finnsPage.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 
@@ -57,7 +61,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("jacketPage.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }
@@ -69,7 +73,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("maskPage.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 
@@ -80,7 +84,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("regulatorPage.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }
@@ -92,7 +96,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("suitPage.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 

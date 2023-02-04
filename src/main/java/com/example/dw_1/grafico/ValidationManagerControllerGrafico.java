@@ -15,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ValidationManagerControllerGrafico {
 
@@ -28,10 +30,16 @@ public class ValidationManagerControllerGrafico {
     private TextField validLabel;
     @FXML
     private Label errorLabel;
+    Logger logger;
 
     @FXML
     void goHome(MouseEvent event) {
-
+        try {
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("manager_home.fxml");
+        } catch (Exception e) {
+            logger.log(Level.INFO, "Exception Error");
+        }
     }
 
     @FXML
@@ -55,7 +63,7 @@ public class ValidationManagerControllerGrafico {
 
     }
 
-    private ValidationBean validazioneManager() throws NotExistantException {
+    private ValidationBean validazioneManager() {
         String manager = validLabel.getText();
         ValidationBean validationBean = new ValidationBean(manager);
         GestioneDivingControllerApplicativo gestioneDivingControllerApplicativo = new GestioneDivingControllerApplicativo();

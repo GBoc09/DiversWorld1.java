@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class ManagerHomeControllerGrafico {
     @FXML
     private Button addEqup;
@@ -14,14 +17,14 @@ public class ManagerHomeControllerGrafico {
 
     @FXML
     private Button yourDivingCenter;
-
+    Logger logger;
     @FXML
     void aggiungiEquip(ActionEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("addEquip.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");;
         }
 
     }
@@ -31,7 +34,7 @@ public class ManagerHomeControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("divingCenterManagement.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
     @FXML
@@ -40,7 +43,7 @@ public class ManagerHomeControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("validazioneManager.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
     }
 

@@ -18,6 +18,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LoginControllerGrafico {
     @FXML /* buttone di login per accedere se si hanno gia le credenziali*/
@@ -33,7 +35,7 @@ public class LoginControllerGrafico {
     private Label errorLabel;
     @FXML
     private ImageView profilo;
-    private Integer NOT_LOG = -1;
+    private Integer not_log = -1;
     @FXML
     void accedi(ActionEvent event) throws InvalidCredentialException, IOException, NotExistantException { /* function ACCEDI is related to the login button in the login screen */
         Integer userType;
@@ -62,12 +64,14 @@ public class LoginControllerGrafico {
                             DiversWorld dw2 = new DiversWorld();
                             dw2.changeScene("manager_home.fxml");
                         break;
-                    default: userType = NOT_LOG;
+                    default: userType = not_log;
+                    errorLabel.setText("User not found, please create an account");
                     throw new NotExistantException("User not logged");
                 }
             }
         }
     }
+    Logger logger;
     @FXML
     void createAccount(ActionEvent event) {
         try{
@@ -75,7 +79,7 @@ public class LoginControllerGrafico {
             dw.changeScene("registration.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }
@@ -100,7 +104,7 @@ public class LoginControllerGrafico {
             dw.changeScene("profiloScuba.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }

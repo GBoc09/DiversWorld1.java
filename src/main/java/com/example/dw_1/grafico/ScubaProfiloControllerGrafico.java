@@ -1,7 +1,6 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
-import com.example.dw_1.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ScubaProfiloControllerGrafico {
     @FXML
@@ -29,6 +31,7 @@ public class ScubaProfiloControllerGrafico {
     private PasswordField textPass;
     @FXML
     private Label backHome;
+    Logger logger;
 
     @FXML
     void backToScubaHome(MouseEvent event) {
@@ -37,7 +40,7 @@ public class ScubaProfiloControllerGrafico {
             dw.changeScene("scuba_home.fxml");
         }
         catch (Exception e){
-            System.err.println(e.getMessage());
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }
