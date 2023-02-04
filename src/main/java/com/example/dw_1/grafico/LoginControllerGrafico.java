@@ -35,7 +35,7 @@ public class LoginControllerGrafico {
     private Label errorLabel;
     @FXML
     private ImageView profilo;
-    private Integer not_log = -1;
+    private Integer notLog = -1;
     @FXML
     void accedi(ActionEvent event) throws InvalidCredentialException, IOException, NotExistantException { /* function ACCEDI is related to the login button in the login screen */
         Integer userType;
@@ -64,7 +64,7 @@ public class LoginControllerGrafico {
                             DiversWorld dw2 = new DiversWorld();
                             dw2.changeScene("manager_home.fxml");
                         break;
-                    default: userType = not_log;
+                    default: userType = notLog;
                     errorLabel.setText("User not found, please create an account");
                     throw new NotExistantException("User not logged");
                 }

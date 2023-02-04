@@ -92,13 +92,14 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
 
     }
     Logger logger;
+    private String mesasge = "Exception Error";
     @FXML
     void goHome(MouseEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("manager_home.fxml");
         } catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, mesasge);
         }
 
     }
@@ -108,7 +109,7 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
             DiversWorld dw = new DiversWorld();
             dw.changeScene("divingCenter.fxml");
         } catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, mesasge);
          }
     }
     @FXML
@@ -117,7 +118,7 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
             DiversWorld dw = new DiversWorld();
             dw.changeScene("manager_home.fxml");
         } catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, mesasge);
         }
     }
 

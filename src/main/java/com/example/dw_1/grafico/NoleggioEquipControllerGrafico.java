@@ -30,6 +30,7 @@ public class NoleggioEquipControllerGrafico {
     private Button suit;
 
     Logger logger;
+    private String message = "Exception Error";
     @FXML
     void goHome(MouseEvent event) {
         try{
@@ -37,10 +38,8 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("scuba_home.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
-
-
     }
 
     @FXML
@@ -50,7 +49,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("finnsPage.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
     }
 
@@ -61,11 +60,9 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("jacketPage.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
-
     }
-
     @FXML
     void showMask(ActionEvent event) {
         try{
@@ -73,10 +70,9 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("maskPage.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
     }
-
     @FXML
     void showRegolator(ActionEvent event) {
         try{
@@ -84,11 +80,9 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("regulatorPage.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
-
     }
-
     @FXML
     void showSuit(ActionEvent event) {
         try{
@@ -96,7 +90,7 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("suitPage.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
     }
 

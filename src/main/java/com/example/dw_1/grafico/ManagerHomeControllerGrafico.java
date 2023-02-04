@@ -18,13 +18,14 @@ public class ManagerHomeControllerGrafico {
     @FXML
     private Button yourDivingCenter;
     Logger logger;
+    private String message = "Exception Error";
     @FXML
     void aggiungiEquip(ActionEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("addEquip.fxml");
         } catch (Exception e) {
-            logger.log(Level.INFO, "Exception Error");;
+            logger.log(Level.INFO, message);
         }
 
     }
@@ -34,7 +35,7 @@ public class ManagerHomeControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("divingCenterManagement.fxml");
         } catch (Exception e) {
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
     }
     @FXML
@@ -43,7 +44,7 @@ public class ManagerHomeControllerGrafico {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("validazioneManager.fxml");
         } catch (Exception e) {
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, message);
         }
     }
 

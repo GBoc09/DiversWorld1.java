@@ -1,6 +1,5 @@
 package com.example.dw_1.dao;
 
-import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Scuba;
 import com.example.dw_1.entity.User;
