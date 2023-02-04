@@ -33,10 +33,7 @@ public class GestioneDivingControllerApplicativo {
     }
     public DivingBean verifyDiving(DivingBean divingBean) throws NotExistantException {
         DivingDAO divingDAO = new DivingDAO();
-        System.out.println("verify diving");
         String diving = divingDAO.findDivingByName(divingBean.getDivingName());
-        System.out.println(diving);
-        System.out.println("verify diving dopo passaggio in DB ");
         return new DivingBean(diving, divingBean.getLocation());
     }
 }

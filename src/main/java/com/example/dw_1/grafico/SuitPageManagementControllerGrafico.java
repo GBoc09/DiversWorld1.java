@@ -4,33 +4,37 @@ import com.example.dw_1.DiversWorld;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class RentalControllerGrafico {
-    /* RENTAL SCREEN FXML */
-    @FXML
-    private Button addItem;
+public class SuitPageManagementControllerGrafico {
 
     @FXML
-    private Button viewCart;
+    private Label availLabelSuit;
+
+    @FXML
+    private TextField descSuit;
+
     @FXML
     private Label goHome;
 
     @FXML
-    void goToNoleggia(ActionEvent event) { /* nel caso in cui si volessero aggiungere altri items */
-        try {
-            DiversWorld dw = new DiversWorld();
-            dw.changeScene("noleggioEquip.fxml");
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-    }
+    private TextField idSuit;
 
     @FXML
-    void viewCart(ActionEvent event) {
-        // CREARE FXML
-    }
+    private TextField nameSuit;
+
+    @FXML
+    private TextField priceSuit;
+
+    @FXML
+    private Button selectItem;
+
+    @FXML
+    private ChoiceBox<?> sizeSuit;
+
     @FXML
     void goHome(MouseEvent event) {
         try {
@@ -41,5 +45,10 @@ public class RentalControllerGrafico {
         }
     }
 
+    @FXML
+    void selectItem(ActionEvent event) {
+
+    }
 
 }
+

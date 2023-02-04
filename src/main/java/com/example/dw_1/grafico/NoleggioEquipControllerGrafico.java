@@ -41,27 +41,59 @@ public class NoleggioEquipControllerGrafico {
 
     @FXML
     void showFinns(ActionEvent event) {
-
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("finnsPage.fxml");
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
     @FXML
     void showJacket(ActionEvent event) {
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("jacketPage.fxml");
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
 
     }
 
     @FXML
     void showMask(ActionEvent event) {
-
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("maskPage.fxml");
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
     @FXML
     void showRegolator(ActionEvent event) {
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("regulatorPage.fxml");
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
 
     }
 
     @FXML
     void showSuit(ActionEvent event) {
-
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("suitPage.fxml");
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
 }
