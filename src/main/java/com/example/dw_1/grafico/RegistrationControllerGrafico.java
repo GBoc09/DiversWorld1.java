@@ -58,7 +58,7 @@ public class RegistrationControllerGrafico {
     private Integer type;
 
         @FXML
-    void signIn(ActionEvent event) throws AlreadyRegisteredUserException, IOException {
+    void signIn(ActionEvent event) throws AlreadyRegisteredUserException, IOException, InvalidCredentialException {
             try {
                 userBean = insertInfo();
                 RegistazioneControllerApplicativo registazioneControllerApplicativo = new RegistazioneControllerApplicativo();
@@ -83,6 +83,7 @@ public class RegistrationControllerGrafico {
                 errorLabel.setText("You are already registered!");
                 throw new AlreadyRegisteredUserException(1);
             } catch (InvalidCredentialException e) {
+                throw new InvalidCredentialException("Credential non found");
             }
         }
     private UserBean insertInfo() throws InvalidCredentialException {

@@ -99,8 +99,6 @@ public class EquipmentDAO {
         String desc = rs.getString(DESCRIPTION_COLUMN);
         Double price = rs.getDouble(PRICE_COLUMN);
         String divingID = rs.getString(DIVING_ID_COLUMN);
-        DivingDAO divingDAO = new DivingDAO();
-        Diving diving = divingDAO.loadDivingByManager (divingID);
 
         return new Equipment(id, name, size, avail, desc, price, divingID);
         }

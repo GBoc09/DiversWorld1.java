@@ -71,7 +71,7 @@ public class LoginControllerGrafico {
             }
         }
     }
-    Logger logger = Logger.getLogger(LoginControllerGrafico.class.getName());;
+    Logger logger = Logger.getLogger(LoginControllerGrafico.class.getName());
     @FXML
     void createAccount(ActionEvent event) {
         try{

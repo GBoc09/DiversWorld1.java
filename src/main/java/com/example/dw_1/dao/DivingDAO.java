@@ -107,7 +107,6 @@ public class DivingDAO {
         String location = rs.getString(DIVING_LOCATION);
         String telephone = rs.getString(DIVING_TELEPHONE);
         return new Diving(id, name, location, telephone);
-
     }
     public String getManEmail() {
         return manEmail;

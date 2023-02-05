@@ -32,7 +32,7 @@ public class ScubaProfiloControllerGrafico {
     private PasswordField textPass;
     @FXML
     private Label backHome;
-    Logger logger = Logger.getLogger(ScubaProfiloControllerGrafico.class.getName());;
+    Logger logger = Logger.getLogger(ScubaProfiloControllerGrafico.class.getName());
 
     @FXML
     void backToScubaHome(MouseEvent event) {
