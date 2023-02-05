@@ -1,6 +1,7 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
+import com.example.dw_1.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,7 +32,7 @@ public class ScubaProfiloControllerGrafico {
     private PasswordField textPass;
     @FXML
     private Label backHome;
-    Logger logger;
+    Logger logger = Logger.getLogger(ScubaProfiloControllerGrafico.class.getName());;
 
     @FXML
     void backToScubaHome(MouseEvent event) {

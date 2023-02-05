@@ -34,6 +34,7 @@ public class EquipmentDAO {
         }
         return new EquipCatalogue(equips);
     }
+    /* prepared statement: same SQL command can be used multiple times */
     public boolean insertProduct( Equipment equipment){
         boolean flag = true;
         Connection con =connection.getConnection();
@@ -83,11 +84,11 @@ public class EquipmentDAO {
         String avail = rs.getString(AVAILABILITY_COLUMN);
         String desc = rs.getString(DESCRIPTION_COLUMN);
         Double price = rs.getDouble(PRICE_COLUMN);
-        String divingManager = rs.getString(DIVING_ID_COLUMN);
+        String divingID = rs.getString(DIVING_ID_COLUMN);
         DivingDAO divingDAO = new DivingDAO();
-        Diving diving = divingDAO.loadDivingByManager (divingManager);
+        Diving diving = divingDAO.loadDivingByManager (divingID);
 
-        return new Equipment(id, name, size, avail, desc, price, diving);
+        return new Equipment(id, name, size, avail, desc, price, divingID);
         }
 
 }

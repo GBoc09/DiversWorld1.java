@@ -1,6 +1,12 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
+import com.example.dw_1.applicativo.GestioneEquipControllerApplicativo;
+import com.example.dw_1.bean.DivingBean;
+import com.example.dw_1.bean.EquipmentBean;
+import com.example.dw_1.bean.ValidationBean;
+import com.example.dw_1.exception.InvalidCredentialException;
+import com.example.dw_1.exception.NotFoundDivingException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,6 +46,8 @@ public class AddEquipmentManagerControllerGrafico {
 
     @FXML
     private ChoiceBox<String> type;
+    @FXML
+    private Label errorLabel;
 
     @FXML
     private void initialize() {
@@ -50,7 +58,22 @@ public class AddEquipmentManagerControllerGrafico {
     }
     @FXML
     void addNewProduct(ActionEvent event) { /* aggiungere al catalogo delle attrzzature */
-        // to do
+        if (id.getText().isEmpty()|| availability.getText().isEmpty()||description.getText().isEmpty()||price.getText().isEmpty()||size.getValue().isEmpty()|| type.getValue().isEmpty()){
+            errorLabel.setText("Fill all fields");
+        }
+        EquipmentBean equipmentBean = insertInfo();
+        GestioneEquipControllerApplicativo equipManage = new GestioneEquipControllerApplicativo();
+        equipManage.addEquip(equipmentBean);
+    }
+    private EquipmentBean insertInfo() {
+        EquipmentBean equipmentBean = new EquipmentBean();
+        equipmentBean.setIdBean(Integer.valueOf(id.getText()));
+        equipmentBean.setNameBean(type.getValue());
+        equipmentBean.setSizeBean(size.getValue());
+        equipmentBean.setAvailBean(availability.getText());
+        equipmentBean.setDescrBean(description.getText());
+        equipmentBean.setPriceBean(Double.valueOf(price.getText()));
+        return equipmentBean;
     }
     Logger log;
 

@@ -7,25 +7,26 @@ public class Equipment {
     private String availability;
     private String description;
     private Double price;
-    private Diving diving; /* riferimento al DIVING ID*/
+    private String diving; /* riferimento al DIVING ID*/
 
-    public Equipment() {
-        this.id = 0;
-        this.name = "";
-        this.size = "";
-        this.availability = "";
-        this.description = "";
-        this.price = 0.0;
-        this.diving = null;
+    public Equipment() {}
+    public Equipment (Integer id, String name, String size, String availability, String description, Double price, String diving){
+        this.id = id;
+        this.name = name;
+        this.size = size;
+        this.availability = availability;
+        this.description = description;
+        this.price = price;
+        this.diving = diving;
+
     }
-    public Equipment (Integer id, String name, String size, String availability, String description, Double price, Diving diving){
-        setId(id);
-        setName(name);
-        setSize(size);
-        setAvailability(availability);
-        setDescription(description);
-        setPrice(price);
-        setDiving(diving);
+    public Equipment (Integer id, String name, String size, String availability, String description, Double price){
+        this.id = id;
+        this.name = name;
+        this.size = size;
+        this.availability = availability;
+        this.description = description;
+        this.price = price;
 
     }
 
@@ -77,11 +78,11 @@ public class Equipment {
         this.price = price;
     }
 
-    public Diving getDiving() {
+    public String getDiving() {
         return diving;
     }
 
-    public void setDiving(Diving diving) {
+    public void setDiving(String diving) {
         this.diving = diving;
     }
 }

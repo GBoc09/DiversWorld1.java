@@ -4,7 +4,6 @@ import com.example.dw_1.DiversWorld;
 import com.example.dw_1.applicativo.GestioneDivingControllerApplicativo;
 import com.example.dw_1.bean.DivingBean;
 import com.example.dw_1.exception.InvalidCredentialException;
-import com.example.dw_1.exception.NotExistantException;
 import com.example.dw_1.exception.NotFoundDivingException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
 
@@ -32,14 +33,14 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
 
     @FXML
     private Button search;
-
+    Logger logger;
     @FXML
     void goHome(MouseEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("scuba_home.fxml");
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+                logger.log(Level.INFO, "Exception Error");
         }
     }
 /* collegamento con la pagina di scelta delle attrezzature */

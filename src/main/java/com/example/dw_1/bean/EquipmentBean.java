@@ -7,31 +7,26 @@ public class EquipmentBean implements Bean {
     private String availBean;
     private String descrBean;
     private Double priceBean;
+    private String divingID;
 
-    public EquipmentBean(){
-        this.idBean = 0;
-        this.nameBean = "";
-        this.sizeBean= "";
-        this.availBean= "";
-        this.descrBean = "";
-        this.priceBean = 0.0;
-    }
-    public EquipmentBean(Integer id) {
+    public EquipmentBean (Integer id, String name, String size, String avail, String desc, Double price, String divID){
         this.idBean = id;
-        this.nameBean = "";
-        this.sizeBean= "";
-        this.availBean= "";
-        this.descrBean = "";
-        this.priceBean = 0.0;
+        this.nameBean = name;
+        this.sizeBean = size;
+        this.availBean = avail;
+        this.descrBean = desc;
+        this.priceBean = price;
+        this.divingID = divID;
     }
-    public EquipmentBean(Integer id, String name, String size, String avail, String desc, Double price){
-        setIdBean(id);
-        setNameBean(name);
-        setSizeBean(size);
-        setAvailBean(avail);
-        setDescrBean(desc);
-        setPriceBean(price);
+    public EquipmentBean (Integer id, String name, String size, String avail, String desc, Double price){
+        this.idBean = id;
+        this.nameBean = name;
+        this.sizeBean = size;
+        this.availBean = avail;
+        this.descrBean = desc;
+        this.priceBean = price;
     }
+    public EquipmentBean(){}
 
     public Integer getIdBean() {
         return idBean;
@@ -79,5 +74,13 @@ public class EquipmentBean implements Bean {
 
     public void setPriceBean(Double priceBean) {
         this.priceBean = priceBean;
+    }
+
+    public String getDivingID() {
+        return divingID;
+    }
+
+    public void setDivingID(String divingID) {
+        this.divingID = divingID;
     }
 }

@@ -71,7 +71,7 @@ public class LoginControllerGrafico {
             }
         }
     }
-    Logger logger;
+    Logger logger = Logger.getLogger(LoginControllerGrafico.class.getName());;
     @FXML
     void createAccount(ActionEvent event) {
         try{
@@ -96,17 +96,6 @@ public class LoginControllerGrafico {
                 throw new NotExistantException("---User not found---");
         }
         return loggedUser;
-    }
-    @FXML
-    void visualizzaProfilo(MouseEvent event) {
-        try{
-            DiversWorld dw = new DiversWorld();
-            dw.changeScene("profiloScuba.fxml");
-        }
-        catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
-        }
-
     }
 }
 

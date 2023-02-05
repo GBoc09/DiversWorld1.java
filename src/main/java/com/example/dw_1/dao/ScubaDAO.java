@@ -4,6 +4,7 @@ import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Scuba;
 import com.example.dw_1.entity.User;
 import com.example.dw_1.exception.AlreadyRegisteredUserException;
+import com.example.dw_1.exception.NotExistantException;
 import com.example.dw_1.query.UserQuery;
 
 import java.sql.*;
@@ -29,19 +30,26 @@ public class ScubaDAO {
             e.printStackTrace();
         }
     }
-    public Scuba loadScubaByEmail(String email) {
+   public Scuba retrieveInfoScuba (String userEmail){
         Scuba scuba = null;
         Connection con = connection.getConnection();
         try (Statement stmt = con.createStatement();
-        ResultSet rs = UserQuery.selectScubaByEmail(stmt,email);) {
-            while (rs.next()){
+        ResultSet rs = UserQuery.selectScubaByEmail(stmt, userEmail)){
+            while (rs.next()) {
                 scuba = createScuba(rs);
             }
-        }catch (SQLException sqlException){
+        } catch (SQLException sqlException){
             sqlException.printStackTrace();
         }
         return scuba;
-    }
+   }
+   public Scuba loadScubaByEmail(String userEmail) throws NotExistantException {
+        Scuba scuba  = retrieveInfoScuba(userEmail);
+        if (scuba == null){
+            throw new NotExistantException("Email not found");
+        }
+        return scuba;
+   }
     public Scuba createScuba(ResultSet rs) throws SQLException {
         String email = rs.getString(SCUBA_EMAIL);
         String pass = rs.getString(SCUBA_PASS);

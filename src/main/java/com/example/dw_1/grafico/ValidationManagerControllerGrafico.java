@@ -60,7 +60,6 @@ public class ValidationManagerControllerGrafico {
                 throw new NotFoundDivingException("--- Diving not found --- ");
             }
         }
-
     }
 
     private ValidationBean validazioneManager() {

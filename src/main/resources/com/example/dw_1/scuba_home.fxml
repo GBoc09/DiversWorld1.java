@@ -16,11 +16,6 @@
          </font>
       </Label>
       <Line endX="149.0" endY="0.1999969482421875" layoutX="281.0" layoutY="63.0" startX="-111.0" startY="0.1999969482421875" strokeWidth="2.0" />
-      <Label layoutX="222.0" layoutY="85.0" text="Scuba divers ">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
       <Button fx:id="rentEqip" layoutX="379.0" layoutY="215.0" mnemonicParsing="false" onAction="#rentEquip" prefHeight="36.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="RENT EQUIPMENT">
          <font>
             <Font size="15.0" />
@@ -51,11 +46,20 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Line endX="96.20001220703125" endY="0.1999969482421875" layoutX="281.0" layoutY="116.0" startX="-65.0" startY="0.1999969482421875" strokeWidth="2.0" />
       <ImageView fx:id="profilo" fitHeight="40.0" fitWidth="40.0" layoutX="550.0" layoutY="20.0" onMouseClicked="#visualizzaProfilo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/log.png" />
          </image>
       </ImageView>
+      <Label layoutX="48.0" layoutY="99.0" text="Hi">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="userLabel" layoutX="83.0" layoutY="101.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

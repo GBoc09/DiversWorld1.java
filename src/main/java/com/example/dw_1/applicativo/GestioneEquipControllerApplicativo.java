@@ -1,38 +1,26 @@
 package com.example.dw_1.applicativo;
 
-import com.example.dw_1.bean.DivingBean;
 import com.example.dw_1.bean.EquipmentBean;
 import com.example.dw_1.dao.EquipmentDAO;
-import com.example.dw_1.entity.Diving;
 import com.example.dw_1.entity.Equipment;
-import com.example.dw_1.exception.DuplicateItemException;
-import com.example.dw_1.exception.InvalidItemException;
-import com.example.dw_1.other.EquipCatalogue;
-
-import java.util.List;
-import java.util.Objects;
+import com.example.dw_1.pattern.Factory;
 
 public class GestioneEquipControllerApplicativo {
-    public void addEquip(EquipmentBean equipmentBean, DivingBean divingBean) throws DuplicateItemException, InvalidItemException {
+    Factory factory;
+    public GestioneEquipControllerApplicativo () {
+        factory = new Factory();
+    }
+    public void addEquip(EquipmentBean equipmentBean){
+        Equipment equipment;
+        Integer id = equipmentBean.getIdBean();
+        String name = equipmentBean.getNameBean();
+        String size = equipmentBean.getSizeBean();
+        String avail = equipmentBean.getAvailBean();
+        String desc = equipmentBean.getDescrBean();
+        Double price = equipmentBean.getPriceBean();
         EquipmentDAO equipmentDAO = new EquipmentDAO();
-        EquipCatalogue equipCatalogue = equipmentDAO.loadEquipByID(equipmentBean.getIdBean());
-        Diving diving = new Diving(divingBean.getDivingId(), divingBean.getDivingName(), divingBean.getLocation(), divingBean.getTelephone());
-        Equipment equipment = new Equipment(equipmentBean.getIdBean(), equipmentBean.getNameBean(), equipmentBean.getSizeBean(),equipmentBean.getAvailBean(), equipmentBean.getDescrBean(), equipmentBean.getPriceBean(), diving);
-        equipment.setDiving(diving);
-        List<Equipment> equips = EquipCatalogue.filterByName(equipment.getName());
-        for (Equipment locEquip : equips){
-            if(controlDuplicatedItem(locEquip, equipment)){
-                throw new DuplicateItemException("This item is already in the catalogue");
-            }
-        }
-        equipCatalogue.addEquip(equipment);
-        if (!equipmentDAO.insertProduct(equipment)){
-            throw new InvalidItemException("Invalid item");
-        }
+        equipment = factory.createEquip(id,name, size, avail, desc, price);
+        equipmentDAO.insertProduct(equipment);
     }
-    private boolean controlDuplicatedItem(Equipment localEquip, Equipment equip) {
 
-        return (Objects.equals(localEquip.getDescription(), equip.getDescription())) && (Objects.equals(localEquip.getPrice(), equip.getPrice()));
-
-    }
 }

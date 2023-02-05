@@ -19,7 +19,6 @@ public class UserDAO {
     private static final Integer FREE_TYPE = 1;
     private static final Integer MANAGER_TYPE = 2;
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
-    UserQuery userQuery = new UserQuery();
     public Integer selectUser(String userEmail, String userPass) throws NotExistantException{
         Connection con =connection.getConnection();
         Integer userType = -1;
