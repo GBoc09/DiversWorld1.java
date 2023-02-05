@@ -6,7 +6,7 @@ import com.example.dw_1.dao.ManagerDAO;
 import com.example.dw_1.dao.ScubaDAO;
 import com.example.dw_1.entity.User;
 import com.example.dw_1.exception.AlreadyRegisteredUserException;
-import com.example.dw_1.pattern.Factory;
+import com.example.dw_1.pattern.factory.Factory;
 
 public class RegistazioneControllerApplicativo {
     Factory factory;

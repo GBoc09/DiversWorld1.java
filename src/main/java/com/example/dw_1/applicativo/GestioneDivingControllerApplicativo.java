@@ -6,7 +6,7 @@ import com.example.dw_1.dao.DivingDAO;
 import com.example.dw_1.dao.UserDAO;
 import com.example.dw_1.entity.Diving;
 import com.example.dw_1.exception.AlreadyRegisteredDiving;
-import com.example.dw_1.pattern.Factory;
+import com.example.dw_1.pattern.factory.Factory;
 
 public class GestioneDivingControllerApplicativo {
    Factory factory;

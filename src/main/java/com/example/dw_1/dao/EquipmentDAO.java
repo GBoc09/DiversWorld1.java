@@ -3,6 +3,7 @@ package com.example.dw_1.dao;
 import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Diving;
 import com.example.dw_1.entity.Equipment;
+import com.example.dw_1.exception.AlreadyRegisteredEquipException;
 import com.example.dw_1.exception.EquipNotFoundException;
 import com.example.dw_1.other.EquipCatalogue;
 import com.example.dw_1.query.EquipQuery;
@@ -20,6 +21,21 @@ public class EquipmentDAO {
     private static final String DIVING_ID_COLUMN = "divingID";
 
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
+    /*public List<Equipment> getEquipList(){
+        ArrayList<Equipment> equipmentList = new ArrayList<>();
+        Factory factory = new Factory();
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            Connection con = connection.getConnection();
+            stmt = con.createStatement();
+            rs = EquipQuery.loadALLEquips(stmt);
+            while (rs.next()){
+                String data = rs.getString(1)
+            }
+        }
+    }*/
+
     public EquipCatalogue loadAllProduct(){
         ArrayList<Equipment> equips = new ArrayList<>();
         Connection con =connection.getConnection();
@@ -35,18 +51,15 @@ public class EquipmentDAO {
         return new EquipCatalogue(equips);
     }
     /* prepared statement: same SQL command can be used multiple times */
-    public boolean insertProduct( Equipment equipment){
-        boolean flag = true;
+    public void insertProduct( Equipment equipment) throws AlreadyRegisteredEquipException {
         Connection con =connection.getConnection();
-        try (PreparedStatement stmt = con.prepareStatement("INSERT Equipment(name, description, price) VALUES (?, ?, ?);")){
-            stmt.setString(1, equipment.getName());
-            stmt.setString(2, equipment.getDescription());
-            stmt.setDouble(3, equipment.getPrice());
-        } catch (SQLException sqlException){
-            sqlException.printStackTrace();
-            flag = false;
+        try(Statement stmt = con.createStatement();){
+            EquipQuery.insertEquip(stmt, equipment.getId(), equipment.getName(),equipment.getSize(), equipment.getAvailability(), equipment.getDescription(),equipment.getPrice(), equipment.getDiving());
+        } catch (SQLIntegrityConstraintViolationException e){
+            throw new AlreadyRegisteredEquipException(1);
+        } catch (SQLException e){
+            e.printStackTrace();
         }
-        return flag;
     }
     public Equipment loadAllEquipsByName(String name, Integer divingID) throws EquipNotFoundException {
         Equipment equipment = null;
@@ -63,6 +76,7 @@ public class EquipmentDAO {
         }
         return equipment;
     }
+
     public EquipCatalogue loadEquipByID (int equipCode)  {
         ArrayList<Equipment> equipments = new ArrayList<>();
         Connection con =connection.getConnection();

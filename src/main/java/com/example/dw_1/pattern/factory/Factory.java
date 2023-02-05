@@ -1,4 +1,4 @@
-package com.example.dw_1.pattern;
+package com.example.dw_1.pattern.factory;
 
 import com.example.dw_1.entity.*;
 
@@ -15,8 +15,8 @@ public class Factory {
     public Diving createDiving(String id, String name, String divngMan, String loc, String tel) {
         return new Diving(id, name, divngMan, loc, tel);
     }
-    public Equipment createEquip (Integer id, String name, String size, String avail, String desc, Double price) {
-        return new Equipment(id, name,size,avail,desc,price);
+    public Equipment createEquip (Integer id, String name, String size, String avail, String desc, Double price, String divingCode) {
+        return new Equipment(id, name,size,avail,desc,price,divingCode);
     }
 
 }

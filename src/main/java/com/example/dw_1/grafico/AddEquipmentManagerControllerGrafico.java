@@ -5,6 +5,7 @@ import com.example.dw_1.applicativo.GestioneEquipControllerApplicativo;
 import com.example.dw_1.bean.DivingBean;
 import com.example.dw_1.bean.EquipmentBean;
 import com.example.dw_1.bean.ValidationBean;
+import com.example.dw_1.exception.AlreadyRegisteredEquipException;
 import com.example.dw_1.exception.InvalidCredentialException;
 import com.example.dw_1.exception.NotFoundDivingException;
 import javafx.collections.FXCollections;
@@ -48,6 +49,8 @@ public class AddEquipmentManagerControllerGrafico {
     private ChoiceBox<String> type;
     @FXML
     private Label errorLabel;
+    @FXML
+    private TextField divingCode;
 
     @FXML
     private void initialize() {
@@ -57,8 +60,8 @@ public class AddEquipmentManagerControllerGrafico {
         type.setValue("select type");
     }
     @FXML
-    void addNewProduct(ActionEvent event) { /* aggiungere al catalogo delle attrzzature */
-        if (id.getText().isEmpty()|| availability.getText().isEmpty()||description.getText().isEmpty()||price.getText().isEmpty()||size.getValue().isEmpty()|| type.getValue().isEmpty()){
+    void addNewProduct(ActionEvent event) throws AlreadyRegisteredEquipException { /* aggiungere al catalogo delle attrzzature */
+        if (divingCode.getText().isEmpty()|| id.getText().isEmpty()|| availability.getText().isEmpty()||description.getText().isEmpty()||price.getText().isEmpty()||size.getValue().isEmpty()|| type.getValue().isEmpty()){
             errorLabel.setText("Fill all fields");
         }
         EquipmentBean equipmentBean = insertInfo();
@@ -73,6 +76,7 @@ public class AddEquipmentManagerControllerGrafico {
         equipmentBean.setAvailBean(availability.getText());
         equipmentBean.setDescrBean(description.getText());
         equipmentBean.setPriceBean(Double.valueOf(price.getText()));
+        equipmentBean.setDivingID(divingCode.getText());
         return equipmentBean;
     }
     Logger log;

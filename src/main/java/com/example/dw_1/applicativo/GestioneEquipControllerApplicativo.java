@@ -3,14 +3,15 @@ package com.example.dw_1.applicativo;
 import com.example.dw_1.bean.EquipmentBean;
 import com.example.dw_1.dao.EquipmentDAO;
 import com.example.dw_1.entity.Equipment;
-import com.example.dw_1.pattern.Factory;
+import com.example.dw_1.exception.AlreadyRegisteredEquipException;
+import com.example.dw_1.pattern.factory.Factory;
 
 public class GestioneEquipControllerApplicativo {
     Factory factory;
     public GestioneEquipControllerApplicativo () {
         factory = new Factory();
     }
-    public void addEquip(EquipmentBean equipmentBean){
+    public void addEquip(EquipmentBean equipmentBean) throws AlreadyRegisteredEquipException {
         Equipment equipment;
         Integer id = equipmentBean.getIdBean();
         String name = equipmentBean.getNameBean();
@@ -18,8 +19,9 @@ public class GestioneEquipControllerApplicativo {
         String avail = equipmentBean.getAvailBean();
         String desc = equipmentBean.getDescrBean();
         Double price = equipmentBean.getPriceBean();
+        String divingCode = equipmentBean.getDivingID();
         EquipmentDAO equipmentDAO = new EquipmentDAO();
-        equipment = factory.createEquip(id,name, size, avail, desc, price);
+        equipment = factory.createEquip(id,name, size, avail, desc, price,divingCode);
         equipmentDAO.insertProduct(equipment);
     }
 
