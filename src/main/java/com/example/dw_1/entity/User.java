@@ -15,6 +15,12 @@ public class User {
     }
     /* protected */
     public User(){}
+    public User (String name, String lastname, String license, String email){
+        this.name = name;
+        this.lastname = lastname;
+        this.license = license;
+        this.email = email;
+    }
     public User(String uName, String uLast){
         this.name = uName;
         this.lastname = uLast;

@@ -15,8 +15,25 @@ public class Factory {
     public Diving createDiving(String id, String name, String divngMan, String loc, String tel) {
         return new Diving(id, name, divngMan, loc, tel);
     }
-    public Equipment createEquip (Integer id, String name, String size, String avail, String desc, Double price, String divingCode) {
-        return new Equipment(id, name,size,avail,desc,price,divingCode);
+    /* CORRETTO */
+    public Regulator createRegulator(String idEquip,String divingID,String desc, Double price, String avail) {
+        return new Regulator(idEquip,divingID,desc,price, avail);
     }
+    public Mask createMask(String idEquip,String divingID,String desc, Double price, String avail) {
+        return new Mask(idEquip,divingID,desc,price, avail);
+    }
+    /* CORRETTO */
+    public Jacket createJack(String idEquip,String divingID,String desc, String size, String avail, Double price) {
+        return new Jacket(idEquip,divingID,desc,size, avail, price);
+    }
+    /* CORRETTO */
+    public Suit createSuit(String idEquip,String divingID,String desc, String size, String avail, Double price) {
+        return new Suit(idEquip,divingID,desc,size, avail, price);
+    }
+    /* CORRETTO */
+    public Finns createFinns(String idEquip,String divingID,String desc, String size, String avail, Double price) {
+        return new Finns(idEquip,divingID,desc,size, avail, price);
+    }
+
 
 }

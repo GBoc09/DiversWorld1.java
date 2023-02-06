@@ -23,7 +23,7 @@ public class UserDAO {
         Connection con =connection.getConnection();
         Integer userType = -1;
         try (Statement stmt = con.createStatement();
-             ResultSet rs = UserQuery.selectUserByCredentials(stmt, userEmail, userPass);)
+             ResultSet rs = UserQuery.selectUserByCredentials(stmt, userEmail, userPass))
         {
             if(rs.next()){
                 String userEnum = rs.getString(USER_TYPE);
@@ -44,6 +44,26 @@ public class UserDAO {
         }
         return userType;
     }
+    public String selectUserEmail(String userEmail) throws NotExistantException{
+        Connection con =connection.getConnection();
+        String user = null;
+        try (Statement stmt = con.createStatement();
+             ResultSet rs = UserQuery.selectScubaByEmail(stmt, userEmail)) {
+            if (rs.next()) {
+                String diver = rs.getString("email");
+                if (diver.equals(userEmail)) {
+                    user = diver;
+                }
+            }else {
+                throw new NotExistantException("email not found");
+            }
+        } catch (SQLException | NotExistantException sqlException){
+            sqlException.printStackTrace();
+        }
+
+        return user;
+    }
+
    public String selectLicense(String manager) {
        Connection con = connection.getConnection();
        String manId = null;

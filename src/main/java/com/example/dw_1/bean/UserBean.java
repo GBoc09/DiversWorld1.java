@@ -14,6 +14,13 @@ public class UserBean implements Bean{
         setLastname(lastname);
         setLicense(license);
     }
+    public UserBean(String userEmail,String name, String lastname, String license){
+        setUserEmail(userEmail);
+        setName(name);
+        setLastname(lastname);
+        setLicense(license);
+    }
+
     public UserBean(String userEmail, Integer userType){
         setUserEmail(userEmail);
         setUserType(userType);

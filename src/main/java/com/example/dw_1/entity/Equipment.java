@@ -1,8 +1,7 @@
 package com.example.dw_1.entity;
 
 public class Equipment {
-    private Integer id;
-    private String name;
+    private String id;
     private String size;
     private String availability;
     private String description;
@@ -10,40 +9,28 @@ public class Equipment {
     private String diving; /* riferimento al DIVING ID*/
 
     public Equipment() {}
-    public Equipment (Integer id, String name, String size, String availability, String description, Double price, String diving){
+    public Equipment (String id,String diving,String description,Double price,String availability ){
         this.id = id;
-        this.name = name;
-        this.size = size;
-        this.availability = availability;
-        this.description = description;
-        this.price = price;
         this.diving = diving;
-
-    }
-    public Equipment (Integer id, String name, String size, String availability, String description, Double price){
-        this.id = id;
-        this.name = name;
-        this.size = size;
-        this.availability = availability;
         this.description = description;
         this.price = price;
-
+        this.availability = availability;
+    }
+    public Equipment (String id,String diving,String description,String size, String availability, Double price){
+        this.id = id;
+        this.diving = diving;
+        this.description = description;
+        this.size = size;
+        this.availability = availability;
+        this.price = price;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getSize() {

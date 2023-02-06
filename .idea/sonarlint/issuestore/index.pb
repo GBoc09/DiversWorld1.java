@@ -16,5 +16,3 @@ N
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 l
 <src/main/java/com/example/dw_1/db/MyConnectionSingleton.java,b\7\b7132158b3b028e4992bdbc34121f1bd24506e1e
-_
-/src/main/java/com/example/dw_1/dao/FreeDAO.java,6\8\68a6d3a08b62f7f0bb403876f1c98478cfb28d5f

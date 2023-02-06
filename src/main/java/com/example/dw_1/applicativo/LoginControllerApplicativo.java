@@ -14,5 +14,12 @@ public class LoginControllerApplicativo {
         Integer userType = userDAO.selectUser(loginData.getUserEmail(), loginData.getUserPassword());
         return new UserBean(loginData.getUserEmail(), userType);
     }
+    public UserBean verifyUserEmail(LoginBean loginData) throws NotExistantException {
+        UserDAO userDAO = new UserDAO();
+        String user = userDAO.selectUserEmail(loginData.getUserEmail());
+        return new UserBean(user);
+    }
+
+
 }
 

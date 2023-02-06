@@ -15,7 +15,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -92,10 +91,14 @@ public class LoginControllerGrafico {
         UserBean loggedUser = null;
         try {
             loggedUser = loginControllerApplicativo.verifyUser(loginBean);
+
         } catch (NotExistantException e){
                 throw new NotExistantException("---User not found---");
         }
         return loggedUser;
     }
+    /*
+    * logus = loginControllerApplicativo.verifyUserEmail(loginBean);
+            System.out.println(logus.getUserEmail());*/
 }
 

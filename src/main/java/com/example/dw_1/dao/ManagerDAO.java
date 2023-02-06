@@ -20,7 +20,7 @@ public class ManagerDAO {
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
             UserQuery.insertUser(stmt, manager.getEmail(), manager.getPassword(), MANAGER);
-            UserQuery.insertIntoManager(stmt, manager.getName(), manager.getLastname(), manager.getLicense());
+            UserQuery.insertIntoManager(stmt, manager.getName(), manager.getLastname(), manager.getLicense(), manager.getEmail());
         } catch (SQLIntegrityConstraintViolationException e){
             throw new AlreadyRegisteredUserException(1);
         } catch (SQLException e){

@@ -47,7 +47,6 @@ public class JacketPageManagementControllerGrafico {
         } catch (Exception e) {
             logger.log(Level.INFO, "Exception Error");
         }
-
      }
     public void initialize (){
         sizeJack.setItems(FXCollections.observableArrayList("XS", "S", "M", "L", "XL"));

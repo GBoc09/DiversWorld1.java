@@ -1,26 +1,26 @@
 package com.example.dw_1.bean;
 
 public class EquipmentBean implements Bean {
-    private Integer idBean;
-    private String nameBean;
+    private String idBean;
+    private Integer equipType;
     private String sizeBean;
     private String availBean;
     private String descrBean;
     private Double priceBean;
     private String divingID;
 
-    public EquipmentBean (Integer id, String name, String size, String avail, String desc, Double price, String divID){
+    public EquipmentBean (String id, Integer type, String size, String avail, String desc, Double price, String divID){
         this.idBean = id;
-        this.nameBean = name;
+        this.equipType = type;
         this.sizeBean = size;
         this.availBean = avail;
         this.descrBean = desc;
         this.priceBean = price;
         this.divingID = divID;
     }
-    public EquipmentBean (Integer id, String name, String size, String avail, String desc, Double price){
+    public EquipmentBean (String id, Integer type, String size, String avail, String desc, Double price){
         this.idBean = id;
-        this.nameBean = name;
+        this.equipType = type;
         this.sizeBean = size;
         this.availBean = avail;
         this.descrBean = desc;
@@ -28,20 +28,20 @@ public class EquipmentBean implements Bean {
     }
     public EquipmentBean(){}
 
-    public Integer getIdBean() {
+    public String getIdBean() {
         return idBean;
     }
 
-    public void setIdBean(Integer idBean) {
+    public void setIdBean(String idBean) {
         this.idBean = idBean;
     }
 
-    public String getNameBean() {
-        return nameBean;
+    public Integer getEquipType() {
+        return equipType;
     }
 
-    public void setNameBean(String nameBean) {
-        this.nameBean = nameBean;
+    public void setEquipType(Integer equipType) {
+        this.equipType = equipType;
     }
 
     public String getSizeBean() {

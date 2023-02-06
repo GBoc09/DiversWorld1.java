@@ -1,16 +1,11 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
-import com.example.dw_1.applicativo.ProfiloUtenteControllerApplicativo;
-import com.example.dw_1.bean.LoginBean;
-import com.example.dw_1.bean.UserBean;
-import com.example.dw_1.exception.NotExistantException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -19,34 +14,29 @@ import java.util.logging.Logger;
 
 public class ScubaHomeControllerGrafico {
     @FXML
-    private Button modificaProfilo;
-    @FXML
-    private TextField textLicense;
+    private Button bookCourse;
 
     @FXML
-    private TextField textEmail;
+    private Button logBook;
 
     @FXML
-    private TextField textLastname;
+    private ImageView profilo;
 
     @FXML
-    private TextField textName;
+    private Button rentEqip;
 
     @FXML
-    private PasswordField textPass;
-    @FXML
-    private Label backHome;
-
+    private Label userLabel;
     Logger logger = Logger.getLogger(ScubaHomeControllerGrafico.class.getName());
-    /* NON FUNZIONA QUESTA FUNZIONE */
      @FXML
-    void visualizzaProfilo(MouseEvent event) throws IOException, NotExistantException {
-         UserBean userBean = new UserBean();
-         ProfiloUtenteControllerApplicativo profilo = new ProfiloUtenteControllerApplicativo();
-         profilo.loadScuba(userBean);
+    void visualizzaProfilo(MouseEvent event) throws IOException {
          DiversWorld dw = new DiversWorld();
          dw.changeScene("profiloScuba.fxml");
-
+    }
+    /* FUNZIONE PER STAMPARE A SCHERMO LE INFO */
+    @FXML
+    public void initialize(){
+        userLabel.setText("ciao");
     }
 
     /* inizio use case */

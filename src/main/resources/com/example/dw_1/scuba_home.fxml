@@ -51,7 +51,7 @@
             <Image url="@img/log.png" />
          </image>
       </ImageView>
-      <Label layoutX="48.0" layoutY="99.0" text="Hi">
+      <Label layoutX="24.0" layoutY="101.0" text="Hi">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

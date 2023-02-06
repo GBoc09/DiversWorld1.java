@@ -21,7 +21,7 @@ public class FreeDAO {
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
             UserQuery.insertUser(stmt, free.getEmail(), free.getPassword(), FREE);
-            UserQuery.insertIntoFree(stmt, free.getName(), free.getLastname(),free.getLicense());
+            UserQuery.insertIntoFree(stmt, free.getName(), free.getLastname(),free.getLicense(), free.getEmail());
         } catch (SQLIntegrityConstraintViolationException e){
             throw new AlreadyRegisteredUserException(1);
         } catch (SQLException e){

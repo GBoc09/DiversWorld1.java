@@ -7,6 +7,9 @@ public class Scuba extends User{
     public Scuba () {
         super();
     }
+    public Scuba (String name, String lastname, String license, String email){
+        super(name, lastname, license, email);
+    }
     public Scuba(String uName, String uLast){
         super(uName,uLast);
     }

@@ -23,7 +23,7 @@ public class ScubaDAO {
         Connection con =connection.getConnection();
         try(Statement stmt = con.createStatement();){
             UserQuery.insertUser(stmt, scuba.getEmail(), scuba.getPassword(), SCUBA);
-            UserQuery.insertIntoScuba(stmt, scuba.getLicense(),scuba.getName(), scuba.getLastname());
+            UserQuery.insertIntoScuba(stmt, scuba.getLicense(),scuba.getName(), scuba.getLastname(), scuba.getEmail());
         } catch (SQLIntegrityConstraintViolationException e){
             throw new AlreadyRegisteredUserException(1);
         } catch (SQLException e){
