@@ -22,9 +22,6 @@ import java.util.logging.Logger;
 public class ManagerDivingCenterControllerGrafico  implements Initializable { // mostra i diving center associati ad un manager (creare associazione con il manager)
 
     @FXML
-    private Button addDiving; // inserisciDiving metodo relativo
-
-    @FXML
     private Label divingID;
 
     @FXML
@@ -42,9 +39,6 @@ public class ManagerDivingCenterControllerGrafico  implements Initializable { //
     private Button modifyDiving;
     @FXML
     private ListView<String> listView;
-    private static final Integer ADD_DIVING_CENTER = 0;
-    private static final Integer MODIFY_DIVING_CENTER = 1;
-    private static final Integer MANGER_HOME = 2;
 
     @FXML
     private Button home;
@@ -58,29 +52,13 @@ public class ManagerDivingCenterControllerGrafico  implements Initializable { //
 
     @FXML
     void onButtonClicked(ActionEvent event) throws IOException {
-        Button sourceButton = (Button) event.getSource();
-        Integer nextScreen;
-        if (sourceButton == addDiving) {
-            nextScreen = ADD_DIVING_CENTER;
-        } else if (sourceButton == modifyDiving) {
-            nextScreen = MODIFY_DIVING_CENTER;
-        } else {
-            nextScreen = null;
+        try {
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("divingCenterManagement.fxml");
+        } catch (Exception e){
+            logger.log(Level.INFO, mesasge);
         }
-        if (nextScreen != null){
-            switch (nextScreen) {
-                case 0 :
-                        resultLabel.setText("Insertion Successful");
-                        DiversWorld dw = new DiversWorld();
-                        dw.changeScene("yourDivingCenter.fxml");
-                    break;
-                case 1:
-                        DiversWorld dw1 = new DiversWorld();
-                        dw1.changeScene("divingCenterManagement.fxml");
-                    break;
-                default: nextScreen = MANGER_HOME;
-            }
-        }
+
 
     }
     private String mesasge = "Exception Error";

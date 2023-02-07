@@ -7,15 +7,10 @@ import com.example.dw_1.bean.LoginBean;
 import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.exception.InvalidCredentialException;
 import com.example.dw_1.exception.NotExistantException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
@@ -46,6 +41,10 @@ public class LoginControllerGrafico {
                 errorLabel.setText("Please insert your credentials");
                 email.setText("");
                 userPass.setText("");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Fill all required fields");
+                alert.showAndWait();
                 throw new InvalidCredentialException("Please insert valid credentials");
             }
             UserBean userBean = login();

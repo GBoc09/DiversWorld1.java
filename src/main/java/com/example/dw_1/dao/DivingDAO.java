@@ -112,7 +112,7 @@ public class DivingDAO {
         Connection con = connection.getConnection();
         List<Diving> divs = new ArrayList<>();
         try(Statement stmt = con.createStatement();
-        ResultSet rs = DivingQuery.selectDiving(stmt)){
+            ResultSet rs = DivingQuery.selectDiving(stmt)){
             while (rs. next()){
                 Diving newDiv = new Diving();
                 newDiv.setDivingID(rs.getString(1));

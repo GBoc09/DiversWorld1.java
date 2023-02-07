@@ -43,7 +43,7 @@ public class ValidationManagerControllerGrafico {
     }
 
     @FXML
-    void validationManager(ActionEvent event) throws InvalidCredentialException, IOException, NotFoundDivingException, NotExistantException {
+    void validationManager(ActionEvent event) throws InvalidCredentialException, IOException, NotFoundDivingException {
         Node source = (Node) event.getSource();
         if (source == conferma) {
             if (validLabel.getText().isEmpty()) {
