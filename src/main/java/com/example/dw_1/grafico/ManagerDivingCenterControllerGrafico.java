@@ -54,7 +54,7 @@ public class ManagerDivingCenterControllerGrafico  implements Initializable { //
 
     @FXML
     private Button showDiving;
-    Logger logger = Logger.getLogger(ScubaHomeControllerGrafico.class.getName());
+    Logger logger = Logger.getLogger(ManagerDivingCenterControllerGrafico.class.getName());
 
     @FXML
     void onButtonClicked(ActionEvent event) throws IOException {

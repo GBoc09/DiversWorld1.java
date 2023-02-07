@@ -15,14 +15,9 @@ import java.util.List;
  * lui le passa al controller grafico
  * e le inserisce nell'initialize per visualizzarli a schermo */
 public class ProfiloUtenteControllerApplicativo{
-  /*  public UserBean utenteLoggato (){
-        UserDAO userDAO = new UserDAO();
-        UserBean userBean = userDAO.selectUserEmail();
-    }*/
     public List<String> visualizzaDati(){
         UserDAO userDAO = new UserDAO();
         List<String> user = userDAO.datiUtenti();
-        System.out.println(user);
         return user;
     }
 

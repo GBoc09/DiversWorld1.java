@@ -25,15 +25,15 @@ public class UserQuery extends Query {
     }
 
     public static boolean insertIntoScuba(Statement stmt, String license,String name, String lastname, String email) throws SQLException{
-        String query = String.format("INSERT INTO Scuba values('%s', '%s', '%s');",license, name, lastname, email);
+        String query = String.format("INSERT INTO Scuba values('%s', '%s', '%s', '%s');",license, name, lastname, email);
         return stmt.execute(query);
     }
     public static boolean insertIntoFree(Statement stmt, String name, String lastname, String license, String email) throws SQLException{
-        String query = String.format("INSERT INTO Free values('%s', '%s', '%s');", license, name, lastname, email);
+        String query = String.format("INSERT INTO Free values('%s', '%s', '%s','%s');", license, name, lastname, email);
         return stmt.execute(query);
     }
     public static boolean insertIntoManager(Statement stmt, String name, String lastname, String idManager,String email) throws SQLException{
-        String query = String.format("INSERT INTO DivingManager values('%s','%s', '%s');", idManager, name, lastname, email);
+        String query = String.format("INSERT INTO DivingManager values('%s','%s', '%s', '%s');", idManager, name, lastname, email);
         return stmt.execute(query);
     }
     public static ResultSet selectManager(Statement statement, String managerID) throws SQLException {

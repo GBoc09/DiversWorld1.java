@@ -59,9 +59,6 @@ public class ScubaHomeControllerGrafico implements Initializable {
      * a controller is called first, then any  @FXML fields are populated and then initialize() is called.  */
     public List<String> provaStampa ()  {
         List<String> dati = profiloController.visualizzaDati();
-        System.out.println("contreller grafico");
-        System.out.println(dati);
-
         return dati;
     }
     /**
@@ -69,7 +66,7 @@ public class ScubaHomeControllerGrafico implements Initializable {
      * cancellare i controller inutili */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String user = LoginControllerGrafico.getUserEmail();
+        String user = LoginControllerGrafico.getUserEmail1();
         userLabel.setText(user);
     }
 

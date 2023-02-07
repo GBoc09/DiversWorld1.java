@@ -78,48 +78,29 @@ public class AddEquipmentManagerControllerGrafico {
         EquipmentBean equipment = new EquipmentBean();
 
         equipment.setDivingID(divingCode.getText());
-        String divingID = equipment.getDivingID();
-        System.out.println(divingID);
 
         equipment.setIdBean(id.getText());
-        String id1 = equipment.getIdBean();
-        System.out.println(id1);
 
         equipment.setSizeBean(size.getValue());
-        String size = equipment.getSizeBean();
-        System.out.println(size);
 
         equipment.setAvailBean(availability.getText());
-        String avail = equipment.getAvailBean();
-        System.out.println(avail);
 
         equipment.setDescrBean(description.getText());
-        String desc = equipment.getDescrBean();
-        System.out.println(desc);
 
         equipment.setPriceBean(Double.valueOf(price.getText()));
-        Double price = equipment.getPriceBean();
-        System.out.println(price);
 
         if (jack.isSelected()){
             equipType = J;
-            System.out.println(equipType);
         } else if (reg.isSelected()) {
             equipType = R;
-            System.out.println(equipType);
         } else if (mask.isSelected()) {
             equipType = M;
-            System.out.println(equipType);
         } else if (finn.isSelected()) {
             equipType = F;
-            System.out.println(equipType);
         } else if (suit.isSelected()) {
             equipType = S;
-            System.out.println(equipType);
         }
         equipment.setEquipType(equipType);
-        int tipo = equipment.getEquipType();
-        System.out.println(tipo);
         return equipment;
     }
     Logger log;

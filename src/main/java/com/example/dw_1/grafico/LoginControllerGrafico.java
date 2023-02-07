@@ -53,7 +53,7 @@ public class LoginControllerGrafico {
             if (userBean != null ) {
                 switch (userType) {
                     case 0:
-                            LoginControllerGrafico.userEmail = userBean.getUserEmail();
+                            LoginControllerGrafico.userEmail1 = userBean.getUserEmail();
                             DiversWorld dw = new DiversWorld();
                             dw.changeScene("scuba_home.fxml");
                     break;
@@ -101,16 +101,9 @@ public class LoginControllerGrafico {
         }
         return loggedUser;
     }
-    static String userEmail = "";
-    static ObservableList list = FXCollections.observableArrayList();
-
-    public static String getUserEmail() {
-        return userEmail;
-    }
-
-    public static void setUserEmail() {
-        userEmail = (String) list.get(0);
-        LoginControllerGrafico.userEmail = userEmail;
+    static String userEmail1 = "";
+    public static String getUserEmail1() {
+        return userEmail1;
     }
 
     /**  LA FUNZIONE SCRITTA FUNZIONE MA SOLO SE COLLEGATA ALL'INSERIMETO DEI DATI DURANTE IL LOG IN */
