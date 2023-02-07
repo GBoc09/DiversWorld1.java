@@ -55,6 +55,22 @@ public class GestioneDivingControllerApplicativo {
       }
       return divingBeanArrayList;
    }
+   /* istanziato una lista di bean */
+   public List<DivingBean> getDivings () {
+      List<DivingBean> div = new ArrayList<>();
+      DivingDAO  divingDAO = new DivingDAO();
+      List<Diving> div2 = divingDAO.getInfo();
+      for (Diving d : div2) {
+         DivingBean divingBean = new DivingBean();
+         divingBean.setDivingId(d.getDivingID());
+         divingBean.setDivingName(d.getName());
+         divingBean.setDivingManager(d.getDivingMan());
+         divingBean.setLocation(d.getLocation());
+         divingBean.setTelephone(d.getTelephone());
+         div.add(divingBean);
+      }
+      return div;
+   }
 
 
 }

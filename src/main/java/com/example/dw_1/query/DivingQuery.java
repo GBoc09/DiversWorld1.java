@@ -21,5 +21,9 @@ public class DivingQuery {
         String query = String.format("SELECT * FORM Diving WHERE divingManager = '%s';",location );
         return stmt.executeQuery(query);
     }
+    public static ResultSet selectDiving(Statement stmt) throws SQLException {
+        String query = String.format("SELECT * FROM Diving;");
+        return stmt.executeQuery(query);
+    }
 
 }

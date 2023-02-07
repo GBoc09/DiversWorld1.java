@@ -4,7 +4,6 @@ package com.example.dw_1.applicativo;
 *  NON FUNZIONA ANCORA IL CARICAMENTO DEI DATI ALL' INTERNO DEL PROFILO DELL'UTENTE
 * */
 
-import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.dao.UserDAO;
 
 import java.util.List;

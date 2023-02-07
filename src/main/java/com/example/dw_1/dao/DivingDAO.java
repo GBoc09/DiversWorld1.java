@@ -108,11 +108,23 @@ public class DivingDAO {
         String telephone = rs.getString(DIVING_TELEPHONE);
         return new Diving(id, name, location, telephone);
     }
-    public String getManEmail() {
-        return manEmail;
-    }
-
-    public void setManEmail(String manEmail) {
-        this.manEmail = manEmail;
+    public List<Diving> getInfo(){
+        Connection con = connection.getConnection();
+        List<Diving> divs = new ArrayList<>();
+        try(Statement stmt = con.createStatement();
+        ResultSet rs = DivingQuery.selectDiving(stmt)){
+            while (rs. next()){
+                Diving newDiv = new Diving();
+                newDiv.setDivingID(rs.getString(1));
+                newDiv.setName(rs.getString(2)) ;
+                newDiv.setDivingMan(rs.getString(3));
+                newDiv.setLocation(rs.getString(4)) ;
+                newDiv.setTelephone(rs.getString(5));
+                divs.add(newDiv);
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return divs;
     }
 }

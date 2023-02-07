@@ -29,10 +29,6 @@ public class DivingBean implements Bean{
     public String getDivingId() {
         return divingId;
     }
-    public DivingBean (String name){
-        this.divingName = name;
-    }
-
     public void setDivingId(String divingId) {
         this.divingId = divingId;
     }

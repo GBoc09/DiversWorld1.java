@@ -4,7 +4,6 @@ import com.example.dw_1.DiversWorld;
 
 import com.example.dw_1.applicativo.GestioneDivingControllerApplicativo;
 import com.example.dw_1.bean.DivingBean;
-import com.example.dw_1.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,9 +41,7 @@ public class ManagerDivingCenterControllerGrafico  implements Initializable { //
     @FXML
     private Button modifyDiving;
     @FXML
-    private ListView<DivingBean> divingView;
-
-    private List<DivingBean> beanList;
+    private ListView<String> listView;
     private static final Integer ADD_DIVING_CENTER = 0;
     private static final Integer MODIFY_DIVING_CENTER = 1;
     private static final Integer MANGER_HOME = 2;
@@ -96,7 +92,6 @@ public class ManagerDivingCenterControllerGrafico  implements Initializable { //
         } catch (Exception e){
             logger.log(Level.INFO, mesasge);
         }
-
     }
     @FXML
     void showDiving(ActionEvent event ){
@@ -116,22 +111,14 @@ public class ManagerDivingCenterControllerGrafico  implements Initializable { //
             logger.log(Level.INFO, mesasge);
         }
     }
-
-    public Label getResultLabel() {
-        return resultLabel;
-    }
-
-    public void setResultLabel(Label resultLabel) {
-        this.resultLabel = resultLabel;
-    }
-
-   @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         GestioneDivingControllerApplicativo gestione = new GestioneDivingControllerApplicativo();
-        try {
-            beanList = gestione.getAllDiving(new UserBean());
-
-        } catch (Exception e){}
-
+        /* controller chiama dao e si fa restiuire lista diving
+        * passa a initialize una bean  */
+        List<DivingBean> divingBeanList = gestione.getDivings();
+        for (DivingBean d: divingBeanList) {
+            listView.getItems().add(d.getDivingId()+","+d.getDivingName()+ ","+ d.getDivingManager() +","+ d.getLocation() + ","+ d.getTelephone() +"\n\n");
+        }
     }
 }
