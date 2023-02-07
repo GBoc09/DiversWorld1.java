@@ -21,6 +21,9 @@ public class User {
         this.license = license;
         this.email = email;
     }
+    public User (String email){
+        this.email = email;
+    }
     public User(String uName, String uLast){
         this.name = uName;
         this.lastname = uLast;

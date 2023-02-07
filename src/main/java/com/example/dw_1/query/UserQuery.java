@@ -14,6 +14,10 @@ public class UserQuery extends Query {
         String query = String.format("SELECT * FROM Scuba WHERE email = '%s';", email);
         return statement.executeQuery(query);
     }
+    public static ResultSet selectScubaByEmail(Statement statement) throws SQLException {
+        String query = String.format("SELECT * FROM Scuba ;");
+        return statement.executeQuery(query);
+    }
 
     public static boolean insertUser(Statement stmt, String email, String password, String type) throws SQLException{
         String query = String.format("INSERT INTO User values('%s', '%s', '%s');", email, password, type);

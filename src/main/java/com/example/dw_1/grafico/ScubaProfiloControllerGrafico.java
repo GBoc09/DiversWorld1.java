@@ -1,6 +1,7 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
+import com.example.dw_1.applicativo.ProfiloUtenteControllerApplicativo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -42,15 +43,6 @@ public class ScubaProfiloControllerGrafico {
         catch (Exception e){
             logger.log(Level.INFO, "Exception Error");
         }
-
-    }
-    @FXML
-    public void initialize(){
-        textEmail.setText("");
-        textPass.setText("");
-        textName.setText("");
-        textLicense.setText("");
-        textLastname.setText("");
 
     }
     @FXML
