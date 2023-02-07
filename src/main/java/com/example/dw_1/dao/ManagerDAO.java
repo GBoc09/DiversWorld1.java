@@ -36,4 +36,17 @@ public class ManagerDAO {
 
         return new Manager(email,"", name, lastname, license);
     }
+    public Manager loadManager(String mangerMail){
+        Connection con = connection.getConnection();
+        Manager manger = null;
+        try (Statement stmt = con.createStatement();
+        ResultSet rs = UserQuery.selectManagerbyEmail(stmt, mangerMail)){
+            if (rs.next()){
+                manger = createManager(rs);
+            }
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return manger;
+    }
 }

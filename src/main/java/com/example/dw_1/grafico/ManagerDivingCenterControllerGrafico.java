@@ -1,16 +1,15 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
+
 import com.example.dw_1.applicativo.GestioneDivingControllerApplicativo;
-import com.example.dw_1.applicativo.ProfiloUtenteControllerApplicativo;
 import com.example.dw_1.bean.DivingBean;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.example.dw_1.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -22,7 +21,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ManagerDivingCenterControllerGrafico { // mostra i diving center associati ad un manager (creare associazione con il manager)
+public class ManagerDivingCenterControllerGrafico  implements Initializable { // mostra i diving center associati ad un manager (creare associazione con il manager)
 
     @FXML
     private Button addDiving; // inserisciDiving metodo relativo
@@ -43,11 +42,10 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
     private Label divingTelephone;
     @FXML
     private Button modifyDiving;
-/*
-* MODIFICATO TIPO DELLA LIST VIEW DA DIVER BEAN A STRING */
     @FXML
-    private ListView<String> divingView;
+    private ListView<DivingBean> divingView;
 
+    private List<DivingBean> beanList;
     private static final Integer ADD_DIVING_CENTER = 0;
     private static final Integer MODIFY_DIVING_CENTER = 1;
     private static final Integer MANGER_HOME = 2;
@@ -60,9 +58,7 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
 
     @FXML
     private Button showDiving;
-
-    @FXML
-    private VBox vBox;
+    Logger logger = Logger.getLogger(ScubaHomeControllerGrafico.class.getName());
 
     @FXML
     void onButtonClicked(ActionEvent event) throws IOException {
@@ -91,7 +87,6 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
         }
 
     }
-    Logger logger;
     private String mesasge = "Exception Error";
     @FXML
     void goHome(MouseEvent event) {
@@ -128,5 +123,15 @@ public class ManagerDivingCenterControllerGrafico { // mostra i diving center as
 
     public void setResultLabel(Label resultLabel) {
         this.resultLabel = resultLabel;
+    }
+
+   @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        GestioneDivingControllerApplicativo gestione = new GestioneDivingControllerApplicativo();
+        try {
+            beanList = gestione.getAllDiving(new UserBean());
+
+        } catch (Exception e){}
+
     }
 }

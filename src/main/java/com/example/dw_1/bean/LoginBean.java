@@ -7,6 +7,9 @@ public class LoginBean implements Bean{
         setUserEmail(userEmail);
         setUserPassword(userPassword);
     }
+    public LoginBean(String userEmail){
+        setUserEmail(userEmail);
+    }
     public String getUserEmail(){
         return userEmail;
     }

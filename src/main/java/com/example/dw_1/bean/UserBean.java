@@ -20,15 +20,13 @@ public class UserBean implements Bean{
         setLastname(lastname);
         setLicense(license);
     }
-
+    public UserBean (String userEmail){
+        setUserEmail(userEmail);
+    }
     public UserBean(String userEmail, Integer userType){
         setUserEmail(userEmail);
         setUserType(userType);
     }
-    public UserBean(String userEmail){
-        setUserEmail(userEmail);
-    }
-
     public String getUserEmail() {
         return userEmail;
     }

@@ -7,6 +7,8 @@ import com.example.dw_1.bean.LoginBean;
 import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.exception.InvalidCredentialException;
 import com.example.dw_1.exception.NotExistantException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -51,6 +53,7 @@ public class LoginControllerGrafico {
             if (userBean != null ) {
                 switch (userType) {
                     case 0:
+                            LoginControllerGrafico.userEmail = userBean.getUserEmail();
                             DiversWorld dw = new DiversWorld();
                             dw.changeScene("scuba_home.fxml");
                     break;
@@ -89,6 +92,7 @@ public class LoginControllerGrafico {
         LoginControllerApplicativo loginControllerApplicativo = new LoginControllerApplicativo();
 
         UserBean loggedUser = null;
+
         try {
             loggedUser = loginControllerApplicativo.verifyUser(loginBean);
 
@@ -97,8 +101,47 @@ public class LoginControllerGrafico {
         }
         return loggedUser;
     }
-    /*
-    * logus = loginControllerApplicativo.verifyUserEmail(loginBean);
-            System.out.println(logus.getUserEmail());*/
+    static String userEmail = "";
+    static ObservableList list = FXCollections.observableArrayList();
+
+    public static String getUserEmail() {
+        return userEmail;
+    }
+
+    public static void setUserEmail() {
+        userEmail = (String) list.get(0);
+        LoginControllerGrafico.userEmail = userEmail;
+    }
+
+    /**  LA FUNZIONE SCRITTA FUNZIONE MA SOLO SE COLLEGATA ALL'INSERIMETO DEI DATI DURANTE IL LOG IN */
+    private UserBean utente;
+    public UserBean utenteLoggato () throws NotExistantException {
+        String userEmail = email.getText();
+        LoginBean loginBean = new LoginBean(userEmail);
+        LoginControllerApplicativo loginControllerApplicativo = new LoginControllerApplicativo();
+
+        try {
+            utente = loginControllerApplicativo.verifyUserEmail(loginBean);
+            setUtente(utente);
+        } catch (NotExistantException e){
+            throw new NotExistantException("--- emeil not found --- ");
+        }
+        return utente;
+    }
+    private static LoginControllerGrafico loginControllerGrafico;
+    public static LoginControllerGrafico getInstance(){
+        if(loginControllerGrafico == null){
+            loginControllerGrafico = new LoginControllerGrafico();
+        }
+        return loginControllerGrafico;
+    }
+
+    public UserBean getUtente() {
+        return utente;
+    }
+
+    public void setUtente(UserBean utente) {
+        this.utente = utente;
+    }
 }
 

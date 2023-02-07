@@ -40,6 +40,10 @@ public class UserQuery extends Query {
         String query = String.format("SELECT * FROM DivingManager WHERE idDivingManager = '%s';", managerID);
         return statement.executeQuery(query);
     }
+    public static ResultSet selectManagerbyEmail(Statement statement, String email) throws SQLException {
+        String query = String.format("SELECT * FROM DivingManager WHERE email = '%s';", email);
+        return statement.executeQuery(query);
+    }
 
 
 
