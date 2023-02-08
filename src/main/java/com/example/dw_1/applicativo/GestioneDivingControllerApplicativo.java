@@ -30,6 +30,13 @@ public class GestioneDivingControllerApplicativo {
       String diving = divingDAO.findDivingByName(divingBean.getDivingName());
       return new DivingBean(diving, divingBean.getLocation());
    }
+   public DivingBean takeDivingCode(DivingBean divingBean){
+      DivingDAO divingDAO = new DivingDAO();
+      String divingCode = divingDAO.takeDvingCode(divingBean.getDivingName());
+      DivingBean d = new DivingBean();
+      d.setDivingId(divingCode);
+      return d;
+   }
    public ValidationBean verifyManager(ValidationBean validationBean) {
       UserDAO userDAO = new UserDAO();
       String user = userDAO.selectLicense(validationBean.getManager());

@@ -13,6 +13,10 @@ public class DivingQuery {
         String query = String.format("SELECT * FROM Diving WHERE name = '%s';", divingName);
         return stmt.executeQuery(query);
     }
+    public static ResultSet selectDivingCode(Statement stmt, String divingName) throws SQLException {
+        String query = String.format("SELECT idDiving FROM Diving WHERE name = '%s';", divingName);
+        return stmt.executeQuery(query);
+    }
     public static ResultSet selectDiving(Statement stmt) throws SQLException {
         String query = String.format("SELECT * FROM Diving;");
         return stmt.executeQuery(query);

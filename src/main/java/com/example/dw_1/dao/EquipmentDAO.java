@@ -1,5 +1,6 @@
 package com.example.dw_1.dao;
 
+import com.example.dw_1.bean.DivingBean;
 import com.example.dw_1.db.MyConnectionSingleton;
 import com.example.dw_1.entity.Equipment;
 import com.example.dw_1.exception.AlreadyRegisteredEquipException;
@@ -41,5 +42,6 @@ public class EquipmentDAO{
         }
         return equips;
     }
+
 }
 

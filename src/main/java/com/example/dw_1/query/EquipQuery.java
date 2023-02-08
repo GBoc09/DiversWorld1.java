@@ -13,6 +13,11 @@ public class EquipQuery extends Query {
         String query = String.format("SELECT * FROM  Equipment;");
         return stmt.executeQuery(query);
     }
+    public static ResultSet selectEquipByDivingCode(Statement stmt, String divingCode) throws SQLException {
+        String query = String.format("SELECT idEquipment, equipType, size, availability, price FROM  Equipment WHERE idDiving = '%s';", divingCode);
+        return stmt.executeQuery(query);
+    }
+
 
 
 }

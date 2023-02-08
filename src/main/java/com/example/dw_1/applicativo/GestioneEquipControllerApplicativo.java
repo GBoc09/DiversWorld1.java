@@ -1,5 +1,6 @@
 package com.example.dw_1.applicativo;
 
+import com.example.dw_1.bean.DivingBean;
 import com.example.dw_1.bean.EquipmentBean;
 import com.example.dw_1.dao.EquipmentDAO;
 import com.example.dw_1.entity.Equipment;
@@ -49,4 +50,5 @@ public class GestioneEquipControllerApplicativo {
         }
         return equip;
     }
+
 }

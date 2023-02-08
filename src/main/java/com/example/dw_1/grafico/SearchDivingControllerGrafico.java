@@ -56,13 +56,14 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
             }
             DivingBean divingBean = sceltaDiving();
             String nome = divingBean.getDivingName();
-            if ( nome != null){
+            DivingBean divingBean1 = takeDivingCodeCntrl();
+            String code = divingBean1.getDivingId();
+            if ( nome != null && code != null){
                 DiversWorld dw = new DiversWorld();
                 dw.changeScene("equipList.fxml");
             } else {
                 throw new NotFoundDivingException("--- Diving not found --- ");
             }
-
         }
     }
 /* verifica che il diving inserito dall'utente sia all'interno del DB
@@ -78,6 +79,14 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
         if (divingBean != null) {
             d = gestioneDivingControllerApplicativo.verifyDiving(divingBean);
         }
+        return d;
+    }
+    private DivingBean takeDivingCodeCntrl () {
+        String nomeDiving = divingName.getText();
+        DivingBean divingBean = new DivingBean(nomeDiving);
+        GestioneDivingControllerApplicativo gestione = new GestioneDivingControllerApplicativo();
+        DivingBean d;
+        d = gestione.takeDivingCode(divingBean);
         return d;
     }
 }

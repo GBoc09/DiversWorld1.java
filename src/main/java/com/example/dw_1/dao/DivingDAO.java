@@ -21,6 +21,20 @@ public class DivingDAO {
             e.printStackTrace();
         }
     }
+    /* ritorna il codice */
+    public String takeDvingCode (String divingName){
+        Connection con = connection.getConnection();
+        String code = null;
+        try (Statement stmt = con.createStatement();
+        ResultSet rs = DivingQuery.selectDivingCode(stmt, divingName)){
+            while(rs.next()){
+                code = rs.getString("idDiving");
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return code;
+    }
 
     /** FUNZIONA serve per cercare il diving dalla parte del client */
     public String findDivingByName (String divingName){

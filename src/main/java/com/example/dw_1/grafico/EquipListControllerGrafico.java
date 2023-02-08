@@ -3,7 +3,8 @@ package com.example.dw_1.grafico;
 import com.example.dw_1.DiversWorld;
 import com.example.dw_1.applicativo.GestioneEquipControllerApplicativo;
 import com.example.dw_1.bean.EquipmentBean;
-import com.example.dw_1.entity.Equipment;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,9 +40,7 @@ public class EquipListControllerGrafico implements Initializable {
         } catch (Exception e){
             logger.log(Level.INFO, "Exception Error");
         }
-
     }
-
     @FXML
     void onButtonClicked(ActionEvent event) {
         try {
@@ -50,16 +50,15 @@ public class EquipListControllerGrafico implements Initializable {
             logger.log(Level.INFO, "Exception Error");
         }
     }
-    @Override
+   @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        GestioneEquipControllerApplicativo gestione = new GestioneEquipControllerApplicativo();
-        List<EquipmentBean> equipmentBeanList = gestione.getEquips();
-        for (EquipmentBean d: equipmentBeanList) {
-            listView.getItems().add("EquipID: "+d.getIdEquip()+", "+"DivingID: "+d.getIdDiving()+", "+"EquipType: "+
-                    d.getEquipType()+", "+ "Size: "+d.getSize()+", "+"Availability:"+ d.getAvail()+", "+"Price: "+d.getPrice());
-        }
-
-    }
+       GestioneEquipControllerApplicativo gestione = new GestioneEquipControllerApplicativo();
+       List<EquipmentBean> equipmentBeanList = gestione.getEquips();
+       for (EquipmentBean d : equipmentBeanList) {
+           listView.getItems().add("EquipID: " + d.getIdEquip() + ", " + "DivingID: " + d.getIdDiving() + ", " + "EquipType: " +
+                   d.getEquipType() + ", " + "Size: " + d.getSize() + ", " + "Availability:" + d.getAvail() + ", " + "Price: " + d.getPrice());
+       }
+   }
 }
 
 
