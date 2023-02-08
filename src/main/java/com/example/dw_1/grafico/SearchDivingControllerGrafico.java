@@ -8,6 +8,7 @@ import com.example.dw_1.exception.NotFoundDivingException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -26,9 +27,6 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
     private TextField divingName;
 
     @FXML
-    private Label errorLabel;
-
-    @FXML
     private Label goHome;
 
     @FXML
@@ -45,20 +43,22 @@ public class SearchDivingControllerGrafico { // SCHERMATA RICERCA DIVING
     }
 /* collegamento con la pagina di scelta delle attrezzature */
     @FXML
-    void serchDiving(ActionEvent event) throws NotFoundDivingException, InvalidCredentialException, IOException {
+    void serchDiving(ActionEvent event) throws NotFoundDivingException, IOException {
         Node eventSource = (Node) event.getSource();
         if (eventSource == search) {
             if (divingName.getText().isEmpty() || divingLoc.getText().isEmpty()) {
-                errorLabel.setText("Please insert your credentials");
                 divingName.setText("");
                 divingLoc.setText("");
-                throw new InvalidCredentialException("Please insert valid credentials");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Fill all required fields");
+                alert.showAndWait();
             }
             DivingBean divingBean = sceltaDiving();
             String nome = divingBean.getDivingName();
             if ( nome != null){
                 DiversWorld dw = new DiversWorld();
-                dw.changeScene("noleggioEquip.fxml");
+                dw.changeScene("equipList.fxml");
             } else {
                 throw new NotFoundDivingException("--- Diving not found --- ");
             }

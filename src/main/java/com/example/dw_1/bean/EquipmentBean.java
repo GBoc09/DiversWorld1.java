@@ -16,6 +16,13 @@ public class EquipmentBean implements Bean {
         this.avail = disp;
         this.price = prezzo;
     }
+    public EquipmentBean(String codeEquip, String type, String taglia, String disp, Double prezzo){
+        this.idEquip = codeEquip;
+        this.equipType = type;
+        this.size = taglia;
+        this.avail = disp;
+        this.price = prezzo;
+    }
 
     public String getIdEquip() {
         return idEquip;

@@ -19,33 +19,8 @@
          </cursor>
       </Label>
       <Line endX="141.5999755859375" endY="-1.52587890625E-5" layoutX="300.0" layoutY="78.0" startX="-100.0" strokeWidth="2.0" />
-      <ListView fx:id="listView" layoutX="37.0" layoutY="110.0" prefHeight="200.0" prefWidth="350.0" />
-      <Label fx:id="divingID" layoutX="400.0" layoutY="125.0" prefHeight="22.0" prefWidth="78.0" text="Diving ID ">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="divingName" layoutX="400.0" layoutY="145.0" prefHeight="22.0" prefWidth="78.0" text="Name">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="divingManger" layoutX="400.0" layoutY="167.0" prefHeight="22.0" prefWidth="114.0" text="Diving Manager">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="divingLocation" layoutX="400.0" layoutY="187.0" prefHeight="22.0" prefWidth="114.0" text="Location ">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="divingTelephone" layoutX="400.0" layoutY="208.0" prefHeight="22.0" prefWidth="114.0" text="Telephone ">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Button fx:id="modifyDiving" layoutX="405.0" layoutY="275.0" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="ModifyDiving">
+      <ListView fx:id="listView" layoutX="77.0" layoutY="108.0" prefHeight="200.0" prefWidth="436.0" />
+      <Button fx:id="modifyDiving" layoutX="400.0" layoutY="320.0" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="ModifyDiving">
          <font>
             <Font size="15.0" />
          </font>

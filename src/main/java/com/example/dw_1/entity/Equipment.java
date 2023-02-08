@@ -17,7 +17,13 @@ public class Equipment {
         this.avail = disp;
         this.price = prezzo;
     }
-
+    public Equipment(String idE, String tipo, String taglia, String disp, Double prezzo) {
+        this.idEquip = idE;
+        this.equipType = tipo;
+        this.size = taglia;
+        this.avail = disp;
+        this.price = prezzo;
+    }
     public String getIdEquip() {
         return idEquip;
     }

@@ -10,8 +10,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.EquipListControllerGrafico">
    <children>
-      <ListView fx:id="listView" layoutX="100.0" layoutY="121.0" prefHeight="200.0" prefWidth="400.0" />
-      <Button fx:id="modifyDiving" layoutX="360.0" layoutY="333.0" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Chose Equipment">
+      <ListView fx:id="listView" layoutX="74.0" layoutY="111.0" prefHeight="200.0" prefWidth="450.0" />
+      <Button fx:id="choose" layoutX="376.0" layoutY="331.0" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Choose Equipment">
          <font>
             <Font size="15.0" />
          </font>
@@ -25,11 +25,11 @@
          </cursor>
       </Label>
       <Line endX="149.0" endY="0.1999969482421875" layoutX="281.0" layoutY="61.0" startX="-111.0" startY="0.1999969482421875" strokeWidth="2.0" />
-      <Label layoutX="100.0" layoutY="81.0" onDragDetected="#goHome" text="Our availabilities">
+      <Label layoutX="75.0" layoutY="81.0" onDragDetected="#goHome" text="Our availabilities">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Line endX="46.4000244140625" endY="0.1999969482421875" layoutX="212.0" layoutY="106.0" startX="-111.0" startY="0.1999969482421875" strokeWidth="2.0" />
+      <Line endX="46.4000244140625" endY="0.1999969482421875" layoutX="187.0" layoutY="106.0" startX="-111.0" startY="0.1999969482421875" strokeWidth="2.0" />
    </children>
 </AnchorPane>
