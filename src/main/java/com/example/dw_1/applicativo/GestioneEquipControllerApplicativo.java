@@ -1,8 +1,8 @@
 package com.example.dw_1.applicativo;
 
 import com.example.dw_1.bean.EquipmentBean;
-import com.example.dw_1.dao.*;
-import com.example.dw_1.entity.*;
+import com.example.dw_1.dao.EquipmentDAO;
+import com.example.dw_1.entity.Equipment;
 import com.example.dw_1.exception.AlreadyRegisteredEquipException;
 import com.example.dw_1.pattern.factory.Factory;
 /* types:
@@ -18,6 +18,16 @@ public class GestioneEquipControllerApplicativo {
     }
     /* MODIFICARE LA FUNZIONE DI INSERIMENTO */
     public void addEquip(EquipmentBean equipmentBean) throws AlreadyRegisteredEquipException {
-    // to do
+        Equipment equipment;
+        String idE = equipmentBean.getIdEquip();
+        String idD = equipmentBean.getIdDiving();
+        String equipT = equipmentBean.getEquipType();
+        String size = equipmentBean.getSize();
+        String avail = equipmentBean.getAvail();
+        Double price = equipmentBean.getPrice();
+        equipment = factory.createEquip(idE, idD, equipT, size, avail, price);
+        EquipmentDAO equipmentDAO = new EquipmentDAO();
+        equipmentDAO.insertEquip(equipment);
+
     }
 }

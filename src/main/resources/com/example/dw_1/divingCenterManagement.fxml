@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,10 +10,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.ModifyDivingCenterControllerGrafico">
    <children>
-      <Label layoutX="74.0" layoutY="14.0" onMouseClicked="#goHome" text="Diving Center Manage Page">
+      <Label fx:id="goHome" layoutX="74.0" layoutY="14.0" onMouseClicked="#goHome" text="Diving Center Manage Page">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Label>
       <Line endX="285.4000244140625" endY="-1.52587890625E-5" layoutX="249.0" layoutY="63.0" startX="-170.5999755859375" startY="-1.52587890625E-5" strokeWidth="2.0" />
       <TextField fx:id="divingID" layoutX="147.0" layoutY="111.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: white;" />

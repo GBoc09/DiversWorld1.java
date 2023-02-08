@@ -5,6 +5,7 @@ import com.example.dw_1.applicativo.GestioneEquipControllerApplicativo;
 import com.example.dw_1.bean.EquipmentBean;
 import com.example.dw_1.exception.AlreadyRegisteredEquipException;
 import com.example.dw_1.exception.AlreadyRegisteredUserException;
+import com.example.dw_1.exception.InvalidCredentialException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,92 +26,81 @@ public class AddEquipmentManagerControllerGrafico {
      */
     ObservableList<String> sizeList = FXCollections.observableArrayList("none","XS", "S", "M", "L", "XL");
     @FXML
+    private TextField EquipType;
+    @FXML
     private Button addProduct;
-    @FXML
-    private RadioButton finn;
-    @FXML
-    private RadioButton jack;
-    @FXML
-    private RadioButton mask;
-    @FXML
-    private RadioButton reg;
-    @FXML
-    private RadioButton suit;
 
     @FXML
     private TextField availability;
 
     @FXML
-    private TextField description;
+    private TextField divingCode;
 
     @FXML
-    private TextField id;
+    private TextField equipID;
+
+    @FXML
+    private Label errorLabel;
+
+    @FXML
+    private RadioButton finn;
+
     @FXML
     private Label goHome;
+
+    @FXML
+    private RadioButton jack;
+
+    @FXML
+    private RadioButton mask;
 
     @FXML
     private TextField price;
 
     @FXML
+    private RadioButton reg;
+
+    @FXML
     private ChoiceBox<String> size;
 
     @FXML
-    private Label errorLabel;
-    @FXML
-    private TextField divingCode;
-    /* ---------- DICHIARAZIONE CHECK BOX ----------- */
-    private static final int J = 0;
-    private static final int R = 1;
-    private static final int F = 2;
-    private static final int M = 3;
-    private static final int S = 4;
+    private RadioButton suit;
 
-    private Integer equipChoice;
+    @FXML
+    private ToggleGroup type;
+
     EquipmentBean equipmentBean;
+    Logger log = Logger.getLogger(AddEquipmentManagerControllerGrafico.class.getName());
+
     @FXML
     private void initialize() {
         size.setItems(sizeList);
         size.setValue("select size");
     }
+    /* inserire verifica di campi riempiti */
     @FXML
     void addNewProduct(ActionEvent event) throws AlreadyRegisteredEquipException { /* aggiungere al catalogo delle attrzzature */
-        if (divingCode.getText().isEmpty()|| id.getText().isEmpty()|| availability.getText().isEmpty()||description.getText().isEmpty()||price.getText().isEmpty()||size.getValue().isEmpty()){
-            errorLabel.setText("Fill all fields");
-        }
+       if (equipID.getText().isEmpty() || divingCode.getText().isEmpty() || EquipType.getText().isEmpty() || size.getValue().isEmpty() || availability.getText().isEmpty() || price.getText().isEmpty()){
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.setHeaderText(null);
+           alert.setContentText("Fill all required fields");
+           alert.showAndWait();
+           errorLabel.setText("Fill all fields");
+       }
         equipmentBean = insertInfo();
         GestioneEquipControllerApplicativo equipManage = new GestioneEquipControllerApplicativo();
         equipManage.addEquip(equipmentBean);
     }
     private EquipmentBean insertInfo() {
         EquipmentBean equipment = new EquipmentBean();
-
+        equipment.setIdEquip(equipID.getText());
         equipment.setIdDiving(divingCode.getText());
-
-        equipment.setIdEquip(id.getText());
-
+        equipment.setEquipType(EquipType.getText());
         equipment.setSize(size.getValue());
-
         equipment.setAvail(availability.getText());
-
-        equipment.setEquipType(description.getText());
-
         equipment.setPrice(Double.valueOf(price.getText()));
-
-        if (jack.isSelected()){
-            equipChoice = J;
-        } else if (reg.isSelected()) {
-            equipChoice = R;
-        } else if (mask.isSelected()) {
-            equipChoice = M;
-        } else if (finn.isSelected()) {
-            equipChoice = F;
-        } else if (suit.isSelected()) {
-            equipChoice = S;
-        }
         return equipment;
     }
-    Logger log;
-
     @FXML
     void goHome(MouseEvent event) {
         try{

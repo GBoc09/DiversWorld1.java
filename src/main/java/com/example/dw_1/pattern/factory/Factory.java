@@ -15,7 +15,7 @@ public class Factory {
     public Diving createDiving(String id, String name, String divngMan, String loc, String tel) {
         return new Diving(id, name, divngMan, loc, tel);
     }
-    public Equipment createEqui(String idE, String idD, String typeE, String size, String avail, Double price) {
+    public Equipment createEquip(String idE, String idD, String typeE, String size, String avail, Double price) {
         return new Equipment(idE, idD, typeE, size, avail, price);
     }
 

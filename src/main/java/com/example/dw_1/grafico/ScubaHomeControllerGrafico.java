@@ -21,6 +21,8 @@ public class ScubaHomeControllerGrafico implements Initializable {
     @FXML
     private Button bookCourse;
     @FXML
+    private Label goToLogin;
+    @FXML
     private Button logBook;
     @FXML
     private ImageView profilo;
@@ -34,7 +36,7 @@ public class ScubaHomeControllerGrafico implements Initializable {
     ProfiloUtenteControllerApplicativo profiloController = new ProfiloUtenteControllerApplicativo();
     List<String> datiUtente;
 
-
+    private String message = "Exception Error";
     @FXML
     void backToScubaHome(MouseEvent event) {
         try{
@@ -42,7 +44,17 @@ public class ScubaHomeControllerGrafico implements Initializable {
             dw.changeScene("scuba_home.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO,message);
+        }
+    }
+    @FXML
+    void goToLogin(MouseEvent event) {
+        try{
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("login.fxml");
+        }
+        catch (Exception e){
+            logger.log(Level.INFO, message);
         }
     }
     @FXML

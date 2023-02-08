@@ -1,20 +1,26 @@
 package com.example.dw_1.dao;
 
 import com.example.dw_1.db.MyConnectionSingleton;
-import com.example.dw_1.entity.Diving;
 import com.example.dw_1.entity.Equipment;
-import com.example.dw_1.query.DivingQuery;
+import com.example.dw_1.exception.AlreadyRegisteredEquipException;
 import com.example.dw_1.query.EquipQuery;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EquipmentDAO{
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
+    public void insertEquip(Equipment equipment) throws AlreadyRegisteredEquipException {
+        Connection con =connection.getConnection();
+        try(Statement stmt = con.createStatement();){
+            EquipQuery.insertEquip(stmt, equipment.getIdEquip(), equipment.getDivingID(), equipment.getEquipType(), equipment.getSize(), equipment.getAvail(), equipment.getPrice());
+        } catch (SQLIntegrityConstraintViolationException e){
+            throw new AlreadyRegisteredEquipException(1);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
     public List<Equipment> getEquipInfo(){
         Connection con = connection.getConnection();
         List<Equipment> equips = new ArrayList<>();

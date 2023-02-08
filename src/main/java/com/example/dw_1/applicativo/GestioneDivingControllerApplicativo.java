@@ -1,15 +1,11 @@
 package com.example.dw_1.applicativo;
 
 import com.example.dw_1.bean.DivingBean;
-import com.example.dw_1.bean.UserBean;
 import com.example.dw_1.bean.ValidationBean;
 import com.example.dw_1.dao.DivingDAO;
-import com.example.dw_1.dao.ManagerDAO;
 import com.example.dw_1.dao.UserDAO;
-import com.example.dw_1.entity.Diving;
-import com.example.dw_1.entity.Manager;
+import com.example.dw_1.entity.Diving;;
 import com.example.dw_1.exception.AlreadyRegisteredDiving;
-import com.example.dw_1.other.DivingCatalogue;
 import com.example.dw_1.pattern.factory.Factory;
 
 import java.util.ArrayList;

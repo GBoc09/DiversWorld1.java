@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -135,5 +136,28 @@ public class LoginControllerGrafico {
     public void setUtente(UserBean utente) {
         this.utente = utente;
     }
+
+    /** FXML per gestione FREE divers page */
+
+        @FXML
+        private Button bookCourse;
+
+        @FXML
+        private Label goToLogin;
+
+        @FXML
+        private Button logBook;
+
+        @FXML
+        void goToLogin(MouseEvent event) {
+            try{
+                DiversWorld dw = new DiversWorld();
+                dw.changeScene("login.fxml");
+            }
+            catch (Exception e){
+                logger.log(Level.INFO, "Exception Error");
+            }
+
+        }
 }
 

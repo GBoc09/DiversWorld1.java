@@ -13,7 +13,7 @@ public class EquipListControllerGrafico {
     private Label goHome;
 
     @FXML
-    private ListView<String> listView;
+    private ListView<?> listView;
 
     @FXML
     private Button modifyDiving;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.SuitPageManagementControllerGrafico">
    <children>
@@ -52,6 +52,9 @@
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Label>
       <Line endX="149.0" endY="0.1999969482421875" layoutX="281.0" layoutY="65.0" startX="-111.0" startY="0.1999969482421875" strokeWidth="2.0" />
       <ChoiceBox fx:id="sizeSuit" layoutX="289.0" layoutY="203.0" prefHeight="26.0" prefWidth="186.0" style="-fx-background-color: white;" />

@@ -44,7 +44,7 @@ public class RegistrationControllerGrafico {
     private int userType;
 
     @FXML
-    private Button signIn; /* its relatives method is REGISTRAZIONE */
+    private Button signUp; /* its relatives method is REGISTRAZIONE */
     @FXML
     private Label errorLabel;
 
@@ -58,7 +58,7 @@ public class RegistrationControllerGrafico {
     private Integer type;
 
         @FXML
-    void signIn(ActionEvent event) throws AlreadyRegisteredUserException, IOException, InvalidCredentialException {
+    void signUp(ActionEvent event) throws AlreadyRegisteredUserException, IOException, InvalidCredentialException {
             try {
                 userBean = insertInfo();
                 RegistazioneControllerApplicativo registazioneControllerApplicativo = new RegistazioneControllerApplicativo();
