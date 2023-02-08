@@ -1,16 +1,21 @@
 package com.example.dw_1.grafico;
 
 import com.example.dw_1.DiversWorld;
+import com.example.dw_1.applicativo.GestioneEquipControllerApplicativo;
+import com.example.dw_1.bean.EquipmentBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class NoleggioEquipControllerGrafico {
+
     @FXML
     private Button finn;
 
@@ -28,9 +33,7 @@ public class NoleggioEquipControllerGrafico {
 
     @FXML
     private Button suit;
-
-    Logger logger;
-    private String message = "Exception Error";
+    Logger logger = Logger.getLogger(LoginControllerGrafico.class.getName());
     @FXML
     void goHome(MouseEvent event) {
         try{
@@ -38,60 +41,48 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("scuba_home.fxml");
         }
         catch (Exception e){
-            logger.log(Level.INFO, message);
+            logger.log(Level.INFO, "Exception Error");
         }
     }
-
+    public String type;
+    EquipmentBean equipmentBean;
     @FXML
-    void showFinns(ActionEvent event) {
-        try{
-            DiversWorld dw = new DiversWorld();
-            dw.changeScene("finnsPage.fxml");
-        }
-        catch (Exception e){
-            logger.log(Level.INFO, message);
-        }
-    }
-
-    @FXML
-    void showJacket(ActionEvent event) {
-        try{
-            DiversWorld dw = new DiversWorld();
-            dw.changeScene("jacketPage.fxml");
-        }
-        catch (Exception e){
-            logger.log(Level.INFO, message);
-        }
-    }
-    @FXML
-    void showMask(ActionEvent event) {
-        try{
+    void show(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        if (source == mask) {
+            type = "mask";
+            System.out.println("noleggio controller grafico --- "+type);
+            equipmentBean = takeInfo(type);
             DiversWorld dw = new DiversWorld();
             dw.changeScene("maskPage.fxml");
-        }
-        catch (Exception e){
-            logger.log(Level.INFO, message);
-        }
-    }
-    @FXML
-    void showRegolator(ActionEvent event) {
-        try{
+        } else if (source == finn) {
+            type = "finn";
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("finnsPage.fxml");
+        } else if (source == jacket) {
+            type = "jacket";
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("jacketPage.fxml");
+        } else if (source == suit) {
+            type = "suit";
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("suitPage.fxml");
+        } else if (source == regulator) {
+            type = "regualtor";
             DiversWorld dw = new DiversWorld();
             dw.changeScene("regulatorPage.fxml");
         }
-        catch (Exception e){
-            logger.log(Level.INFO, message);
-        }
     }
-    @FXML
-    void showSuit(ActionEvent event) {
-        try{
-            DiversWorld dw = new DiversWorld();
-            dw.changeScene("suitPage.fxml");
-        }
-        catch (Exception e){
-            logger.log(Level.INFO, message);
-        }
+    private EquipmentBean takeInfo(String tipo){
+        EquipmentBean equipmentBean1 = new EquipmentBean();
+        equipmentBean1.setEquipType(tipo);
+        String str = equipmentBean1.getEquipType();
+        System.out.println("take info controller grafico, salavtaggio in bean1 --- "+str);
+        GestioneEquipControllerApplicativo gestione = new GestioneEquipControllerApplicativo();
+        EquipmentBean d;
+        d = gestione.getSomeEquip(equipmentBean1);
+        String prova = d.getIdEquip();
+        System.out.println("noleggio equip controller grafico --- prova dopo db "+prova);
+        return d;
     }
-
 }

@@ -3,7 +3,9 @@ package com.example.dw_1.applicativo;
 import com.example.dw_1.bean.DivingBean;
 import com.example.dw_1.bean.EquipmentBean;
 import com.example.dw_1.dao.EquipmentDAO;
+import com.example.dw_1.dao.JacketDAO;
 import com.example.dw_1.entity.Equipment;
+import com.example.dw_1.entity.Jacket;
 import com.example.dw_1.exception.AlreadyRegisteredEquipException;
 import com.example.dw_1.pattern.factory.Factory;
 
@@ -50,5 +52,22 @@ public class GestioneEquipControllerApplicativo {
         }
         return equip;
     }
-
+    /* PARAMETRI PRESI*/
+    public EquipmentBean getSomeEquip(EquipmentBean equipmentBean) {
+        List<EquipmentBean> equip = new ArrayList<>();
+        JacketDAO jacketDAO = new JacketDAO();
+        List<Jacket> equip2 = jacketDAO.getJackInfo(equipmentBean);
+        for (Jacket j : equip2) {
+            EquipmentBean e = new EquipmentBean();
+            e.setIdEquip(j.getIdEquip());
+            System.out.println(" nel ciclo for applicativo --- "+e.getIdEquip());
+            e.setEquipType(j.getEquipType());
+            System.out.println(" nel ciclo for applicativo --- "+e.getEquipType());
+            e.setPrice(j.getPrice());
+            System.out.println(" nel ciclo for applicativo --- "+e.getPrice());
+            equip.add(e);
+        }
+        System.out.println(equip.get(0));
+        return new EquipmentBean(equip);
+    }
 }

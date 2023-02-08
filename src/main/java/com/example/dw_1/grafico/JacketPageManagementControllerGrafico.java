@@ -19,13 +19,10 @@ public class JacketPageManagementControllerGrafico {
     private Label availLabelJack;
 
     @FXML
-    private TextField descJack;
-
-   @FXML
     private Label goHome;
 
     @FXML
-    private TextField idJack;
+    private TextField idJacK;
 
     @FXML
     private TextField nameJack;
@@ -38,7 +35,7 @@ public class JacketPageManagementControllerGrafico {
 
     @FXML
     private ChoiceBox<String> sizeJack;
-    Logger logger;
+    Logger logger = Logger.getLogger(JacketPageManagementControllerGrafico.class.getName());
     @FXML
      void goHome(MouseEvent event) {
         try {

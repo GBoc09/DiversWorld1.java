@@ -1,5 +1,7 @@
 package com.example.dw_1.bean;
 
+import java.util.List;
+
 public class EquipmentBean implements Bean {
     private String idEquip;
     private String idDiving;
@@ -23,6 +25,10 @@ public class EquipmentBean implements Bean {
         this.avail = disp;
         this.price = prezzo;
     }
+    public EquipmentBean( String type){
+        this.equipType = type;
+    }
+    public EquipmentBean(List<EquipmentBean> e){}
 
     public String getIdEquip() {
         return idEquip;

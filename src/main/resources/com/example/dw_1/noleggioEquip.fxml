@@ -27,27 +27,27 @@
       <Line endX="161.79998779296875" endY="0.9999847412109375" layoutX="287.0" layoutY="121.0" startX="-146.0" startY="-1.52587890625E-5" strokeWidth="2.0" />
       <ButtonBar layoutX="27.0" layoutY="180.0" prefHeight="40.0" prefWidth="535.0" style="-fx-background-color: none;">
          <buttons>
-            <Button fx:id="jacket" mnemonicParsing="false" onAction="#showJacket" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Jacket ">
+            <Button fx:id="jacket" mnemonicParsing="false" onAction="#show" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Jacket ">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="mask" mnemonicParsing="false" onAction="#showMask" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Mask">
+            <Button fx:id="mask" mnemonicParsing="false" onAction="#show" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Mask">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-          <Button fx:id="regulator" mnemonicParsing="false" onAction="#showRegolator" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Regulator ">
+          <Button fx:id="regulator" mnemonicParsing="false" onAction="#show" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Regulator ">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="finn" mnemonicParsing="false" onAction="#showFinns" prefHeight="31.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Finns">
+            <Button fx:id="finn" mnemonicParsing="false" onAction="#show" prefHeight="31.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Finns">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="suit" mnemonicParsing="false" onAction="#showSuit" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Suit">
+            <Button fx:id="suit" mnemonicParsing="false" onAction="#show" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="Suit">
                <font>
                   <Font size="15.0" />
                </font>
