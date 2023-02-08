@@ -1,36 +1,29 @@
 package com.example.dw_1.entity;
 
 public class Equipment {
-    private String id;
+    private String idEquip;
     private String size;
-    private String availability;
-    private String description;
+    private String avail;
     private Double price;
-    private String diving; /* riferimento al DIVING ID*/
+    private String equipType;
+    private String divingID; /* riferimento al DIVING ID*/
 
     public Equipment() {}
-    public Equipment (String id,String diving,String description,Double price,String availability ){
-        this.id = id;
-        this.diving = diving;
-        this.description = description;
-        this.price = price;
-        this.availability = availability;
-    }
-    public Equipment (String id,String diving,String description,String size, String availability, Double price){
-        this.id = id;
-        this.diving = diving;
-        this.description = description;
-        this.size = size;
-        this.availability = availability;
-        this.price = price;
+    public Equipment(String idE, String idD, String tipo, String taglia, String disp, Double prezzo){
+        this.idEquip = idE;
+        this.divingID = idD;
+        this.equipType = tipo;
+        this.size = taglia;
+        this.avail = disp;
+        this.price = prezzo;
     }
 
-    public String getId() {
-        return id;
+    public String getIdEquip() {
+        return idEquip;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdEquip(String idEquip) {
+        this.idEquip = idEquip;
     }
 
     public String getSize() {
@@ -41,20 +34,12 @@ public class Equipment {
         this.size = size;
     }
 
-    public String getAvailability() {
-        return availability;
+    public String getAvail() {
+        return avail;
     }
 
-    public void setAvailability(String availability) {
-        this.availability = availability;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAvail(String avail) {
+        this.avail = avail;
     }
 
     public Double getPrice() {
@@ -65,11 +50,19 @@ public class Equipment {
         this.price = price;
     }
 
-    public String getDiving() {
-        return diving;
+    public String getEquipType() {
+        return equipType;
     }
 
-    public void setDiving(String diving) {
-        this.diving = diving;
+    public void setEquipType(String equipType) {
+        this.equipType = equipType;
+    }
+
+    public String getDivingID() {
+        return divingID;
+    }
+
+    public void setDivingID(String divingID) {
+        this.divingID = divingID;
     }
 }

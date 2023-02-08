@@ -16,6 +16,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AddEquipmentManagerControllerGrafico {
+    /** valutare come prenderee il tipo di equipment e se lasciare i radio button
+     * valutare se levare le classi che riguardano le specifiche componenti
+     * continuare le modifche nella parte dell'equip
+     *  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     *  creazione delle query per inserimento e selezione completa FATTO
+     *  model el DAO creati
+     */
     ObservableList<String> sizeList = FXCollections.observableArrayList("none","XS", "S", "M", "L", "XL");
     @FXML
     private Button addProduct;
@@ -58,7 +65,7 @@ public class AddEquipmentManagerControllerGrafico {
     private static final int M = 3;
     private static final int S = 4;
 
-    private Integer equipType;
+    private Integer equipChoice;
     EquipmentBean equipmentBean;
     @FXML
     private void initialize() {
@@ -77,30 +84,29 @@ public class AddEquipmentManagerControllerGrafico {
     private EquipmentBean insertInfo() {
         EquipmentBean equipment = new EquipmentBean();
 
-        equipment.setDivingID(divingCode.getText());
+        equipment.setIdDiving(divingCode.getText());
 
-        equipment.setIdBean(id.getText());
+        equipment.setIdEquip(id.getText());
 
-        equipment.setSizeBean(size.getValue());
+        equipment.setSize(size.getValue());
 
-        equipment.setAvailBean(availability.getText());
+        equipment.setAvail(availability.getText());
 
-        equipment.setDescrBean(description.getText());
+        equipment.setEquipType(description.getText());
 
-        equipment.setPriceBean(Double.valueOf(price.getText()));
+        equipment.setPrice(Double.valueOf(price.getText()));
 
         if (jack.isSelected()){
-            equipType = J;
+            equipChoice = J;
         } else if (reg.isSelected()) {
-            equipType = R;
+            equipChoice = R;
         } else if (mask.isSelected()) {
-            equipType = M;
+            equipChoice = M;
         } else if (finn.isSelected()) {
-            equipType = F;
+            equipChoice = F;
         } else if (suit.isSelected()) {
-            equipType = S;
+            equipChoice = S;
         }
-        equipment.setEquipType(equipType);
         return equipment;
     }
     Logger log;

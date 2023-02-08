@@ -39,19 +39,8 @@ public class GestioneDivingControllerApplicativo {
       String user = userDAO.selectLicense(validationBean.getManager());
       return new ValidationBean(user);
    }
-   public List<DivingBean> getAllDiving(UserBean userBean){
-      DivingDAO divingDAO = new DivingDAO();
-      ManagerDAO managerDAO = new ManagerDAO();
-      Manager manager = managerDAO.loadManager(userBean.getUserEmail());
-      DivingCatalogue divingCatalogue = divingDAO.loadAllDivingByManager(manager.getEmail());
-      List<Diving> divings = divingCatalogue.getDivings();
-      String divingName;
-      ArrayList<DivingBean> divingBeanArrayList = new ArrayList<>();
-      for (Diving diving : divings){
-         divingName = diving.getName();
-      }
-      return divingBeanArrayList;
-   }
+   /**
+    * List<DivingBean> getDivings  FUNZIONA*/
    /* istanziato una lista di bean */
    public List<DivingBean> getDivings () {
       List<DivingBean> div = new ArrayList<>();

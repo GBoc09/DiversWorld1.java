@@ -142,22 +142,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Equipment`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Equipment` (
-  `idEquipment` VARCHAR(4) NOT NULL,
-  `diving` VARCHAR(4) NOT NULL,
-  `equipType` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idEquipment`),
-  CONSTRAINT `diving`
-    FOREIGN KEY (`diving`)
-    REFERENCES `mydb`.`Diving` (`idDiving`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`Renatal`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Renatal` (
@@ -175,11 +159,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Renatal` (
   CONSTRAINT `idScuba_R`
     FOREIGN KEY (`idScuba`)
     REFERENCES `mydb`.`Scuba` (`licenseNumber`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `type_R`
-    FOREIGN KEY (`idEquip`)
-    REFERENCES `mydb`.`Equipment` (`idEquipment`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -220,88 +199,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Mask`
+-- Table `mydb`.`Equipment`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Mask` (
-  `descrption` VARCHAR(100) NOT NULL,
-  `price` DOUBLE NOT NULL,
-  `availability` VARCHAR(3) NOT NULL,
-  `equipID` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`descrption`),
-  CONSTRAINT `mask`
-    FOREIGN KEY (`equipID`)
-    REFERENCES `mydb`.`Equipment` (`idEquipment`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Finns`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Finns` (
-  `description` VARCHAR(100) NOT NULL,
-  `size` VARCHAR(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`Equipment` (
+  `idEquipment` VARCHAR(4) NOT NULL,
+  `idDiving` VARCHAR(4) NOT NULL,
+  `equipType` VARCHAR(45) NOT NULL,
+  `size` VARCHAR(4) NOT NULL,
   `availability` VARCHAR(3) NOT NULL,
   `price` DOUBLE NOT NULL,
-  `equipID` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`description`),
-  CONSTRAINT `finn`
-    FOREIGN KEY (`equipID`)
-    REFERENCES `mydb`.`Equipment` (`idEquipment`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Suit`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Suit` (
-  `description` VARCHAR(100) NOT NULL,
-  `size` VARCHAR(3) NOT NULL,
-  `availability` VARCHAR(3) NOT NULL,
-  `price` DOUBLE NOT NULL,
-  `equipID` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`description`),
-  CONSTRAINT `suit`
-    FOREIGN KEY (`equipID`)
-    REFERENCES `mydb`.`Equipment` (`idEquipment`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Jacket`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Jacket` (
-  `description` VARCHAR(100) NOT NULL,
-  `size` VARCHAR(3) NOT NULL,
-  `availability` VARCHAR(3) NOT NULL,
-  `price` DOUBLE NOT NULL,
-  `equipID` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`description`),
-  CONSTRAINT `jacket`
-    FOREIGN KEY (`equipID`)
-    REFERENCES `mydb`.`Equipment` (`idEquipment`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Regulator`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Regulator` (
-  `description` VARCHAR(100) NOT NULL,
-  `price` DOUBLE NOT NULL,
-  `availability` VARCHAR(3) NOT NULL,
-  `equipID` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`description`),
-  CONSTRAINT `regulator`
-    FOREIGN KEY (`equipID`)
-    REFERENCES `mydb`.`Equipment` (`idEquipment`)
+  PRIMARY KEY (`idEquipment`),
+  CONSTRAINT `diving`
+    FOREIGN KEY (`idDiving`)
+    REFERENCES `mydb`.`Diving` (`idDiving`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

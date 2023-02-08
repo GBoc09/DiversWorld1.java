@@ -1,86 +1,67 @@
 package com.example.dw_1.bean;
 
 public class EquipmentBean implements Bean {
-    private String idBean;
-    private Integer equipType;
-    private String sizeBean;
-    private String availBean;
-    private String descrBean;
-    private Double priceBean;
-    private String divingID;
-
-    public EquipmentBean (String id, Integer type, String size, String avail, String desc, Double price, String divID){
-        this.idBean = id;
-        this.equipType = type;
-        this.sizeBean = size;
-        this.availBean = avail;
-        this.descrBean = desc;
-        this.priceBean = price;
-        this.divingID = divID;
-    }
-    public EquipmentBean (String id, Integer type, String size, String avail, String desc, Double price){
-        this.idBean = id;
-        this.equipType = type;
-        this.sizeBean = size;
-        this.availBean = avail;
-        this.descrBean = desc;
-        this.priceBean = price;
-    }
+    private String idEquip;
+    private String idDiving;
+    private String equipType;
+    private String size;
+    private String avail;
+    private Double price;
     public EquipmentBean(){}
-
-    public String getIdBean() {
-        return idBean;
+    public EquipmentBean(String codeEquip, String codeDiving, String type, String taglia, String disp, Double prezzo){
+        this.idEquip = codeEquip;
+        this.idDiving = codeDiving;
+        this.equipType = type;
+        this.size = taglia;
+        this.avail = disp;
+        this.price = prezzo;
     }
 
-    public void setIdBean(String idBean) {
-        this.idBean = idBean;
+    public String getIdEquip() {
+        return idEquip;
     }
 
-    public Integer getEquipType() {
+    public void setIdEquip(String idEquip) {
+        this.idEquip = idEquip;
+    }
+
+    public String getIdDiving() {
+        return idDiving;
+    }
+
+    public void setIdDiving(String idDiving) {
+        this.idDiving = idDiving;
+    }
+
+    public String getEquipType() {
         return equipType;
     }
 
-    public void setEquipType(Integer equipType) {
+    public void setEquipType(String equipType) {
         this.equipType = equipType;
     }
 
-    public String getSizeBean() {
-        return sizeBean;
+    public String getSize() {
+        return size;
     }
 
-    public void setSizeBean(String sizeBean) {
-        this.sizeBean = sizeBean;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public String getAvailBean() {
-        return availBean;
+    public String getAvail() {
+        return avail;
     }
 
-    public void setAvailBean(String availBean) {
-        this.availBean = availBean;
+    public void setAvail(String avail) {
+        this.avail = avail;
     }
 
-    public String getDescrBean() {
-        return descrBean;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setDescrBean(String descrBean) {
-        this.descrBean = descrBean;
-    }
-
-    public Double getPriceBean() {
-        return priceBean;
-    }
-
-    public void setPriceBean(Double priceBean) {
-        this.priceBean = priceBean;
-    }
-
-    public String getDivingID() {
-        return divingID;
-    }
-
-    public void setDivingID(String divingID) {
-        this.divingID = divingID;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
