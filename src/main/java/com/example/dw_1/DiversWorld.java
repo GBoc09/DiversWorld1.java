@@ -1,7 +1,5 @@
 package com.example.dw_1;
 
-import com.example.dw_1.db.MyConnectionSingleton;
-import com.example.dw_1.query.UserQuery;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,12 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Arrays;
-import java.util.List;
 
 public class DiversWorld extends Application {
     private static Stage stg;

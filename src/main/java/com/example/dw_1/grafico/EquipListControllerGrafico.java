@@ -5,6 +5,7 @@ import com.example.dw_1.applicativo.GestioneEquipControllerApplicativo;
 import com.example.dw_1.bean.EquipmentBean;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -46,15 +46,16 @@ public class EquipListControllerGrafico implements Initializable {
     void onButtonClicked(ActionEvent event) {
         try {
             DiversWorld dw = new DiversWorld();
-            dw.changeScene("equipList.fxml");
+            dw.changeScene("cart.fxml");
         } catch (Exception e){
             logger.log(Level.INFO, "Exception Error");
         }
     }
-   @Override
+    public int index;
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choose.setDisable(true);
-       final String[] str1 = new String[1];
+        final String[] str1 = new String[1];
 
         GestioneEquipControllerApplicativo gestione = new GestioneEquipControllerApplicativo();
         List<EquipmentBean> equipmentBeanList = gestione.getEquips();
@@ -65,13 +66,19 @@ public class EquipListControllerGrafico implements Initializable {
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                     str1[0] = listView.getSelectionModel().getSelectedItem();
+                    System.out.println(str1[0]);
                     idEquip.setText(str1[0]);
+                    index = listView.getSelectionModel().getSelectedIndex();
+                    CartContrellerGrafico cartGrafico = new CartContrellerGrafico();
+                    System.out.println("initialize equiplist --- selection index: "+index);
+                    cartGrafico.memoryIndex(index);
                 }
             });
+
             choose.setDisable(false);
         }
 
-   }
+    }
 }
 
 
