@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JacketDAO {
+public class JacketDAO extends EquipmentDAO{
     public JacketDAO(){}
     MyConnectionSingleton connection = MyConnectionSingleton.getInstance();
     public List<Jacket> getJackInfo(EquipmentBean equipmentBean){

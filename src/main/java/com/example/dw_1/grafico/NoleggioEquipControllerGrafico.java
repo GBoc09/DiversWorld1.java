@@ -51,7 +51,6 @@ public class NoleggioEquipControllerGrafico {
         Node source = (Node) event.getSource();
         if (source == mask) {
             type = "mask";
-            System.out.println("noleggio controller grafico --- "+type);
             equipmentBean = takeInfo(type);
             DiversWorld dw = new DiversWorld();
             dw.changeScene("maskPage.fxml");
@@ -73,15 +72,14 @@ public class NoleggioEquipControllerGrafico {
             dw.changeScene("regulatorPage.fxml");
         }
     }
-    private EquipmentBean takeInfo(String tipo){
+    public EquipmentBean takeInfo(String tipo){
         EquipmentBean equipmentBean1 = new EquipmentBean();
         equipmentBean1.setEquipType(tipo);
-        String str = equipmentBean1.getEquipType();
-        System.out.println("take info controller grafico, salavtaggio in bean1 --- "+str);
         GestioneEquipControllerApplicativo gestione = new GestioneEquipControllerApplicativo();
-        EquipmentBean d;
-        d = gestione.getSomeEquip(equipmentBean1);
+        EquipmentBean d = gestione.getSomeEquip(equipmentBean1);
         String prova = d.getIdEquip();
+        JacketPageManagementControllerGrafico jacketController = new JacketPageManagementControllerGrafico();
+        jacketController.initialize();
         System.out.println("noleggio equip controller grafico --- prova dopo db "+prova);
         return d;
     }

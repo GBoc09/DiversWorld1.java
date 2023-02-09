@@ -25,7 +25,7 @@ public class EquipmentBean implements Bean {
         this.avail = disp;
         this.price = prezzo;
     }
-    public EquipmentBean( String type){
+    public EquipmentBean(String type){
         this.equipType = type;
     }
     public EquipmentBean(List<EquipmentBean> e){}

@@ -4,16 +4,19 @@ import com.example.dw_1.DiversWorld;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class JacketPageManagementControllerGrafico {
+public class JacketPageManagementControllerGrafico implements Initializable {
     /* JACKET PAGE FXML  */
     @FXML
     private Label availLabelJack;
@@ -52,5 +55,11 @@ public class JacketPageManagementControllerGrafico {
     @FXML
     void selectItem(ActionEvent event) {
         // to do
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        idJacK.setText("");
+
     }
 }
