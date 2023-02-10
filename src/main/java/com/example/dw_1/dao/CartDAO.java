@@ -19,4 +19,16 @@ public class CartDAO {
         String selezione = str[index];
         return selezione;
     }
+    public void createFileCart(String str) throws IOException {
+        File f = new File("updateCart.txt");
+        if (f.exists()){
+            System.out.println("file exists");
+        } else if (f.createNewFile()) {
+            FileWriter writer = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(writer);
+            bw.write(str);
+            bw.flush();
+            bw.close();
+        }
+    }
 }

@@ -10,7 +10,7 @@
 
 <AnchorPane onMouseClicked="#goHome" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D8F1FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dw_1.grafico.ManagerDivingCenterControllerGrafico">
    <children>
-      <Label fx:id="goHome" layoutX="207.0" layoutY="29.0" onMouseClicked="#goHome" text="Diving Center">
+      <Label fx:id="goHome" layoutX="182.0" layoutY="27.0" onMouseClicked="#goHome" text="Diving Center">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
@@ -18,7 +18,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Line endX="141.5999755859375" endY="-1.52587890625E-5" layoutX="300.0" layoutY="78.0" startX="-100.0" strokeWidth="2.0" />
+      <Line endX="141.5999755859375" endY="-1.52587890625E-5" layoutX="274.0" layoutY="78.0" startX="-100.0" strokeWidth="2.0" />
       <ListView fx:id="listView" layoutX="77.0" layoutY="108.0" prefHeight="200.0" prefWidth="436.0" />
       <Button fx:id="modifyDiving" layoutX="400.0" layoutY="320.0" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-color: white; -fx-border-color: #0AADF4; -fx-border-width: 1.5;" text="ModifyDiving">
          <font>

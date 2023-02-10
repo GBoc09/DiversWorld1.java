@@ -66,11 +66,9 @@ public class EquipListControllerGrafico implements Initializable {
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                     str1[0] = listView.getSelectionModel().getSelectedItem();
-                    System.out.println(str1[0]);
                     idEquip.setText(str1[0]);
                     index = listView.getSelectionModel().getSelectedIndex();
                     CartContrellerGrafico cartGrafico = new CartContrellerGrafico();
-                    System.out.println("initialize equiplist --- selection index: "+index);
                     cartGrafico.memoryIndex(index);
                 }
             });

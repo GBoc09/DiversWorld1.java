@@ -47,7 +47,8 @@ public class CartContrellerGrafico implements Initializable {
             DiversWorld dw = new DiversWorld();
             dw.changeScene("equipList.fxml");
         } else if (source == completeRental) {
-            // todo
+            DiversWorld dw = new DiversWorld();
+            dw.changeScene("completeRental.fxml");
         } else if (source == deleteItems) {
             // todo
         }
@@ -57,10 +58,11 @@ public class CartContrellerGrafico implements Initializable {
         deleteItems.setDisable(true);
         CartDAO cartDAO = new CartDAO();
         try {
-            int i = val;
-            String stringa = cartDAO.readUsingFileReader(i);
-            cartView.getItems().add(stringa);
-            deleteItems.setDisable(false);
+                int i = val;
+                String stringa = cartDAO.readUsingFileReader(i);
+                cartView.getItems().add(stringa);
+                cartDAO.createFileCart(stringa);
+                deleteItems.setDisable(false);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -4,18 +4,14 @@ import java.util.ArrayList;
 
 public abstract class Subject {
     private ArrayList<Observer> observerArrayList;
-    protected Subject(){
-        observerArrayList = new ArrayList<>();
-    }
-    public void attach (Observer newObserver){
-        observerArrayList.add(newObserver);
-    }
-    public void detach (Observer removeObs){
-        observerArrayList.remove(removeObs);
-    }
-    protected void notifyObs(){
-        for (Observer observer : observerArrayList){
-            observer.update();
-        }
-    }
+   public void notifyObserver(){
+       for (Observer ob: observerArrayList){ob.update();}
+   }
+   public void register(Observer ob){
+       if(!observerArrayList.contains(ob))
+           observerArrayList.add(ob);
+   }
+   public void unregister(Observer ob){
+       observerArrayList.remove(ob);
+   }
 }

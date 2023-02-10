@@ -13,7 +13,7 @@ public class CasaControllerGraph {
     @FXML
     private Button access;
 
-    Logger log;
+    Logger logger = Logger.getLogger(CasaControllerGraph.class.getName());
     @FXML
     void accessButtonClicked(ActionEvent event) throws IOException {
         try{
@@ -21,7 +21,7 @@ public class CasaControllerGraph {
             dw.changeScene("login.fxml");
         }
         catch (Exception e){
-            log.log(Level.INFO, "Exception Error");
+            logger.log(Level.INFO, "Exception Error");
         }
 
     }
